@@ -1,0 +1,10 @@
+.colorPrimary {
+    color: red !important;
+}
+.backdrop {
+    color: '#fff' !important;
+    z-index: 10 !important;
+}
+.hidden {
+    display: none;
+}
