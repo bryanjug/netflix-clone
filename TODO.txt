@@ -1,0 +1,13 @@
+[X] loading spinner
+[X] test api request
+[X] hide spinner once request is made
+[X] nav bar design
+[] homepage design
+[] responsive design
+[] map list components by section
+[] individual video component
+[] onclick component routing
+[] send api request with id
+[] nav bar routing
+[] watch video button
+[] search bar

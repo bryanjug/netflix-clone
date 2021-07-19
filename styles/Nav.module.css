@@ -1,0 +1,11 @@
+.container {
+    position: absolute !important;
+    bottom: 0 !important;
+    background-color: black !important;
+}
+.icon {
+    color: white !important;
+}
+.text {
+    color: white !important;
+}

@@ -1,20 +1,19 @@
 import {useEffect, useState} from 'react'
 import Meta from '../components/Meta'
-import styles from '../styles/Home.module.css'
 import Loader from '../components/Loader'
+import Nav from '../components/Nav'
 
 export default function Home({trending}) {
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    console.log(trending)
-    if (trending !== []) {
+    if (trending !== [] || trending === undefined) {
       setShowLoader(false)
     }
   }, [trending])
 
   return (
-    <div className={styles.container}>
+    <div>
       <Meta 
         title="Netflix" 
         description="Watch your favorite TV shows and movies on one platform."
@@ -23,6 +22,7 @@ export default function Home({trending}) {
       <main>
         <h1>Netflix</h1>
         <Loader showLoader={showLoader}/>
+        <Nav />
       </main>
     </div>
   )
@@ -31,7 +31,7 @@ export default function Home({trending}) {
 export const getStaticProps = async () => {
   const res = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.MOVIE_DB_KEY}&adult=false`)
   const trending = await res.json()
-  
+
   return {
     props: {
       trending
