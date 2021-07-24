@@ -1,27 +1,71 @@
-import {useState} from 'react'
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import React from 'react';
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Slide from '@material-ui/core/Slide';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import ShuffleIcon from '@material-ui/icons/Shuffle';
-import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-import styles from '../styles/Nav.module.css'
+import { makeStyles } from '@material-ui/core/styles';
 
-const Nav = () => {
-    const [value, setValue] = useState('recents');
+function HideOnScroll(props) {
+  const { children, window } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({ target: window ? window() : undefined });
 
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
-    
-    return (
-        <BottomNavigation value={value} onChange={handleChange} className={styles.container}>
-            <BottomNavigationAction label="Search" value="search" icon={<SearchIcon className={styles.icon}/>} className={styles.text}/>
-            <BottomNavigationAction label="Home" value="home" icon={<HomeOutlinedIcon className={styles.icon}/>} className={styles.text}/>
-            <BottomNavigationAction label="Shuffle" value="shuffle" icon={<ShuffleIcon className={styles.icon}/>} className={styles.text}/>
-            <BottomNavigationAction label="Trending" value="trending" icon={<TrendingUpIcon className={styles.icon}/>} className={styles.text}/>
-        </BottomNavigation>
-    )
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
 }
 
-export default Nav
+HideOnScroll.propTypes = {
+  children: PropTypes.element.isRequired,
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
+
+export default function HideAppBar(props) {
+  const classes = useStyles();
+    
+  return (
+    <div className={classes.root}>
+        <HideOnScroll {...props}>
+            <AppBar>
+                <Toolbar>
+                    <IconButton edge="start" color="inherit" aria-label="menu" className={classes.menuButton}>
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" className={classes.title}>
+                        Netflix
+                    </Typography>
+                    <IconButton aria-label="search" color="inherit">
+                        <SearchIcon />
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
+        </HideOnScroll>
+        <Toolbar />
+    </div>
+  );
+}

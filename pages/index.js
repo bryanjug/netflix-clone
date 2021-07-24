@@ -20,9 +20,9 @@ export default function Home({trending}) {
         keywords="Netflix, television, shows, online, watch, new, favorites, movies"
       />
       <main>
+        <Nav />
         <h1>Netflix</h1>
         <Loader showLoader={showLoader}/>
-        <Nav />
       </main>
     </div>
   )
