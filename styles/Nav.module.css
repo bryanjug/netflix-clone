@@ -1,11 +1,9 @@
-.container {
-    position: absolute !important;
-    bottom: 0 !important;
+.nav {
     background-color: black !important;
 }
-.icon {
-    color: white !important;
+.searchIcon {
+
 }
-.text {
-    color: white !important;
+.logo {
+    
 }

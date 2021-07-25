@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Image from 'next/image'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/core/styles';
+import style from '../styles/Nav.module.css'
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -51,14 +52,12 @@ export default function HideAppBar(props) {
   return (
     <div className={classes.root}>
         <HideOnScroll {...props}>
-            <AppBar>
+            <AppBar className={style.nav}>
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="menu" className={classes.menuButton}>
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                        Netflix
-                    </Typography>
+                    <Image src="/logo.png" alt="Netflix logo" width="64" height="20" className={classes.title}/>
                     <IconButton aria-label="search" color="inherit">
                         <SearchIcon />
                     </IconButton>

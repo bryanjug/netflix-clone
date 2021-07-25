@@ -3,7 +3,8 @@
 [X] test api request
 [X] hide spinner once request is made
 [X] nav bar mobile design
-[] change to top nav
+[X] change to top nav
+[] fix nav bar design
 [] mobile wireframe
 [] homepage mobile design
 [] responsive design
