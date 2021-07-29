@@ -7,8 +7,10 @@
 [X] mobile wireframe
 [X] fix nav bar design
 [X] logo menu button
+[X] drop down design
 [] homepage mobile design
-[] responsive design
+[] homepage tablet design
+[] homepage desktop design
 [] map list components by section
 [] individual video component
 [] onclick component routing

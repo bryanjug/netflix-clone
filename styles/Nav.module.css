@@ -1,5 +1,7 @@
 .nav {
-    background-color: black !important;
+    background: linear-gradient(180deg, rgba(0,0,0,.80) 85%, rgba(0,0,0,0) 100%) !important;
+    box-shadow: none !important;
+    padding-bottom: .3em;
 }
 .searchIcon {
     position: absolute !important;
@@ -16,8 +18,9 @@
     margin-right: 0.5em !important;
 }
 .menuList {
-    background-color: rgb(29, 29, 29) !important;
-    border-radius: 0.5em !important;
+    background: linear-gradient(90deg, rgba(0,0,0,.80) 45%, rgba(255,255,255,0) 70%) !important;
+    box-shadow: none !important;
+    padding-right: 10em !important;
 }
 .menuItem {
     color: white !important;
@@ -26,5 +29,7 @@
     background-color: rgb(26, 26, 26) !important;
 }
 .menuListContainer {
+    box-shadow: none !important;
     background-color: inherit !important;
+    margin-left: -0.4em !important;
 }
