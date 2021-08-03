@@ -8,10 +8,10 @@
 [X] fix nav bar design
 [X] logo menu button
 [X] drop down design
-[] homepage mobile design
+[] first video component
+[] map list components by section
 [] homepage tablet design
 [] homepage desktop design
-[] map list components by section
 [] individual video component
 [] onclick component routing
 [] send api request with id

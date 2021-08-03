@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import Meta from '../components/Meta'
 import Loader from '../components/Loader'
 import Nav from '../components/Nav'
-import Image from 'next/image'
+import FirstVideo from '../components/FirstVideo'
 
 export default function Home({trending}) {
   const [showLoader, setShowLoader] = useState(true);
@@ -22,7 +22,7 @@ export default function Home({trending}) {
       />
       <main>
         <Nav />
-        <Image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinemovie.tv%2Fimages%2Fstories%2FMoviePosters%2FAXL_Movie_Poster.jpg&f=1&nofb=1" alt="Netflix logo" layout="responsive" height="100" width="50" />
+        <FirstVideo />
         <h1>Netflix</h1><h1>Netflix</h1><h1>Netflix</h1><h1>Netflix</h1><h1>Netflix</h1>
         <Loader showLoader={showLoader}/>
       </main>
