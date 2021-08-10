@@ -5,4 +5,23 @@
 }
 .info {
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    padding-top: 2em !important;
+}
+.buttons {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    justify-items: center;
+    line-height: 0;
+}
+.rank {
+    text-align: center !important;
+    font-weight: bold;
+    line-height: 0;
+}
+.title {
+    color: rgb(221, 1, 1);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 0.8;
+    letter-spacing: -.02em !important;
 }
