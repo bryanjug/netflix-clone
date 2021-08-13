@@ -1,0 +1,16 @@
+.image {
+    border-radius: .2em;
+    position: relative !important;
+    z-index: 1 !important;
+}
+.container {
+    position: relative !important;
+    width: 5em !important;
+    height: 7em !important;
+}
+.overlay {
+    position: absolute !important;
+    top: 0px !important;
+    z-index: 2 !important;
+    background-color: rgb(221, 1, 1);
+}

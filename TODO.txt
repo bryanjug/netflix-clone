@@ -9,7 +9,9 @@
 [X] logo menu button
 [X] drop down design
 [X] add text and gradient to first video component
-[] add icons to first video component
+[X] add icons to first video component
+[] video item component
+[] video list
 [] map list components by section
 [] homepage tablet design
 [] homepage desktop design

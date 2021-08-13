@@ -3,7 +3,7 @@
     padding-top: 20em;
     background-size: cover !important;
 }
-.info {
+.videoInfo {
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 100%) !important;
     padding-top: 2em !important;
 }
@@ -24,4 +24,14 @@
     text-align: center;
     line-height: 0.8;
     letter-spacing: -.02em !important;
+}
+.infoIcon {
+    margin-bottom: .4em !important;
+}
+.info {
+    text-align: center !important;
+    margin-top: 0.8em;
+}
+.playButton {
+    margin: 1em !important;
 }
