@@ -10,7 +10,7 @@
 [X] drop down design
 [X] add text and gradient to first video component
 [X] add icons to first video component
-[] video item component
+[X] video item component
 [] video list
 [] map list components by section
 [] homepage tablet design
