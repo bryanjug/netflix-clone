@@ -11,7 +11,7 @@
 [X] add text and gradient to first video component
 [X] add icons to first video component
 [X] video item component
-[] video list
+[] video list component
 [] map list components by section
 [] homepage tablet design
 [] homepage desktop design

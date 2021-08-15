@@ -1,14 +1,15 @@
 import VideoItem from './VideoItem'
 
 const VideoList = ({trending}) => {
-    
-    
+    let results = trending.results;
+    console.log(results)
+    //https://image.tmdb.org/t/p/w500/kb4s0ML0iVZlG6wAKbbs9NAm6X.jpg
     return (
         <div>
             {
-                
+                results.map((result) => (<p>{result.original_title}</p>))
             }
-            <VideoItem src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.fandango.com%2FImageRenderer%2F0%2F0%2Fredesign%2Fstatic%2Fimg%2Fdefault_poster.png%2F0%2Fimages%2Fmasterrepository%2Ffandango%2F221985%2FDarbar2020.jpg&f=1&nofb=1" />
+            <VideoItem src="https://image.tmdb.org/t/p/w500/kb4s0ML0iVZlG6wAKbbs9NAm6X.jpg" />
         </div>
     )
 }
