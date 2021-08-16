@@ -1,7 +1,7 @@
 .image {
     border-radius: .2em;
     position: relative !important;
-    z-index: 1 !important;
+    z-index: 1 !important; 
 }
 .container {
     position: relative !important;

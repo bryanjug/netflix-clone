@@ -1,0 +1,21 @@
+.container > div {
+    flex: 0 0 auto;
+    margin-left: .5em;
+}
+.container {
+    display: flex !important;
+    overflow: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: property !important;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.title {
+    margin-left: .5em !important;
+    line-height: .1em !important;
+}
+.container > div:last-of-type {
+    margin-right: .5em !important;
+}
+.mainContainer {
+    margin-bottom: 2em !important;
+}

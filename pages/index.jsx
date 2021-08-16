@@ -10,7 +10,6 @@ export default function Home({trending}) {
 
   useEffect(() => {
     if (trending !== [] || trending === undefined) {
-      console.log(trending)
       setShowLoader(false)
     }
   }, [trending])
@@ -25,8 +24,7 @@ export default function Home({trending}) {
       <main>
         <Nav />
         <FirstVideo />
-        <p><b>Popular on Netflix</b></p>
-        <VideoList trending={trending}/>
+        <VideoList trending={trending} title="Popular on Netflix"/>
         <Loader showLoader={showLoader}/>
       </main>
     </div>

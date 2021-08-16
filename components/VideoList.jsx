@@ -1,15 +1,19 @@
 import VideoItem from './VideoItem'
+import styles from '../styles/VideoList.module.css'
 
-const VideoList = ({trending}) => {
+const VideoList = ({trending, title}) => {
     let results = trending.results;
     console.log(results)
-    //https://image.tmdb.org/t/p/w500/kb4s0ML0iVZlG6wAKbbs9NAm6X.jpg
     return (
-        <div>
-            {
-                results.map((result) => (<p>{result.original_title}</p>))
-            }
-            <VideoItem src="https://image.tmdb.org/t/p/w500/kb4s0ML0iVZlG6wAKbbs9NAm6X.jpg" />
+        <div className={styles.mainContainer}>
+            <h4 className={styles.title}><b>{title}</b></h4>
+            <div className={styles.container}>
+                {
+                    results.map((result) => (
+                        <VideoItem src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} />
+                    ))
+                }
+            </div>
         </div>
     )
 }
