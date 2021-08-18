@@ -13,6 +13,7 @@
 [X] video item component
 [X] video list component
 [X] add key video id to VideoList
+[] api call for genres
 [] map all video lists by genre
 [] hide scroll bars
 [] find transition animation npm package
