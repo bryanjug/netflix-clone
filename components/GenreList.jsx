@@ -1,9 +1,16 @@
 import VideoList from './VideoList'
 
-const GenreList = () => {
+const GenreList = ({genreList}) => {
+    genreList = genreList.results;
     return (
         <div>
-            
+            {
+                genreList.map((result) => (
+                    <VideoList 
+                    
+                    />
+                ))
+            }
         </div>
     )
 }

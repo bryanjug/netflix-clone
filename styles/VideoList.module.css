@@ -8,7 +8,12 @@
     flex-wrap: nowrap !important;
     -webkit-overflow-scrolling: property !important;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
+.container::-webkit-scrollbar {
+    display: none !important;
+  }
 .title {
     margin-left: .5em !important;
     line-height: .1em !important;

@@ -4,8 +4,9 @@ import Loader from '../components/Loader'
 import Nav from '../components/Nav'
 import FirstVideo from '../components/FirstVideo'
 import VideoList from '../components/VideoList'
+import GenreList from '../components/GenreList'
 
-export default function Home({trending, TVShows}) {
+export default function Home({trending, TVShows, genreList}) {
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function Home({trending, TVShows}) {
         <FirstVideo />
         <VideoList list={trending} title="Trending Now"/>
         <VideoList list={TVShows} title="TV Shows"/>
+        <GenreList genreList={genreList}/>
         <Loader showLoader={showLoader}/>
       </main>
     </div>
@@ -39,12 +41,14 @@ export const getStaticProps = async () => {
   const resTVShows = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.MOVIE_DB_KEY}&adult=false`)
   const TVShows = await resTVShows.json()
 
-  
+  const genres = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.MOVIE_DB_KEY}&language=en-US`)
+  const genreList = await genres.json()
 
   return {
     props: {
       trending,
-      TVShows
+      TVShows,
+      genreList
     }
   }
 }
