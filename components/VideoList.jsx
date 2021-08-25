@@ -1,9 +1,7 @@
 import VideoItem from './VideoItem'
 import styles from '../styles/VideoList.module.css'
 
-const VideoList = ({list, title}) => {
-    let results = list.results;
-
+const VideoList = ({results, title}) => {
     return (
         <div className={styles.mainContainer}>
             <h4 className={styles.title}><b>{title}</b></h4>
