@@ -15,8 +15,7 @@
 [X] add key video id to VideoList
 [X] api call for genres
 [X] map all video lists by genre
-[] hide scroll bars
-[] find transition animation npm package
+[X] change top 10 to vote_average
 [] add api call to FirstVideo
 [] individual video component
 [] nav bar routing
@@ -24,10 +23,7 @@
 [] send api request with id
 [] watch video button
 [] search bar
+[] load loading spinner before api calls
 [] homepage tablet design
 [] homepage desktop design
-
-FRONT PAGE LIST:
-[X] Trending Now
-[X] TV Shows
-[] 
+[] find transition animation npm package

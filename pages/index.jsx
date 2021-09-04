@@ -5,14 +5,15 @@ import Nav from '../components/Nav'
 import FirstVideo from '../components/FirstVideo'
 import VideoList from '../components/VideoList'
 
-export default function Home({trending, TVShows, genreData}) {
+export default function Home({trendingData, TVShowsData, genreData, firstVideoData}) {
+  console.log(firstVideoData)
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    if (trending !== [] || trending === undefined) {
+    if (trendingData !== [] || trendingData === undefined) {
       setShowLoader(false)
     }
-  }, [trending])
+  }, [trendingData])
 
   return (
     <div>
@@ -23,9 +24,9 @@ export default function Home({trending, TVShows, genreData}) {
       />
       <main>
         <Nav />
-        <FirstVideo />
-        <VideoList results={trending.results} title="Trending Now"/>
-        <VideoList results={TVShows.results} title="TV Shows"/>
+        <FirstVideo firstVideoData={firstVideoData} />
+        <VideoList results={trendingData.results} title="Trending Now"/>
+        <VideoList results={TVShowsData.results} title="TV Shows"/>
         {
           genreData.map(result => 
             (
@@ -41,10 +42,13 @@ export default function Home({trending, TVShows, genreData}) {
 
 export const getStaticProps = async () => {
   let resTrending = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.MOVIE_DB_KEY}`)
-  let trending = await resTrending.json()
+  let trendingData = await resTrending.json()
 
   let resTVShows = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.MOVIE_DB_KEY}`)
-  let TVShows = await resTVShows.json()
+  let TVShowsData = await resTVShows.json()
+
+  let resFirstVideo = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.MOVIE_DB_KEY}`)
+  let firstVideoData = await resFirstVideo.json()
 
   let genreData = [];
 
@@ -63,9 +67,10 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      trending,
-      TVShows,
-      genreData
+      trendingData,
+      TVShowsData,
+      genreData,
+      firstVideoData
     }
   }
 }

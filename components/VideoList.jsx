@@ -11,6 +11,7 @@ const VideoList = ({results, title}) => {
                         <VideoItem 
                             src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} 
                             key={result.id}
+                            vote_average={result.vote_average}
                         />
                     ))
                 }

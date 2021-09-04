@@ -23,3 +23,10 @@
 .top {
     font-size: .8em !important;
 }
+.star {
+    width: .8em !important;
+    height: .8em !important;
+}
+.topContainer {
+    line-height: 0 !important;
+}

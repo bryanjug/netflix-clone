@@ -1,16 +1,19 @@
 import styles from "../styles/VideoItem.module.css";
 import Image from "next/image";
+import StarIcon from '@material-ui/icons/Star';
 
-const VideoItem = ({ src }) => {
+const VideoItem = ({ src, vote_average }) => {
 	return (
 		<div className={styles.container}>
 			<Image src={src} alt="" className={styles.image} layout="fill" />
 			<small className={styles.overlay}>
 				<b className={styles.topContainer}>
-					<span className={styles.top}>Top</span>
+					<span className={styles.top}>
+						<StarIcon className={styles.star}/>
+					</span>
 					<br />
-					10
-                </b>
+				</b>
+				{vote_average}
             </small>
 		</div>
 	);

@@ -3,8 +3,8 @@ import Button from '@material-ui/core/Button';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
-const FirstVideo = () => {
-
+const FirstVideo = ({firstVideoData}) => {
+    //https://image.tmdb.org/t/p/w500${result.backdrop_path}
     return (
         <div className={styles.container}>
             <div className={styles.videoInfo}>
