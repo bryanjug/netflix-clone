@@ -4,12 +4,12 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 const FirstVideo = ({firstVideoData}) => {
-    //https://image.tmdb.org/t/p/w500${result.backdrop_path}
+    let title = firstVideoData.results.[0].title
+    let backdropPath = `https://image.tmdb.org/t/p/w500${firstVideoData.results.[0].poster_path}`;
+
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={{backgroundImage: `url(${backdropPath})`}}>
             <div className={styles.videoInfo}>
-                <h1 className={styles.title}>All American</h1>
-                <p className={styles.rank}>#1 in the U.S. Today</p> 
                 <div className={styles.buttons}>
                     <small className={styles.info}>
                         <InfoOutlinedIcon className={styles.infoIcon}/>
@@ -31,3 +31,6 @@ const FirstVideo = ({firstVideoData}) => {
 }
 
 export default FirstVideo
+
+// <h1 className={styles.title}>{title}</h1>
+// <p className={styles.rank}>#1 in the World Today</p> 

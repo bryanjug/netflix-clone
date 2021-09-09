@@ -17,6 +17,7 @@
 [X] map all video lists by genre
 [X] change top 10 to vote_average
 [] add api call to FirstVideo
+[] add key to random map
 [] individual video component
 [] nav bar routing
 [] onclick component routing

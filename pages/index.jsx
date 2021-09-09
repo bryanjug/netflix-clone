@@ -47,7 +47,7 @@ export const getStaticProps = async () => {
   let resTVShows = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.MOVIE_DB_KEY}`)
   let TVShowsData = await resTVShows.json()
 
-  let resFirstVideo = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.MOVIE_DB_KEY}`)
+  let resFirstVideo = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.MOVIE_DB_KEY}`)
   let firstVideoData = await resFirstVideo.json()
 
   let genreData = [];
