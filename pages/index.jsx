@@ -4,9 +4,10 @@ import Loader from '../components/Loader'
 import Nav from '../components/Nav'
 import FirstVideo from '../components/FirstVideo'
 import VideoList from '../components/VideoList'
+import Link from 'next/link'
 
 export default function Home({trendingData, TVShowsData, genreData, firstVideoData}) {
-  console.log(firstVideoData)
+  // console.log(firstVideoData)
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
@@ -30,10 +31,13 @@ export default function Home({trendingData, TVShowsData, genreData, firstVideoDa
         {
           genreData.map(result => 
             (
-              <VideoList results={result.[1]} title={result.[0]}/>
+              <VideoList results={result.[1]} title={result.[0]} key={result.[1].id}/>
             )
           )
         }
+        <Link as="/video" href="/[video]">
+          Link
+        </Link>
         <Loader showLoader={showLoader}/>
       </main>
     </div>

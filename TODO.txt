@@ -16,15 +16,17 @@
 [X] api call for genres
 [X] map all video lists by genre
 [X] change top 10 to vote_average
-[] add api call to FirstVideo
+[X] add api call to FirstVideo
+[] individual video component -> link routing
 [] add key to random map
-[] individual video component
 [] nav bar routing
 [] onclick component routing
 [] send api request with id
 [] watch video button
 [] search bar
-[] load loading spinner before api calls
-[] homepage tablet design
-[] homepage desktop design
+[] loading spinner on anything that takes time 'nextjs loading spinner'
+[] loading spinner before api calls
+[] loading spinner on back browser button
+[] tablet design
+[] desktop design
 [] find transition animation npm package
