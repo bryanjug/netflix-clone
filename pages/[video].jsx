@@ -1,8 +1,11 @@
 import {useRouter} from 'next/router'
+import VideoInfo from '../components/VideoInfo'
 
 export default function Video() {
     const router = useRouter();
 
     console.log(router.query);
-    return <h2>{router.query.video}</h2>
+    return (
+        <VideoInfo video={router.query.video}/>
+    );
 }

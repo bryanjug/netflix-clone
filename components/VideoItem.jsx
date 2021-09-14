@@ -3,9 +3,9 @@ import Image from "next/image";
 import StarIcon from '@material-ui/icons/Star';
 import Link from 'next/link'
 
-const VideoItem = ({ src, vote_average }) => {
+const VideoItem = ({ src, vote_average, key, title }) => {
 	return (
-		<Link as="/video" href="/[video]">
+		<Link as={`/${title}`} href="/[video]">
 			<div className={styles.container}>
 				<Image src={src} alt="" className={styles.image} layout="fill" />
 				<small className={styles.overlay}>

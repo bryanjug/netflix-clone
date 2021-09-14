@@ -17,10 +17,12 @@
 [X] map all video lists by genre
 [X] change top 10 to vote_average
 [X] add api call to FirstVideo
-[] individual video component -> link routing
+[X] add Link to VideoItem
+[] NavInfo component
+[] VideoInfo component
+[] add Link to FirstVideo
 [] add key to random map
 [] nav bar routing
-[] onclick component routing
 [] send api request with id
 [] watch video button
 [] search bar
@@ -30,3 +32,4 @@
 [] tablet design
 [] desktop design
 [] find transition animation npm package
+[] optimize algorithms
