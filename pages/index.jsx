@@ -45,7 +45,7 @@ export default function Home({trendingData, TVShowsData, genreData, firstVideoDa
 }
 
 export const getStaticProps = async () => {
-  let resTrending = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.MOVIE_DB_KEY}`)
+  let resTrending = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.MOVIE_DB_KEY}`)
   let trendingData = await resTrending.json()
 
   let resTVShows = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.MOVIE_DB_KEY}`)
