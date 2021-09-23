@@ -10,12 +10,22 @@ const VideoList = ({results, title}) => {
             <div className={styles.container}>
                 {
                     results.map((result) => (
+                        
+                        result.title !== undefined ? 
                         <VideoItem 
                             src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} 
                             key={result.id}
                             vote_average={result.vote_average}
                             title={result.title}
                         />
+                        :
+                        <VideoItem 
+                            src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} 
+                            key={result.id}
+                            vote_average={result.vote_average}
+                            title={result.name}
+                        />
+                        
                     ))
                 }
             </div>

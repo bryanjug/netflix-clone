@@ -13,7 +13,7 @@ export default function Video() {
 //https://api.themoviedb.org/3/movie/343611?api_key={api_key}&append_to_response=videos
 
 export const getStaticProps = async () => {
-    let resMovie = await fetch(`https://api.themoviedb.org/3/movie/343611?api_key=${process.env.MOVIE_DB_KEY}&append_to_response=videos`)
+    let resMovie = await fetch(`https://api.themoviedb.org/3/movie/343611?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
     let movieData = await resMovie.json()
     console.log(movieData)
     return {

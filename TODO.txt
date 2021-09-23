@@ -18,6 +18,9 @@
 [X] change top 10 to vote_average
 [X] add api call to FirstVideo
 [X] add Link to VideoItem
+[X] clone repository and npm install
+[X] fix .env
+[X] fix undefined title on each individual video
 [] NavInfo component
 [] VideoInfo component
 [] add Link to FirstVideo
