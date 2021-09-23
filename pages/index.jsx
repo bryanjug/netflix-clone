@@ -7,7 +7,8 @@ import VideoList from '../components/VideoList'
 import Link from 'next/link'
 
 export default function Home({trendingData, TVShowsData, genreData, firstVideoData}) {
-  // console.log(TVShowsData)
+  console.log(trendingData)
+  
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
@@ -35,9 +36,6 @@ export default function Home({trendingData, TVShowsData, genreData, firstVideoDa
             )
           )
         }
-        <Link as="/video" href="/[video]">
-          Link
-        </Link>
         <Loader showLoader={showLoader}/>
       </main>
     </div>

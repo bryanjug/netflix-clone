@@ -21,7 +21,10 @@
 [X] clone repository and npm install
 [X] fix .env
 [X] fix undefined title on each individual video
-[] NavInfo component
+[X] NavInfo component
+[X] find video source from api
+[] connect video id with youtube
+[] hide video player if movie has no video
 [] VideoInfo component
 [] add Link to FirstVideo
 [] add key to random map
@@ -34,5 +37,5 @@
 [] loading spinner on back browser button
 [] tablet design
 [] desktop design
-[] find transition animation npm package
+[] add page switch transition
 [] optimize algorithms

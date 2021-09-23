@@ -1,0 +1,13 @@
+.nav {
+    background: linear-gradient(180deg, rgba(0,0,0,.9) 85%, rgba(0,0,0,0) 100%) !important;
+    box-shadow: none !important;
+    padding-bottom: .3em;
+}
+.searchIcon {
+    position: absolute !important;
+    right: 0 !important;
+    margin-right: 0.5em !important;
+}
+.container {
+    flex-grow: 1 !important;
+}

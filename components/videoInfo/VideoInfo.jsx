@@ -1,6 +1,6 @@
-import Nav from './Nav'
-import Meta from '../components/Meta'
+import Meta from '../Meta'
 import NavInfo from './NavInfo'
+import VideoPlayer from './VideoPlayer'
 
 const VideoInfo = ({video}) => {
     return (
@@ -12,6 +12,7 @@ const VideoInfo = ({video}) => {
             />
             <main>
                 <NavInfo />
+                <VideoPlayer />
                 <h2>
                     {video}
                 </h2>
