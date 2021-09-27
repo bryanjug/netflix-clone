@@ -23,7 +23,8 @@
 [X] fix undefined title on each individual video
 [X] NavInfo component
 [X] find video source from api
-[] connect video id with youtube
+[X] connect video id with youtube
+[] API connection for VideoPlayer
 [] hide video player if movie has no video
 [] VideoInfo component
 [] add Link to FirstVideo

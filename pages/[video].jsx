@@ -5,7 +5,7 @@ export default function Video({testData}) {
     console.log(testData)
 
     const router = useRouter();
-
+    console.log(router)
     return (
         <VideoInfo video={router.query.video}/>
     );
@@ -14,12 +14,9 @@ export default function Video({testData}) {
 export const getStaticProps = async () => {
     let resMovie = await fetch(`https://api.themoviedb.org/3/movie/343611?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
     let movieData = await resMovie.json()
-    console.log(movieData)
 
     let resTest = await fetch(`https://api.themoviedb.org/3/movie/343611/videos?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}`)
     let testData = await resTest.json()
-
-    console.log(testData)
 
     return {
         props: {
