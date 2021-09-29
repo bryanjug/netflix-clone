@@ -24,7 +24,9 @@
 [X] NavInfo component
 [X] find video source from api
 [X] connect video id with youtube
+[X] get video id into router
 [] API connection for VideoPlayer
+[] check for different video player providers
 [] hide video player if movie has no video
 [] VideoInfo component
 [] add Link to FirstVideo
