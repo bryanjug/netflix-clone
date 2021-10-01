@@ -25,6 +25,7 @@
 [X] find video source from api
 [X] connect video id with youtube
 [X] get video id into router
+[] movie vs tv id into router
 [] API connection for VideoPlayer
 [] check for different video player providers
 [] hide video player if movie has no video
