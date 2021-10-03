@@ -1,13 +1,32 @@
 import {useRouter} from 'next/router'
 import VideoInfo from '../components/videoInfo/VideoInfo'
+import {useEffect, useState} from 'react'
 
 export default function Video({testData}) {
-    // console.log(testData)
+    const [info, setInfo] = useState([]);
+    console.log(info)
 
     const router = useRouter();
-    console.log(router)
+    const id = router.query.video;
+
+    useEffect(() => {
+        if(!id) {
+            return;
+        }
+        const fetchSomethingById = async () => {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
+            const data = await response.json()
+            setInfo(data)
+        }
+        fetchSomethingById()
+    }, [id])
+
     return (
-        <VideoInfo video={router.query.video}/>
+        <VideoInfo 
+            id={id} 
+            videoId={info.videos.results.[0].key}
+            title={info.title}
+        />
     );
 }
 

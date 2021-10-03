@@ -25,8 +25,8 @@
 [X] find video source from api
 [X] connect video id with youtube
 [X] get video id into router
-[] movie vs tv id into router
 [] API connection for VideoPlayer
+[] movie vs tv id into router
 [] check for different video player providers
 [] hide video player if movie has no video
 [] VideoInfo component

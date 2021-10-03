@@ -2,7 +2,7 @@ import Meta from '../Meta'
 import NavInfo from './NavInfo'
 import VideoPlayer from './VideoPlayer'
 
-const VideoInfo = ({video}) => {
+const VideoInfo = ({id}) => {
     return (
         <div>
             <Meta 
@@ -11,10 +11,10 @@ const VideoInfo = ({video}) => {
                 keywords="Netflix, television, shows, online, watch, new, favorites, movies"
             />
             <main>
-                <NavInfo />
+                <NavInfo /> 
                 <VideoPlayer />
                 <h2>
-                    {video}
+                    {id}
                 </h2>
             </main>
         </div>
