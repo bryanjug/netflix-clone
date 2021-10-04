@@ -2,7 +2,7 @@ import Meta from '../Meta'
 import NavInfo from './NavInfo'
 import VideoPlayer from './VideoPlayer'
 
-const VideoInfo = ({id}) => {
+const VideoInfo = ({id, videoId}) => {
     return (
         <div>
             <Meta 
@@ -12,7 +12,7 @@ const VideoInfo = ({id}) => {
             />
             <main>
                 <NavInfo /> 
-                <VideoPlayer />
+                <VideoPlayer videoId={videoId} />
                 <h2>
                     {id}
                 </h2>

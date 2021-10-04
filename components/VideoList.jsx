@@ -1,7 +1,7 @@
 import VideoItem from './VideoItem'
 import styles from '../styles/VideoList.module.css'
 
-const VideoList = ({results, title}) => {
+const VideoList = ({results, title, type}) => {
     return (
         <div className={styles.mainContainer}>
             <h4 className={styles.title}>
@@ -17,6 +17,7 @@ const VideoList = ({results, title}) => {
                             vote_average={result.vote_average}
                             title={result.title}
                             id={result.id}
+                            type={type}
                         />
                         :
                         <VideoItem 
@@ -25,8 +26,8 @@ const VideoList = ({results, title}) => {
                             vote_average={result.vote_average}
                             title={result.name}
                             id={result.id}
+                            type={type}
                         />
-                        
                     ))
                 }
             </div>

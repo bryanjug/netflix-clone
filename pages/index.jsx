@@ -25,12 +25,12 @@ export default function Home({trendingData, TVShowsData, genreData, firstVideoDa
       <main>
         <Nav />
         <FirstVideo firstVideoData={firstVideoData} />
-        <VideoList results={trendingData.results} title="Trending Now"/>
-        <VideoList results={TVShowsData.results} title="TV Shows"/>
+        <VideoList results={trendingData.results} title="Trending Now" type="movie"/>
+        <VideoList results={TVShowsData.results} title="TV Shows" type="tv" />
         {
           genreData.map(result => 
             (
-              <VideoList results={result.[1]} title={result.[0]} key={result.[1].id}/>
+              <VideoList results={result.[1]} title={result.[0]} key={result.[1].id} type="movie" />
             )
           )
         }
