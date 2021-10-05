@@ -26,9 +26,7 @@
 [X] connect video id with youtube
 [X] get video id into router
 [X] API connection for VideoPlayer
-[] movie vs tv id into router
-[] redesign VideoPlayer
-[] hide video player if movie has no video
+[X] movie vs tv id into router
 [] VideoInfo component
 [] add Link to FirstVideo
 [] add key to random map

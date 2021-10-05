@@ -2,7 +2,7 @@ import {useRouter} from 'next/router'
 import VideoInfo from '../../components/videoInfo/VideoInfo'
 import {useEffect, useState} from 'react'
 
-export default function Video({testData}) {
+export default function Video() {
     const [info, setInfo] = useState([]);
     const [videoId, setVideoId] = useState("");
 
@@ -35,7 +35,7 @@ export default function Video({testData}) {
         <VideoInfo 
             id={id} 
             videoId={videoId}
-            title={info.title}
+            info={info}
         />
     );
 }

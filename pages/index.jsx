@@ -4,7 +4,6 @@ import Loader from '../components/Loader'
 import Nav from '../components/Nav'
 import FirstVideo from '../components/FirstVideo'
 import VideoList from '../components/VideoList'
-import Link from 'next/link'
 
 export default function Home({trendingData, TVShowsData, genreData, firstVideoData}) {
   const [showLoader, setShowLoader] = useState(true);

@@ -1,7 +1,6 @@
 import styles from '../../styles/VideoPlayer.module.css'
 
-const VideoPlayer = ({videoId}) => {
-    //https://www.youtube.com/watch?v=${.key}
+const YoutubePlayer = ({videoId}) => {
     let src = "https://www.youtube.com/embed/" + videoId;
     
     return (
@@ -21,4 +20,4 @@ const VideoPlayer = ({videoId}) => {
     )
 }
 
-export default VideoPlayer
+export default YoutubePlayer
