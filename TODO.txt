@@ -27,6 +27,12 @@
 [X] get video id into router
 [X] API connection for VideoPlayer
 [X] movie vs tv id into router
+[] make a new use state for videos (video player data)
+[] loop through videoplayer data for an id that has type = trailer
+[] display data in VideoInfo
+[] play button
+[] rate button
+[] share button
 [] VideoInfo component
 [] add Link to FirstVideo
 [] add key to random map

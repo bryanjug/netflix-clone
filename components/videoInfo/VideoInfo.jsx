@@ -1,8 +1,16 @@
 import Meta from '../Meta'
 import NavInfo from './NavInfo'
 import YoutubePlayer from './YoutubePlayer'
+import styles from '../../styles/VideoInfo.module.css'
+import Chip from '@mui/material/Chip'
+import FaceIcon from '@mui/icons-material/Face'
+import {useEffect, useState} from 'react'
 
-const VideoInfo = ({id, videoId, info}) => {
+const VideoInfo = ({id, videoId, info, type, companies}) => {
+    console.log(info)
+    let title = info.title;
+    let date = info.release_date;
+
     return (
         <div>
             <Meta 
@@ -14,24 +22,48 @@ const VideoInfo = ({id, videoId, info}) => {
                 <NavInfo /> 
                 <YoutubePlayer videoId={videoId} />
                 <h1>
-                    Title
+                    {title}
                 </h1>
-                <p>2021</p>
-                <p>TV-MA</p>
-                <p>Limited Series</p>
-                <p>HD</p>
-                <p>#4 in the U.S. Today</p>
+                <Chip icon={<FaceIcon />} label={date && date.substr(0, 4)} className={styles.chip}/>
+                {
+                    info.adult === false ?
+                    <Chip icon={<FaceIcon />} label="TV-MA" className={styles.notAdult}/>
+                    :
+                    <Chip icon={<FaceIcon />} label="TV-MA" className={styles.chip}/>
+                }
+                <Chip icon={<FaceIcon />} label={`Vote Average: ${info.vote_average}`} className={styles.chip}/>
+                <Chip icon={<FaceIcon />} label={`Vote Count: ${info.vote_count}`} className={styles.chip}/>
+                <Chip icon={<FaceIcon />} label={`Revenue: $${info.revenue}`} className={styles.chip}/>
+                <Chip icon={<FaceIcon />} label={`Budget: $${info.budget}`} className={styles.chip}/>
                 <button>Play</button>
-                <button>Where To Watch</button>
-                <p>Movie info</p>
-                <small>Starring: ...</small>
-                <small>Creator: ...</small>
-                <button>My List</button>
+                <button>Where To Watch:</button>
+                <p>{info.homepage}</p>
+                <p>{info.overview}</p>
+                <small>
+                    Production Companies: 
+                    {
+                        companies.map(function(result, index) { 
+                            if (companies.length === 1) {
+                                return <span key={index}>{result.name}</span>
+                            } else {
+                                if (index === companies.length - 1) {
+                                    return <span key={index}>{result.name}</span>
+                                }
+                                return <span key={index}>{result.name}, </span>
+                            }
+                        })
+                        
+                    }
+                </small>
+                <br />
+                <small>
+                    Production Countries: 
+                </small>
                 <button>Rate</button>
                 <button>Share</button>
                 <button>EPISODES</button>
+                <button>COLLECTION</button>
                 <button>TRAILERS & MORE</button>
-                <button>MORE LIKE THIS</button>
             </main>
         </div>
     )

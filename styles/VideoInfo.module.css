@@ -1,0 +1,9 @@
+.notAdult {
+    text-decoration-line: line-through !important;
+    background-color:rgb(39, 39, 39) !important;
+    color: white !important;
+}
+.chip {
+    background-color:rgb(39, 39, 39) !important;
+    color: white !important;
+}
