@@ -1,12 +1,13 @@
 import {useRouter} from 'next/router'
 import VideoInfo from '../../components/videoInfo/VideoInfo'
 import {useEffect, useState} from 'react'
-import { ColorizeSharp } from '@mui/icons-material';
 
 export default function Video() {
     const [info, setInfo] = useState([]);
     const [videoId, setVideoId] = useState("");
+    const [videos, setVideos] = useState("");
     const [companies, setCompanies] = useState([]);
+    const [countries, setCountries] = useState([]);
 
     let router = useRouter();
     let id = router.query.video;
@@ -16,22 +17,24 @@ export default function Video() {
         if(!id) {
             return;
         }
-        const fetchSomethingById = async () => {
+        const fetchInfoById = async () => {
+            let response;
+            let data;
             if (router.query.type === "movie") {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
-                const data = await response.json()
-                setInfo(data)
-                setVideoId(data.videos.results.[0].key);
-                setCompanies(data.production_companies);
+                response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
+                data = await response.json()
             }
             if (router.query.type === "tv") {
-                const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
-                const data = await response.json()
-                setInfo(data)
-                setVideoId(data.videos.results.[0].key);
+                response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
+                data = await response.json()
             }
+            setInfo(data)
+            setVideoId(data.videos.results.[0].key);
+            setCompanies(data.production_companies);
+            setCountries(data.production_countries);
+            setVideos(data.videos.results)
         }
-        fetchSomethingById()
+        fetchInfoById()
     }, [id])
 
     return (
@@ -41,6 +44,8 @@ export default function Video() {
             info={info}
             type={type}
             companies={companies}
+            countries={countries}
+            videos={videos}
         />
     );
 }

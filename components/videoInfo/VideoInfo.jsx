@@ -6,7 +6,7 @@ import Chip from '@mui/material/Chip'
 import FaceIcon from '@mui/icons-material/Face'
 import {useEffect, useState} from 'react'
 
-const VideoInfo = ({id, videoId, info, type, companies}) => {
+const VideoInfo = ({id, videoId, info, type, companies, countries, videos}) => {
     console.log(info)
     let title = info.title;
     let date = info.release_date;
@@ -20,7 +20,12 @@ const VideoInfo = ({id, videoId, info, type, companies}) => {
             />
             <main>
                 <NavInfo /> 
-                <YoutubePlayer videoId={videoId} />
+                {
+                    videos.length === 0 ?
+                    <div></div>
+                    :
+                    <YoutubePlayer videoId={videoId} />
+                }
                 <h1>
                     {title}
                 </h1>
@@ -40,7 +45,7 @@ const VideoInfo = ({id, videoId, info, type, companies}) => {
                 <p>{info.homepage}</p>
                 <p>{info.overview}</p>
                 <small>
-                    Production Companies: 
+                    <span>Production Companies: </span> 
                     {
                         companies.map(function(result, index) { 
                             if (companies.length === 1) {
@@ -57,7 +62,19 @@ const VideoInfo = ({id, videoId, info, type, companies}) => {
                 </small>
                 <br />
                 <small>
-                    Production Countries: 
+                    <span>Production Countries: </span> 
+                    {
+                        countries.map(function(result, index) {
+                            if (countries.length === 1) {
+                                return <span key={index}>{result.name}</span>
+                            } else {
+                                if (index === countries.length - 1) {
+                                    return <span key={index}>{result.name}</span>
+                                }
+                                return <span key={index}>{result.name}, </span>
+                            }
+                        })
+                    }
                 </small>
                 <button>Rate</button>
                 <button>Share</button>
