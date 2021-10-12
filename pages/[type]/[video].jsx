@@ -4,7 +4,6 @@ import {useEffect, useState} from 'react'
 
 export default function Video() {
     const [info, setInfo] = useState([]);
-    const [videoId, setVideoId] = useState("");
     const [videos, setVideos] = useState("");
     const [companies, setCompanies] = useState([]);
     const [countries, setCountries] = useState([]);
@@ -29,7 +28,6 @@ export default function Video() {
                 data = await response.json()
             }
             setInfo(data)
-            setVideoId(data.videos.results.[0].key);
             setCompanies(data.production_companies);
             setCountries(data.production_countries);
             setVideos(data.videos.results)
@@ -40,7 +38,6 @@ export default function Video() {
     return (
         <VideoInfo 
             id={id} 
-            videoId={videoId}
             info={info}
             type={type}
             companies={companies}

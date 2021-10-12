@@ -6,11 +6,35 @@ import Chip from '@mui/material/Chip'
 import FaceIcon from '@mui/icons-material/Face'
 import {useEffect, useState} from 'react'
 
-const VideoInfo = ({id, videoId, info, type, companies, countries, videos}) => {
-    console.log(info)
-    let title = info.title;
-    let date = info.release_date;
+const VideoInfo = ({id, info, type, companies, countries, videos}) => {
+    const [episodesStyles, setEpisodesStyles] = useState(styles.tabClicked);
+    const [collectionStyles, setCollectionStyles] = useState(styles.tabNotClicked);
+    const [videosStyles, setVideosStyles] = useState(styles.tabNotClicked);
+    const [currentTab, setCurrentTab] = useState("episodes");
 
+    console.log(info)
+
+    function Copy() {
+        navigator.clipboard.writeText(window.location.href);
+    }
+    function EpisodesClick() {
+        setEpisodesStyles(styles.tabClicked);
+        setCollectionStyles(styles.tabNotClicked)
+        setVideosStyles(styles.tabNotClicked)
+        setCurrentTab("episodes")
+    }
+    function CollectionClick() {
+        setEpisodesStyles(styles.tabNotClicked);
+        setCollectionStyles(styles.tabClicked)
+        setVideosStyles(styles.tabNotClicked)
+        setCurrentTab("collection")
+    }
+    function VideosClick() {
+        setEpisodesStyles(styles.tabNotClicked);
+        setCollectionStyles(styles.tabNotClicked)
+        setVideosStyles(styles.tabClicked)
+        setCurrentTab("videos")
+    }
     return (
         <div>
             <Meta 
@@ -24,12 +48,12 @@ const VideoInfo = ({id, videoId, info, type, companies, countries, videos}) => {
                     videos.length === 0 ?
                     <div></div>
                     :
-                    <YoutubePlayer videoId={videoId} />
+                    <YoutubePlayer videos={videos} />
                 }
                 <h1>
-                    {title}
+                    {info.title}
                 </h1>
-                <Chip icon={<FaceIcon />} label={date && date.substr(0, 4)} className={styles.chip}/>
+                <Chip icon={<FaceIcon />} label={info.release_date && info.release_date.substr(0, 4)} className={styles.chip}/>
                 {
                     info.adult === false ?
                     <Chip icon={<FaceIcon />} label="TV-MA" className={styles.notAdult}/>
@@ -76,11 +100,21 @@ const VideoInfo = ({id, videoId, info, type, companies, countries, videos}) => {
                         })
                     }
                 </small>
-                <button>Rate</button>
-                <button>Share</button>
-                <button>EPISODES</button>
-                <button>COLLECTION</button>
-                <button>TRAILERS & MORE</button>
+                <button onClick={Copy}>Share</button>
+                <div className={styles.buttonList}>
+                    <p className={episodesStyles} onClick={EpisodesClick}>EPISODES</p>
+                    <p className={collectionStyles} onClick={CollectionClick}>COLLECTION</p>
+                    <p className={videosStyles} onClick={VideosClick}>VIDEOS</p>
+                </div>
+                <div>
+                    {
+                        // currentTab === "videos" ? 
+                        //videos.results.[0].key
+                        //videos.results.[0].name
+                        //videos.results.[0].type
+                        ////videos.results.[0].published_at
+                    }
+                </div>
             </main>
         </div>
     )

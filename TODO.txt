@@ -28,8 +28,11 @@
 [X] API connection for VideoPlayer
 [X] movie vs tv id into router
 [X] Production countries
-[] make a new use state for videos (video player data)
-[] loop through videoplayer data for an id that has type = trailer
+[X] make a new use state for videos (video player data)
+[X] loop through videoplayer data for types
+[X] check if videos list is empty
+[X] share button
+[] share button toggle
 [] display data in VideoInfo
 [] play button
 [] rate button

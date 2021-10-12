@@ -7,3 +7,16 @@
     background-color:rgb(39, 39, 39) !important;
     color: white !important;
 }
+.buttonList {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    justify-items: center;
+}
+.tabClicked {
+    border-bottom: 1px solid red !important;
+    padding-bottom: .5em !important;
+}
+.tabNotClicked {
+    border-bottom: none !important;
+    padding-bottom: .5em !important;
+}
