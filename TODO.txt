@@ -33,11 +33,11 @@
 [X] check if videos list is empty
 [X] share button
 [] share button toggle
-[] display data in VideoInfo
+[] episodes list
+[] collection list
+[] videos list
 [] play button
 [] rate button
-[] share button
-[] VideoInfo component
 [] add Link to FirstVideo
 [] add key to random map
 [] nav bar routing

@@ -5,14 +5,15 @@ import styles from '../../styles/VideoInfo.module.css'
 import Chip from '@mui/material/Chip'
 import FaceIcon from '@mui/icons-material/Face'
 import {useEffect, useState} from 'react'
+import Image from 'next/image'
 
 const VideoInfo = ({id, info, type, companies, countries, videos}) => {
+    console.log(videos)
+    
     const [episodesStyles, setEpisodesStyles] = useState(styles.tabClicked);
     const [collectionStyles, setCollectionStyles] = useState(styles.tabNotClicked);
     const [videosStyles, setVideosStyles] = useState(styles.tabNotClicked);
     const [currentTab, setCurrentTab] = useState("episodes");
-
-    console.log(info)
 
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
@@ -107,8 +108,26 @@ const VideoInfo = ({id, info, type, companies, countries, videos}) => {
                     <p className={videosStyles} onClick={VideosClick}>VIDEOS</p>
                 </div>
                 <div>
-                    {
-                        // currentTab === "videos" ? 
+                    {   
+                        currentTab === "videos" ? 
+                        videos.map(function(result, index) {
+                            return (
+                                <p key={index}>
+                                    {index + 1} 
+                                    <Image
+                                        src={`https://img.youtube.com/vi/${result.key}/0.jpg`}
+                                        alt="Picture of the author"
+                                        height="200"
+                                        width="300"
+                                    />
+                                    <h3>{result.name}</h3>
+                                    <p>{result.type}</p>
+                                    <h5>{result.published_at.slice(0,4)}</h5>
+                                </p>
+                            )
+                        })
+                        :
+                        <div>No</div>
                         //videos.results.[0].key
                         //videos.results.[0].name
                         //videos.results.[0].type
