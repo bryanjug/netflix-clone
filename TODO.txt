@@ -32,10 +32,12 @@
 [X] loop through videoplayer data for types
 [X] check if videos list is empty
 [X] share button
+[X] display videos list
+[] accordion seasons map
+[] fetch episodes data on dropdown click
 [] share button toggle
-[] episodes list
-[] collection list
-[] videos list
+[] display episodes list
+[] display collection list
 [] play button
 [] rate button
 [] add Link to FirstVideo
@@ -50,4 +52,5 @@
 [] tablet design
 [] desktop design
 [] add page switch transition
+[] skeleton on load
 [] optimize algorithms

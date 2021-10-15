@@ -1,0 +1,14 @@
+.accordion {
+    background-color: rgb(14, 14, 14) !important;
+    border-radius: 0 !important;
+    margin-top: .1em;
+    margin-bottom: .1em;
+    box-shadow: 10em 10em black;
+}
+.icon {
+    color: white !important;
+    margin-left: 6em !important; 
+}
+.season {
+    margin-left: 3em !important;
+}

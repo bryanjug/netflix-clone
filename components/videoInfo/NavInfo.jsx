@@ -7,7 +7,7 @@ import Slide from '@material-ui/core/Slide';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import SearchIcon from '@material-ui/icons/Search';
-import styles from '../../styles/NavInfo.module.css';
+import styles from '../../styles/videoInfo/NavInfo.module.css';
 
 function HideOnScroll(props) {
   const { children, window } = props;

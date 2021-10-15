@@ -1,37 +1,38 @@
 import Meta from '../Meta'
 import NavInfo from './NavInfo'
 import YoutubePlayer from './YoutubePlayer'
-import styles from '../../styles/VideoInfo.module.css'
+import styles from '../../styles/videoInfo/VideoInfo.module.css'
 import Chip from '@mui/material/Chip'
 import FaceIcon from '@mui/icons-material/Face'
 import {useEffect, useState} from 'react'
 import Image from 'next/image'
+import Dropdown from '../../components/videoInfo/Dropdown'
 
-const VideoInfo = ({id, info, type, companies, countries, videos}) => {
-    console.log(videos)
+const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
+    console.log(info)
     
-    const [episodesStyles, setEpisodesStyles] = useState(styles.tabClicked);
+    const [seasonsStyles, setSeasonsStyles] = useState(styles.tabClicked);
     const [collectionStyles, setCollectionStyles] = useState(styles.tabNotClicked);
     const [videosStyles, setVideosStyles] = useState(styles.tabNotClicked);
-    const [currentTab, setCurrentTab] = useState("episodes");
+    const [currentTab, setCurrentTab] = useState("seasons");
 
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
     }
-    function EpisodesClick() {
-        setEpisodesStyles(styles.tabClicked);
+    function SeasonsClick() {
+        setSeasonsStyles(styles.tabClicked);
         setCollectionStyles(styles.tabNotClicked)
         setVideosStyles(styles.tabNotClicked)
-        setCurrentTab("episodes")
+        setCurrentTab("seasons")
     }
     function CollectionClick() {
-        setEpisodesStyles(styles.tabNotClicked);
+        setSeasonsStyles(styles.tabNotClicked);
         setCollectionStyles(styles.tabClicked)
         setVideosStyles(styles.tabNotClicked)
         setCurrentTab("collection")
     }
     function VideosClick() {
-        setEpisodesStyles(styles.tabNotClicked);
+        setSeasonsStyles(styles.tabNotClicked);
         setCollectionStyles(styles.tabNotClicked)
         setVideosStyles(styles.tabClicked)
         setCurrentTab("videos")
@@ -103,13 +104,23 @@ const VideoInfo = ({id, info, type, companies, countries, videos}) => {
                 </small>
                 <button onClick={Copy}>Share</button>
                 <div className={styles.buttonList}>
-                    <p className={episodesStyles} onClick={EpisodesClick}>EPISODES</p>
+                    <p className={seasonsStyles} onClick={SeasonsClick}>SEASONS</p>
                     <p className={collectionStyles} onClick={CollectionClick}>COLLECTION</p>
                     <p className={videosStyles} onClick={VideosClick}>VIDEOS</p>
                 </div>
-                <div>
+                <div> 
+                    {
+                        currentTab === "seasons" && seasons.length !== 0 ?
+                        seasons.map(function(result, index) {
+                            return (
+                                <Dropdown key={index} season={result.name} />    
+                            );
+                        })
+                        :
+                        <div></div>
+                    }
                     {   
-                        currentTab === "videos" ? 
+                        currentTab === "videos" && videos.length !== 0  ? 
                         videos.map(function(result, index) {
                             return (
                                 <p key={index}>
@@ -127,11 +138,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos}) => {
                             )
                         })
                         :
-                        <div>No</div>
-                        //videos.results.[0].key
-                        //videos.results.[0].name
-                        //videos.results.[0].type
-                        ////videos.results.[0].published_at
+                        <div></div>
                     }
                 </div>
             </main>

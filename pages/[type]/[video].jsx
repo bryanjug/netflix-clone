@@ -7,6 +7,7 @@ export default function Video() {
     const [videos, setVideos] = useState("");
     const [companies, setCompanies] = useState([]);
     const [countries, setCountries] = useState([]);
+    const [seasons, setSeasons] = useState([]);
 
     let router = useRouter();
     let id = router.query.video;
@@ -31,6 +32,7 @@ export default function Video() {
             setCompanies(data.production_companies);
             setCountries(data.production_countries);
             setVideos(data.videos.results)
+            setSeasons(data.seasons)
         }
         fetchInfoById()
     }, [id])
@@ -43,6 +45,7 @@ export default function Video() {
             companies={companies}
             countries={countries}
             videos={videos}
+            seasons={seasons}
         />
     );
 }
