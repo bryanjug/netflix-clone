@@ -27,9 +27,9 @@ export default function Home({trendingData, TVShowsData, genreData, firstVideoDa
         <VideoList results={trendingData.results} title="Trending Now" type="movie"/>
         <VideoList results={TVShowsData.results} title="TV Shows" type="tv" />
         {
-          genreData.map(result => 
+          genreData.map((result, index) => 
             (
-              <VideoList results={result.[1]} title={result.[0]} key={result.[1].id} type="movie" />
+              <VideoList results={result.[1]} title={result.[0]} key={index} type="movie" />
             )
           )
         }

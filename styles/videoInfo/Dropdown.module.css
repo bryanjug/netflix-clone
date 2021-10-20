@@ -7,8 +7,15 @@
 }
 .icon {
     color: white !important;
-    margin-left: 6em !important; 
 }
 .season {
-    margin-left: 3em !important;
+    margin-left: 2em !important;
+}
+.accordionSummary {
+    flex-direction: row !important;
+    margin-left: 0.5em !important;
+}
+.spacer {
+    color: rgba(0, 0, 0, 0) !important;
+    margin-left: 8em;
 }

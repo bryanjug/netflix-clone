@@ -4,7 +4,7 @@ import YoutubePlayer from './YoutubePlayer'
 import styles from '../../styles/videoInfo/VideoInfo.module.css'
 import Chip from '@mui/material/Chip'
 import FaceIcon from '@mui/icons-material/Face'
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import Image from 'next/image'
 import Dropdown from '../../components/videoInfo/Dropdown'
 

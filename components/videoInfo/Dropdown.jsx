@@ -1,8 +1,8 @@
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Accordion from '@mui/material/Accordion'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import AccordionDetails from '@mui/material/AccordionDetails'
+import Typography from '@mui/material/Typography'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import styles from '../../styles/videoInfo/Dropdown.module.css'
 
 const Dropdown = ({season, episodes}) => {
@@ -17,6 +17,9 @@ const Dropdown = ({season, episodes}) => {
                 >
                     <Typography className={styles.season}>
                         {season}
+                    </Typography>
+                    <Typography className={styles.spacer}>
+                        Test
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
