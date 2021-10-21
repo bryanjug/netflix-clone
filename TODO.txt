@@ -33,10 +33,15 @@
 [X] check if videos list is empty
 [X] share button
 [X] display videos list
+[X] fetch data on click
+[X] fetch episodes data on dropdown click
+[X] fetch data on data tab click
+[] map episodes state in each season dropdown
+[] display different video if unavailable in country
+[] display episodes
+[] change background images to nextjs images
 [] accordion seasons map
-[] fetch episodes data on dropdown click
 [] share button toggle
-[] display episodes list
 [] display collection list
 [] play button
 [] rate button

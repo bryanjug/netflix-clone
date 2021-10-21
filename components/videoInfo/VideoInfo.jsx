@@ -4,27 +4,38 @@ import YoutubePlayer from './YoutubePlayer'
 import styles from '../../styles/videoInfo/VideoInfo.module.css'
 import Chip from '@mui/material/Chip'
 import FaceIcon from '@mui/icons-material/Face'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Dropdown from '../../components/videoInfo/Dropdown'
 
 const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
-    console.log(info)
-    
     const [seasonsStyles, setSeasonsStyles] = useState(styles.tabClicked);
     const [collectionStyles, setCollectionStyles] = useState(styles.tabNotClicked);
     const [videosStyles, setVideosStyles] = useState(styles.tabNotClicked);
     const [currentTab, setCurrentTab] = useState("seasons");
+    const [episodes, setEpisodes] = useState([]);
 
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
     }
-    function SeasonsClick() {
+    async function SeasonsClick() {
         setSeasonsStyles(styles.tabClicked);
         setCollectionStyles(styles.tabNotClicked)
         setVideosStyles(styles.tabNotClicked)
         setCurrentTab("seasons")
     }
+    useEffect(() => {
+        if (currentTab === "seasons" && seasons.length !== 0) {
+            let i;
+            let episodeList;
+            for (i = 0; i < seasons.length; i++) {
+                let response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasons.[i].seasonNumber}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}`)
+                let data = await response.json()
+                episodeList.push(data.episodes)
+            }
+            setEpisodes(episodeList)
+        }
+    }, [currentTab])
     function CollectionClick() {
         setSeasonsStyles(styles.tabNotClicked);
         setCollectionStyles(styles.tabClicked)
@@ -37,6 +48,18 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
         setVideosStyles(styles.tabClicked)
         setCurrentTab("videos")
     }
+    function SeasonsAndEpisodes() {
+        async function FetchData() {
+            let response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasonNumber}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}`)
+            let data = await response.json()
+            console.log(data)
+        }
+
+        return (
+            <p>aye</p>
+        );
+    }
+    
     return (
         <div>
             <Meta 
@@ -113,7 +136,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         currentTab === "seasons" && seasons.length !== 0 ?
                         seasons.map(function(result, index) {
                             return (
-                                <Dropdown key={index} season={result.name} />    
+                                <Dropdown key={index} season={result.name} id={id} seasonNumber={result.season_number} />    
                             );
                         })
                         :

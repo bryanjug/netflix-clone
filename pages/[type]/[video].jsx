@@ -20,6 +20,7 @@ export default function Video() {
         const fetchInfoById = async () => {
             let response;
             let data;
+            
             if (router.query.type === "movie") {
                 response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
                 data = await response.json()
@@ -27,12 +28,15 @@ export default function Video() {
             if (router.query.type === "tv") {
                 response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
                 data = await response.json()
+
+                if (data.seasons.length !== 0) {
+                    setSeasons(data.seasons)
+                }
             }
             setInfo(data)
             setCompanies(data.production_companies);
             setCountries(data.production_countries);
             setVideos(data.videos.results)
-            setSeasons(data.seasons)
         }
         fetchInfoById()
     }, [id])
