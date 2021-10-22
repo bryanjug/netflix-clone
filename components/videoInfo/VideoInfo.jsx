@@ -9,11 +9,13 @@ import Image from 'next/image'
 import Dropdown from '../../components/videoInfo/Dropdown'
 
 const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
-    const [seasonsStyles, setSeasonsStyles] = useState(styles.tabClicked);
+    const [videosStyles, setVideosStyles] = useState(styles.tabClicked);
     const [collectionStyles, setCollectionStyles] = useState(styles.tabNotClicked);
-    const [videosStyles, setVideosStyles] = useState(styles.tabNotClicked);
-    const [currentTab, setCurrentTab] = useState("seasons");
+    const [seasonsStyles, setSeasonsStyles] = useState(styles.tabNotClicked);
+
+    const [currentTab, setCurrentTab] = useState("videos");
     const [episodes, setEpisodes] = useState([]);
+    const [seasonsAndEpisodes, setSeasonsAndEpisodes] = useState();
 
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
@@ -34,11 +36,15 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     let data = await response.json()
                     episodeList.push(data.episodes)
                 }
+                //remove setEpisodes and loop through episodeList
                 setEpisodes(episodeList)
             }
         }
         FetchEpisodesData()
     }, [currentTab])
+
+    console.log(episodes)
+
     function CollectionClick() {
         setSeasonsStyles(styles.tabNotClicked);
         setCollectionStyles(styles.tabClicked)
@@ -119,16 +125,16 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 </small>
                 <button onClick={Copy}>Share</button>
                 <div className={styles.buttonList}>
-                    <p className={seasonsStyles} onClick={SeasonsClick}>SEASONS</p>
-                    <p className={collectionStyles} onClick={CollectionClick}>COLLECTION</p>
                     <p className={videosStyles} onClick={VideosClick}>VIDEOS</p>
+                    <p className={collectionStyles} onClick={CollectionClick}>COLLECTION</p>
+                    <p className={seasonsStyles} onClick={SeasonsClick}>SEASONS</p>
                 </div>
                 <div> 
                     {
                         currentTab === "seasons" && seasons.length !== 0 && episodes.length !== 0 ?
                         seasons.map(function(result, index) {
                             return (
-                                <Dropdown key={index} season={result.name} id={id} seasonNumber={result.season_number} />    
+                                <Dropdown key={index} season={result.name} id={id} seasonNumber={result.season_number} episodes={episodes[index]}/>    
                             );
                         })
                         :

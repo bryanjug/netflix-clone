@@ -7,22 +7,6 @@ import styles from '../../styles/videoInfo/Dropdown.module.css'
 import { useEffect, useState } from 'react'
 
 const Dropdown = ({season, episodes, id, seasonNumber}) => {
-    // const [expanded, setExpanded] = useState([]);
-    
-    // const handleChange = (panel) => async (event, isExpanded) => {
-    //     if (isExpanded === true) {
-    //         let response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasonNumber}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}`)
-    //         let data = await response.json()
-    //         console.log(data)
-    //         if (expanded.[seasonNumber - 1] === undefined) {
-    //             setExpanded(expanded + [seasonNumber, data.episodes])
-    //         }
-    //     }
-    // };
-    // console.log(expanded)
-
-    // onChange={handleChange('panel1')}
-    
     return (
         <div>
             <Accordion className={styles.accordion}>
@@ -40,9 +24,16 @@ const Dropdown = ({season, episodes, id, seasonNumber}) => {
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
-                        Episode List
-                    </Typography>
+                    {/* {
+                        episodes.length !== 0 ? 
+                        episodes.map(function(result, index) {
+                            return (
+                                <p key={index}>{result.name}</p>
+                            )
+                        })
+                        :
+                        <div></div>
+                    } */}
                 </AccordionDetails>
             </Accordion>
         </div>
