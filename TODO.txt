@@ -36,6 +36,7 @@
 [X] fetch data on click
 [X] fetch episodes data on dropdown click
 [X] fetch data on data tab click
+[X] create episodes state fetch loop
 [] map episodes state in each season dropdown
 [] display different video if unavailable in country
 [] display episodes
