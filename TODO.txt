@@ -37,8 +37,8 @@
 [X] fetch episodes data on dropdown click
 [X] fetch data on data tab click
 [X] create episodes state fetch loop
-[] new state seasonsAndEpisodes: (loop) episodes for each season added to seasons list
-[] map episodes state in each season dropdown
+[X] new state seasonsAndEpisodes: (loop) episodes for each season added to seasons list
+[] map drop downs
 [] display different video if unavailable in country
 [] display episodes
 [] change background images to nextjs images

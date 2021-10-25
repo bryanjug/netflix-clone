@@ -14,7 +14,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const [seasonsStyles, setSeasonsStyles] = useState(styles.tabNotClicked);
 
     const [currentTab, setCurrentTab] = useState("videos");
-    const [episodes, setEpisodes] = useState([]);
     const [seasonsAndEpisodes, setSeasonsAndEpisodes] = useState();
 
     function Copy() {
@@ -30,20 +29,23 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
         async function FetchEpisodesData() {
             if (currentTab === "seasons" && seasons.length !== 0) {
                 let i;
-                let episodeList = [];
+                let list = [];
                 for (i = 0; i < seasons.length; i++) {
-                    let response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasons.[i].seasonNumber}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}`)
+                    let season = {};
+                    let response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasons[i].season_number}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}`)
                     let data = await response.json()
-                    episodeList.push(data.episodes)
+                    season = seasons[i];
+                    season.episodes = data.episodes;
+                    list.push({season: season})
                 }
-                //remove setEpisodes and loop through episodeList
-                setEpisodes(episodeList)
+                //remove setEpisodes and loop through list
+                setSeasonsAndEpisodes(list)
             }
         }
         FetchEpisodesData()
     }, [currentTab])
 
-    console.log(episodes)
+    console.log(seasonsAndEpisodes)
 
     function CollectionClick() {
         setSeasonsStyles(styles.tabNotClicked);
@@ -131,10 +133,10 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 </div>
                 <div> 
                     {
-                        currentTab === "seasons" && seasons.length !== 0 && episodes.length !== 0 ?
-                        seasons.map(function(result, index) {
+                        currentTab === "seasons" && seasons.length !== 0 ?
+                        seasonsAndEpisodes.map(function(result, index) {
                             return (
-                                <Dropdown key={index} season={result.name} id={id} seasonNumber={result.season_number} episodes={episodes[index]}/>    
+                                <Dropdown key={index} season={result.name} id={id} seasonNumber={result.season_number} />    
                             );
                         })
                         :
