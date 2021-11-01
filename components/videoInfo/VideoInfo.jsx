@@ -38,7 +38,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     season.episodes = data.episodes;
                     list.push({season: season})
                 }
-                //remove setEpisodes and loop through list
                 setSeasonsAndEpisodes(list)
             }
         }
@@ -106,7 +105,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                 return <span key={index}>{result.name}, </span>
                             }
                         })
-                        
                     }
                 </small>
                 <br />
@@ -133,10 +131,10 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 </div>
                 <div> 
                     {
-                        currentTab === "seasons" && seasons.length !== 0 ?
+                        currentTab === "seasons" && seasonsAndEpisodes ?
                         seasonsAndEpisodes.map(function(result, index) {
                             return (
-                                <Dropdown key={index} season={result.name} id={id} seasonNumber={result.season_number} />    
+                                <Dropdown key={index} season={result.season.name} id={result.season.id} seasonNumber={result.season.season_number} episodes={result.season.episodes} />    
                             );
                         })
                         :

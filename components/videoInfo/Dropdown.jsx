@@ -24,16 +24,33 @@ const Dropdown = ({season, episodes, id, seasonNumber}) => {
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    {/* {
-                        episodes.length !== 0 ? 
+                    {/* 
+                        0: {
+                            air_date: "2021-10-21"
+                            crew: (3) [{…}, {…}, {…}]
+                            episode_number: 1
+                            guest_stars: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
+                            id: 3014880
+                            name: "Last Day"
+                            overview: "Across the globe, strange and unexplainable events begin to unfold. A small-town sheriff senses something bigger is at play."
+                            production_code: ""
+                            season_number: 1
+                            still_path: "/n3PDSh5qDWM4YAjPVoL0ahcHcaP.jpg"
+                            vote_average: 0
+                            vote_count: 0
+                        }
+                        length: 1
+                    */}
+                    {
+                        episodes ? 
                         episodes.map(function(result, index) {
                             return (
-                                <p key={index}>{result.name}</p>
+                                <p key={index}>Test</p>
                             )
                         })
                         :
                         <div></div>
-                    } */}
+                    }
                 </AccordionDetails>
             </Accordion>
         </div>
