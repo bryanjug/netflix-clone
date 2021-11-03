@@ -9,19 +9,25 @@ import Image from 'next/image'
 import Dropdown from '../../components/videoInfo/Dropdown'
 
 const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
+    console.log(videos)
+    
     const [videosStyles, setVideosStyles] = useState(styles.tabClicked);
-    const [collectionStyles, setCollectionStyles] = useState(styles.tabNotClicked);
-    const [seasonsStyles, setSeasonsStyles] = useState(styles.tabNotClicked);
+    const [seasonsStyles, setSeasonsStyles] = useState(styles.displayNone);
 
     const [currentTab, setCurrentTab] = useState("videos");
     const [seasonsAndEpisodes, setSeasonsAndEpisodes] = useState();
 
+    useEffect(() => {
+        if (seasons.length > 0) {
+            setSeasonsStyles(styles.tabNotClicked)
+        }
+    }, [seasons])
+    
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
     }
     async function SeasonsClick() {
         setSeasonsStyles(styles.tabClicked);
-        setCollectionStyles(styles.tabNotClicked)
         setVideosStyles(styles.tabNotClicked)
         setCurrentTab("seasons")
     }
@@ -44,17 +50,8 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
         FetchEpisodesData()
     }, [currentTab])
 
-    console.log(seasonsAndEpisodes)
-
-    function CollectionClick() {
-        setSeasonsStyles(styles.tabNotClicked);
-        setCollectionStyles(styles.tabClicked)
-        setVideosStyles(styles.tabNotClicked)
-        setCurrentTab("collection")
-    }
     function VideosClick() {
         setSeasonsStyles(styles.tabNotClicked);
-        setCollectionStyles(styles.tabNotClicked)
         setVideosStyles(styles.tabClicked)
         setCurrentTab("videos")
     }
@@ -92,6 +89,36 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 <button>Where To Watch:</button>
                 <p>{info.homepage}</p>
                 <p>{info.overview}</p>
+                <p>Genres: <span> </span>
+                    {
+                        info.genres ? 
+                        info.genres.map(function(result, index) {
+                            if (info.genres.length === 1) {
+                                return (
+                                    <span key={index}>
+                                        {result.name}
+                                    </span>
+                                )
+                            }
+                            if (info.genres.length > 1 && index === info.genres.length - 1) {
+                                return (
+                                    <span key={index}>
+                                        {result.name}
+                                    </span>
+                                )
+                            }
+                            if (info.genres.length > 1 && index !== info.genres.length - 1) {
+                                return (
+                                    <span key={index}>
+                                        {result.name}, <span> </span>
+                                    </span>
+                                )
+                            }
+                        })
+                        :
+                        <span></span>
+                    }
+                </p>
                 <small>
                     <span>Production Companies: </span> 
                     {
@@ -126,7 +153,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 <button onClick={Copy}>Share</button>
                 <div className={styles.buttonList}>
                     <p className={videosStyles} onClick={VideosClick}>VIDEOS</p>
-                    <p className={collectionStyles} onClick={CollectionClick}>COLLECTION</p>
                     <p className={seasonsStyles} onClick={SeasonsClick}>SEASONS</p>
                 </div>
                 <div> 
@@ -144,7 +170,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         currentTab === "videos" && videos.length !== 0  ? 
                         videos.map(function(result, index) {
                             return (
-                                <p key={index}>
+                                <a key={index} href={`https://www.youtube.com/watch?v=${result.key}`} target="_blank">
                                     {index + 1} 
                                     <Image
                                         src={`https://img.youtube.com/vi/${result.key}/0.jpg`}
@@ -155,7 +181,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                     <h3>{result.name}</h3>
                                     <p>{result.type}</p>
                                     <h5>{result.published_at.slice(0,4)}</h5>
-                                </p>
+                                </a>
                             )
                         })
                         :

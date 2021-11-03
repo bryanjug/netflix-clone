@@ -9,7 +9,7 @@
 }
 .buttonList {
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr !important;
     justify-items: center;
 }
 .tabClicked {
@@ -19,4 +19,7 @@
 .tabNotClicked {
     border-bottom: none !important;
     padding-bottom: .5em !important;
+}
+.displayNone {
+    display: none !important;
 }
