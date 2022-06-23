@@ -7,30 +7,66 @@ import FaceIcon from '@mui/icons-material/Face'
 import {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Dropdown from '../../components/videoInfo/Dropdown'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import Button from '@mui/material/Button';
 
 const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
-    console.log(videos)
-    
-    const [videosStyles, setVideosStyles] = useState(styles.tabClicked);
-    const [seasonsStyles, setSeasonsStyles] = useState(styles.displayNone);
+    const [videosButtonStyles, setVideosButtonStyles] = useState(styles.tabClicked);
+    const [seasonsButtonStyles, setSeasonsButtonStyles] = useState(styles.tabNotClicked);
 
     const [currentTab, setCurrentTab] = useState("videos");
     const [seasonsAndEpisodes, setSeasonsAndEpisodes] = useState();
-
-    useEffect(() => {
-        if (seasons.length > 0) {
-            setSeasonsStyles(styles.tabNotClicked)
-        }
-    }, [seasons])
     
+    const [copyButtonText, setCopyButtonText] = useState("Share")
+    const [copyButtonColor, setCopyButtonColor] = useState(styles.shareButton)
+
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
+        setCopyButtonText("Copied!")
+        setCopyButtonColor(styles.shareButtonGreen)
+        const myTimeout = setTimeout(changeColor, 3000);
+        function changeColor() {
+            setCopyButtonText("Share")
+            setCopyButtonColor(styles.shareButton)
+            clearTimeout(myTimeout);
+        }
     }
-    async function SeasonsClick() {
-        setSeasonsStyles(styles.tabClicked);
-        setVideosStyles(styles.tabNotClicked)
+    function SeasonsClick() {
         setCurrentTab("seasons")
+        if (videos.length !== 0) {
+            setVideosButtonStyles(styles.tabNotClicked)
+        }
+        setSeasonsButtonStyles(styles.tabClicked)
     }
+    function VideosClick() {
+        setCurrentTab("videos")
+        if (seasons.length !== 0) {
+            setSeasonsButtonStyles(styles.tabNotClicked)
+        }
+        setVideosButtonStyles(styles.tabClicked)
+    }
+    useEffect(() => {
+        function LoadButtons() {
+            //check if seasons or videos are available.
+            if (videos.length !== 0 && seasons.length !== 0) {
+                setVideosButtonStyles(styles.tabClicked)
+                setCurrentTab("videos")
+                setSeasonsButtonStyles(styles.tabNotClicked)
+            } else {
+                if (videos.length !== 0 && seasons.length === 0) {
+                    setVideosButtonStyles(styles.tabClicked)
+                    setCurrentTab("videos")
+                    setSeasonsButtonStyles(styles.displayNone)
+                }
+                if (videos.length === 0 && seasons.length !== 0) {
+                    setSeasonsButtonStyles(styles.tabClicked)
+                    setCurrentTab("seasons")
+                    setVideosButtonStyles(styles.displayNone)
+                }
+            }
+        }
+        LoadButtons()
+    }, [seasons.length, videos.length])
     useEffect(() => {
         async function FetchEpisodesData() {
             if (currentTab === "seasons" && seasons.length !== 0) {
@@ -48,14 +84,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
             }
         }
         FetchEpisodesData()
-    }, [currentTab])
-
-    function VideosClick() {
-        setSeasonsStyles(styles.tabNotClicked);
-        setVideosStyles(styles.tabClicked)
-        setCurrentTab("videos")
-    }
-    
+    }, [currentTab])    
     return (
         <div>
             <Meta 
@@ -85,7 +114,9 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 <Chip icon={<FaceIcon />} label={`Vote Count: ${info.vote_count}`} className={styles.chip}/>
                 <Chip icon={<FaceIcon />} label={`Revenue: $${info.revenue}`} className={styles.chip}/>
                 <Chip icon={<FaceIcon />} label={`Budget: $${info.budget}`} className={styles.chip}/>
+                <br />
                 <button>Play</button>
+                <br />
                 <button>Where To Watch:</button>
                 <p>{info.homepage}</p>
                 <p>{info.overview}</p>
@@ -150,14 +181,17 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         })
                     }
                 </small>
-                <button onClick={Copy}>Share</button>
+                <br />
+                <Button className={copyButtonColor} onClick={Copy} variant="contained" color="primary" endIcon={<ContentCopyIcon />}>
+                    {copyButtonText}
+                </Button>
                 <div className={styles.buttonList}>
-                    <p className={videosStyles} onClick={VideosClick}>VIDEOS</p>
-                    <p className={seasonsStyles} onClick={SeasonsClick}>SEASONS</p>
+                    <p className={videosButtonStyles} onClick={VideosClick}>VIDEOS</p>
+                    <p className={seasonsButtonStyles} onClick={SeasonsClick}>SEASONS</p>
                 </div>
                 <div> 
                     {
-                        currentTab === "seasons" && seasonsAndEpisodes ?
+                        currentTab === "seasons" && seasonsAndEpisodes && seasons.length !== 0 ?
                         seasonsAndEpisodes.map(function(result, index) {
                             return (
                                 <Dropdown key={index} season={result.season.name} id={result.season.id} seasonNumber={result.season.season_number} episodes={result.season.episodes} />    

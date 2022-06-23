@@ -42,11 +42,16 @@
 [X] display episodes
 [X] hide seasons button on movie selection
 [X] add more info to episodes and videos
-[] move videos button to left when on movie
-[] hide info when not available
-[] share button toggle
+[X] Fix clicking on videos tab and seasons tab appearing
+[X] set currentTab
+[X] hide button when data not available
+[X] center button when other is missing
+[X] share button toggle
+[] change color/text of share button temporarily
+[] add space at top when video is missing 
 [] play button
 [] rate button
+[] move videos button to left when on movie
 [] add Link to FirstVideo
 [] nav bar routing
 [] watch video button
@@ -57,5 +62,5 @@
 [] tablet design
 [] desktop design
 [] add page switch transition
-[] skeleton on load
-[] optimize algorithms
+[] skeleton on load?
+[] optimize algorithms?

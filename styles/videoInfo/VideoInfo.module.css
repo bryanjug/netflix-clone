@@ -23,3 +23,13 @@
 .displayNone {
     display: none !important;
 }
+.shareButton {
+    background-color:rgb(39, 39, 39) !important;
+    color: white !important;
+    padding: .7em !important;
+}
+.shareButtonGreen {
+    background-color:rgb(36, 157, 72) !important;
+    color: white !important;
+    padding: .7em !important;
+}

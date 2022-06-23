@@ -18,9 +18,8 @@
     margin-right: 0.5em !important;
 }
 .menuList {
-    background: linear-gradient(90deg, rgba(0,0,0,.80) 45%, rgba(255,255,255,0) 70%) !important;
-    box-shadow: none !important;
-    padding-right: 10em !important;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding-right: 2em !important;
 }
 .menuItem {
     color: white !important;
