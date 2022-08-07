@@ -47,8 +47,12 @@
 [X] hide button when data not available
 [X] center button when other is missing
 [X] share button toggle
-[] change color/text of share button temporarily
-[] add space at top when video is missing 
+[X] change color/text of share button temporarily
+[X] add space at top when video is missing 
+[X] remove images if no data 
+[X] homepage: round rating numbers to 6.1 from 6.136
+[] hide unavailable info in videoInfo
+[] hide unavailable info in seasons dropdowns
 [] play button
 [] rate button
 [] move videos button to left when on movie

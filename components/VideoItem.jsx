@@ -15,7 +15,7 @@ const VideoItem = ({ src, vote_average, title, id, type }) => {
 						</span>
 						<br />
 					</b>
-					{vote_average}
+					{vote_average.toFixed(1)}
 				</small>
 			</div>
 		</Link>

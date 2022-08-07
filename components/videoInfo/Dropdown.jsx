@@ -9,8 +9,6 @@ import StarIcon from '@mui/icons-material/Star';
 import { useEffect, useState } from 'react'
 
 const Dropdown = ({season, episodes, id, seasonNumber}) => {
-    console.log(episodes)
-    
     return (
         <div>
             <Accordion className={styles.accordion}>
@@ -50,17 +48,22 @@ const Dropdown = ({season, episodes, id, seasonNumber}) => {
                         episodes.map(function(result, index) {
                             return (
                                 <div key={index}>
-                                    <Image
-                                        src={`https://image.tmdb.org/t/p/w500${result.still_path}`}
-                                        alt="Picture of the author"
-                                        height="200"
-                                        width="300"
-                                    />
+                                    {
+                                        result.still_path ?
+                                        <Image
+                                            src={`https://image.tmdb.org/t/p/w500${result.still_path}`}
+                                            alt="Picture of the author"
+                                            height="150"
+                                            width="300"
+                                        />
+                                        :
+                                        <div></div>
+                                    }
                                     <h3>Episode {result.episode_number}</h3>
                                     <h4>{result.name}</h4>
                                     <StarIcon className={styles.star}/>
                                     <p>{result.vote_average}</p>
-                                    <p>{(result.air_date).slice(0, 4)}</p>
+                                    <p>{result.air_date}</p>
                                     <p>{result.overview}</p>
                                 </div>
                             )

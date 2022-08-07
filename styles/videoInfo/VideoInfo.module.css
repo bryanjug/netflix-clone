@@ -1,11 +1,10 @@
 .notAdult {
     text-decoration-line: line-through !important;
-    background-color:rgb(39, 39, 39) !important;
-    color: white !important;
+    color: rgb(160, 160, 160) !important;
 }
 .chip {
-    background-color:rgb(39, 39, 39) !important;
-    color: white !important;
+    background-color:rgb(30, 30, 30) !important;
+    color: rgb(160, 160, 160) !important;
 }
 .buttonList {
     display: grid !important;
@@ -32,4 +31,18 @@
     background-color:rgb(36, 157, 72) !important;
     color: white !important;
     padding: .7em !important;
+}
+.missingPlayer {
+    margin-bottom: 4em !important;
+}
+.title {
+    margin-top: 0;
+}
+.voteAverage {
+    color: rgb(160, 160, 160) !important;
+}
+.star {
+    font-size: 1.5em !important;
+    margin-right: .2em !important;
+    margin-bottom: -.2em;
 }

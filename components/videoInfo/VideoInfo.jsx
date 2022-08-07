@@ -9,6 +9,8 @@ import Image from 'next/image'
 import Dropdown from '../../components/videoInfo/Dropdown'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Button from '@mui/material/Button';
+import UpdateIcon from '@mui/icons-material/Update';
+import GradeIcon from '@mui/icons-material/Grade';
 
 const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const [videosButtonStyles, setVideosButtonStyles] = useState(styles.tabClicked);
@@ -96,24 +98,49 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 <NavInfo /> 
                 {
                     videos.length === 0 ?
-                    <div></div>
+                    <div className={styles.missingPlayer}></div>
                     :
                     <YoutubePlayer videos={videos} />
                 }
-                <h1>
+                <h2 className={styles.title}>
                     {info.title}
-                </h1>
-                <Chip icon={<FaceIcon />} label={info.release_date && info.release_date.substr(0, 4)} className={styles.chip}/>
+                </h2>
+                {
+                    info.vote_average ?
+                    <span className={styles.voteAverage}><GradeIcon className={styles.star} />{info.vote_average.toFixed(1)}</span>
+                    :
+                    <div></div>
+                }
                 {
                     info.adult === false ?
-                    <Chip icon={<FaceIcon />} label="TV-MA" className={styles.notAdult}/>
+                    <span className={styles.notAdult}>TV-MA</span>
                     :
-                    <Chip icon={<FaceIcon />} label="TV-MA" className={styles.chip}/>
+                    <span>TV-MA</span>
                 }
-                <Chip icon={<FaceIcon />} label={`Vote Average: ${info.vote_average}`} className={styles.chip}/>
-                <Chip icon={<FaceIcon />} label={`Vote Count: ${info.vote_count}`} className={styles.chip}/>
-                <Chip icon={<FaceIcon />} label={`Revenue: $${info.revenue}`} className={styles.chip}/>
-                <Chip icon={<FaceIcon />} label={`Budget: $${info.budget}`} className={styles.chip}/>
+                {
+                    info.release_date ?
+                    <Chip icon={<UpdateIcon />} label={info.release_date} className={styles.chip}/>
+                    :
+                    <div></div>
+                }
+                {
+                    info.vote_average ? 
+                    <Chip icon={<FaceIcon />} label={`Vote Count: ${info.vote_count}`} className={styles.chip}/>
+                    :
+                    <div></div>
+                }
+                {
+                    info.revenue ?
+                    <Chip icon={<FaceIcon />} label={`Revenue: $${info.revenue}`} className={styles.chip}/>
+                    :
+                    <div></div>
+                }
+                {
+                    info.budget ?
+                    <Chip icon={<FaceIcon />} label={`Budget: $${info.budget}`} className={styles.chip}/>
+                    :
+                    <div></div>
+                }
                 <br />
                 <button>Play</button>
                 <br />
@@ -201,7 +228,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         <div></div>
                     }
                     {   
-                        currentTab === "videos" && videos.length !== 0  ? 
+                        currentTab === "videos" && videos.length !== 0 ? 
                         videos.map(function(result, index) {
                             return (
                                 <a key={index} href={`https://www.youtube.com/watch?v=${result.key}`} target="_blank">
