@@ -54,7 +54,6 @@
 [X] replace youtube video in videoInfo with an image
 [X] write down color palette
 [] hide unavailable info in videoInfo
-[] hide unavailable info in seasons dropdowns
 [] play button
 [] rate button
 [] move videos button to left when on movie
