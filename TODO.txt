@@ -51,6 +51,8 @@
 [X] add space at top when video is missing 
 [X] remove images if no data 
 [X] homepage: round rating numbers to 6.1 from 6.136
+[X] replace youtube video in videoInfo with an image
+[X] write down color palette
 [] hide unavailable info in videoInfo
 [] hide unavailable info in seasons dropdowns
 [] play button

@@ -31,6 +31,3 @@ const FirstVideo = ({firstVideoData}) => {
 }
 
 export default FirstVideo
-
-// <h1 className={styles.title}>{title}</h1>
-// <p className={styles.rank}>#1 in the World Today</p> 

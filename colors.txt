@@ -1,0 +1,9 @@
+*Green: rgb(36, 157, 72)
+*Gray: rgb(39, 39, 39)
+*Light Gray: rgb(160, 160, 160)
+*White: White
+*Black: Black
+*Secondary Black: rgb(14, 14, 14)
+*Light Black: rgb(30, 30, 30)
+*Red: red
+*Dark Red: rgb(221, 1, 1)

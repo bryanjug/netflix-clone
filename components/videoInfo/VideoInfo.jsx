@@ -1,6 +1,5 @@
 import Meta from '../Meta'
 import NavInfo from './NavInfo'
-import YoutubePlayer from './YoutubePlayer'
 import styles from '../../styles/videoInfo/VideoInfo.module.css'
 import Chip from '@mui/material/Chip'
 import FaceIcon from '@mui/icons-material/Face'
@@ -11,8 +10,10 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Button from '@mui/material/Button';
 import UpdateIcon from '@mui/icons-material/Update';
 import GradeIcon from '@mui/icons-material/Grade';
-
+import FirstImage from './FirstImage'
+import StarIcon from '@mui/icons-material/Star';
 const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
+    console.log(info)
     const [videosButtonStyles, setVideosButtonStyles] = useState(styles.tabClicked);
     const [seasonsButtonStyles, setSeasonsButtonStyles] = useState(styles.tabNotClicked);
 
@@ -21,6 +22,8 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     
     const [copyButtonText, setCopyButtonText] = useState("Share")
     const [copyButtonColor, setCopyButtonColor] = useState(styles.shareButton)
+
+    const [stars, setStars] = useState([]);
 
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
@@ -87,6 +90,15 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
         }
         FetchEpisodesData()
     }, [currentTab])    
+    
+    useEffect(() => {
+        if (info.vote_average > 0) {
+            let i;
+            for (i = 0; i < info.vote_average.toFixed(); i++) {
+                setStars(stars => [...stars,<GradeIcon className={styles.stars} key={i} />] );
+            }
+        }
+    }, [info.vote_average])
     return (
         <div>
             <Meta 
@@ -96,57 +108,102 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
             />
             <main>
                 <NavInfo /> 
-                {
-                    videos.length === 0 ?
-                    <div className={styles.missingPlayer}></div>
-                    :
-                    <YoutubePlayer videos={videos} />
-                }
-                <h2 className={styles.title}>
-                    {info.title}
-                </h2>
-                {
-                    info.vote_average ?
-                    <span className={styles.voteAverage}><GradeIcon className={styles.star} />{info.vote_average.toFixed(1)}</span>
-                    :
-                    <div></div>
-                }
-                {
-                    info.adult === false ?
-                    <span className={styles.notAdult}>TV-MA</span>
-                    :
-                    <span>TV-MA</span>
-                }
-                {
-                    info.release_date ?
-                    <Chip icon={<UpdateIcon />} label={info.release_date} className={styles.chip}/>
-                    :
-                    <div></div>
-                }
-                {
-                    info.vote_average ? 
-                    <Chip icon={<FaceIcon />} label={`Vote Count: ${info.vote_count}`} className={styles.chip}/>
-                    :
-                    <div></div>
-                }
-                {
-                    info.revenue ?
-                    <Chip icon={<FaceIcon />} label={`Revenue: $${info.revenue}`} className={styles.chip}/>
-                    :
-                    <div></div>
-                }
-                {
-                    info.budget ?
-                    <Chip icon={<FaceIcon />} label={`Budget: $${info.budget}`} className={styles.chip}/>
-                    :
-                    <div></div>
-                }
+                <div className={styles.firstImageContainer}>
+                    <FirstImage 
+                        firstImage={info.backdrop_path}
+                    />
+                    <div className={styles.imageCover}>
+                        <h2 className={styles.title}>
+                            {
+                                info.title ? info.title
+                                : info.name ? info.name 
+                                : info.original_name ? info.original_name
+                                :
+                                <div></div>
+                            }
+                            &nbsp;{
+                                info.release_date ?
+                                `(${info.release_date.slice(0, 4)})`
+                                :
+                                <div></div>
+                            }
+                        </h2>
+                        <p className={styles.tagline}>
+                            {
+                                info.tagline ? info.tagline
+                                :
+                                <div></div>
+                            }
+                        </p>
+                        <div className={styles.starsContainer}>
+                            {stars}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p className={styles.overview}>Overview:</p>
+                    <p>
+                        {   
+                            info.overview
+                        }
+                    </p>
+                </div>
+                <div className={styles.voteAverageContainer}>
+                    {
+                        info.vote_average ?
+                        <span className={styles.voteAverage}><GradeIcon className={styles.star} />{info.vote_average.toFixed(1)}</span>
+                        :
+                        <div></div>
+                    }
+                </div>
+                <div>
+                    {
+                        info.adult === false ?
+                        <span className={styles.notAdult}>TV-MA</span>
+                        :
+                        <span>TV-MA</span>
+                    }
+                </div>
+                <div>                    {
+                        info.release_date ?
+                        <div className={styles.chipContainer}>
+                            <Chip icon={<UpdateIcon />} label={`Release Date: ${info.release_date}`} className={styles.chip}/>
+                        </div>
+                        :
+                        <div></div>
+                    }
+                    {
+                        info.vote_average ? 
+                        <div className={styles.chipContainer}>
+                            <Chip icon={<FaceIcon />} label={`Vote Count: ${info.vote_count}`} className={styles.chip}/>
+                        </div>
+                        :
+                        <div></div>
+                    }
+                    {
+                        info.revenue ?
+                        <div className={styles.chipContainer}>
+                            <Chip icon={<FaceIcon />} label={`Revenue: $${info.revenue}`} className={styles.chip}/>
+                        </div>
+                        :
+                        <div></div>
+                    }
+                    {
+                        info.budget ?
+                        <div className={styles.chipContainer}>
+                            <Chip icon={<FaceIcon />} label={`Budget: $${info.budget}`} className={styles.chip}/>
+                        </div>
+                        :
+                        <div></div>
+                    }
+                </div>
+                
                 <br />
                 <button>Play</button>
                 <br />
                 <button>Where To Watch:</button>
                 <p>{info.homepage}</p>
-                <p>{info.overview}</p>
+                
                 <p>Genres: <span> </span>
                     {
                         info.genres ? 
