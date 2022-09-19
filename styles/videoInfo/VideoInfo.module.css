@@ -1,6 +1,5 @@
 .notAdult {
     text-decoration-line: line-through !important;
-    color: rgb(160, 160, 160) !important;
 }
 .chip {
     background-color:rgb(30, 30, 30) !important;
@@ -41,9 +40,6 @@
     margin-top: 0;
     margin-bottom: 0;
 }
-.voteAverage {
-    color: rgb(160, 160, 160) !important;
-}
 .star {
     font-size: 1.5em !important;
     margin-right: .2em !important;
@@ -79,5 +75,89 @@
     justify-content: center;
 }
 .overview {
-    color: rgb(255, 225, 0);
+    color: rgb(187, 187, 187);
+    border-bottom: .2em solid red;
+    width: 2em;
+    padding-bottom: 0.5em;
+    margin-left: 1em;
+}
+.longText {
+    font-size: .9em;
+    margin-left: 1em;
+    margin-right: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    line-clamp: 4; 
+    -webkit-box-orient: vertical;
+}
+.showMore {
+    margin-left: 1em;
+    font-size: .9em;
+    color: rgb(187, 187, 187);
+    width: 5.1em;
+}
+.showMore:hover {
+    border-bottom: .1em solid rgb(187, 187, 187);
+}
+.longTextShown {
+    font-size: .9em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.playButton {
+    width: 90%;
+    height: 3em;
+    color: white;
+    background-color: red;
+    border: none;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+}
+.playArrow {
+    font-size: 1.5em !important;
+    margin-right: .2em !important;
+    margin-bottom: -.2em;
+}
+.statsTitle {
+    color: red;
+}
+.statsContainer {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    line-height: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+.statsContainer2 {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    border-left: 1px red solid;
+    line-height: 10px;
+    margin-bottom: 10px;
+    border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 3px;
+    font-size: 0.9em;
+}
+.statsContainer3 {
+    font-size: 0.9em;
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    border-left: 1px red solid;
+    line-height: 10px;
+    margin-bottom: 10px;
+    border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 3px;
+}
+.statsGroupContainer {
+    margin-top: 1em;
+}
+.genres {
+    color: rgb(187, 187, 187);
+    border-bottom: .2em solid red;
+    width: 2em;
+    padding-bottom: 0.5em;
+    margin-left: 1em;
 }

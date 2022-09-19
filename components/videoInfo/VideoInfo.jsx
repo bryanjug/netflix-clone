@@ -11,7 +11,8 @@ import Button from '@mui/material/Button';
 import UpdateIcon from '@mui/icons-material/Update';
 import GradeIcon from '@mui/icons-material/Grade';
 import FirstImage from './FirstImage'
-import StarIcon from '@mui/icons-material/Star';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import Stack from '@mui/material/Stack';
 const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     console.log(info)
     const [videosButtonStyles, setVideosButtonStyles] = useState(styles.tabClicked);
@@ -24,6 +25,10 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const [copyButtonColor, setCopyButtonColor] = useState(styles.shareButton)
 
     const [stars, setStars] = useState([]);
+
+    const [showMoreStyle, setShowMoreStyle] = useState(styles.showMore);
+
+    const [longTextStyle, setLongTextStyle] = useState(styles.longText);
 
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
@@ -90,7 +95,12 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
         }
         FetchEpisodesData()
     }, [currentTab])    
-    
+
+    function showMore() {
+        setShowMoreStyle(styles.displayNone)
+        setLongTextStyle(styles.longTextShown)
+    }
+
     useEffect(() => {
         if (info.vote_average > 0) {
             let i;
@@ -98,7 +108,8 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 setStars(stars => [...stars,<GradeIcon className={styles.stars} key={i} />] );
             }
         }
-    }, [info.vote_average])
+    }, [info.vote_average])  
+
     return (
         <div>
             <Meta 
@@ -142,98 +153,123 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 </div>
                 <div>
                     <p className={styles.overview}>Overview:</p>
-                    <p>
+                    <p className={longTextStyle}>
                         {   
                             info.overview
                         }
                     </p>
-                </div>
-                <div className={styles.voteAverageContainer}>
-                    {
-                        info.vote_average ?
-                        <span className={styles.voteAverage}><GradeIcon className={styles.star} />{info.vote_average.toFixed(1)}</span>
-                        :
-                        <div></div>
-                    }
+                    <p className={showMoreStyle} onClick={showMore}>
+                        Show more
+                    </p>
                 </div>
                 <div>
-                    {
-                        info.adult === false ?
-                        <span className={styles.notAdult}>TV-MA</span>
-                        :
-                        <span>TV-MA</span>
-                    }
+                    <a href={info.homepage} target="_blank" rel="noreferrer">
+                        <button className={styles.playButton}>
+                            <PlayArrowIcon className={styles.playArrow} />
+                            <span className={styles.playButtonText}>Play</span> 
+                        </button>
+                    </a>
                 </div>
-                <div>                    {
-                        info.release_date ?
-                        <div className={styles.chipContainer}>
-                            <Chip icon={<UpdateIcon />} label={`Release Date: ${info.release_date}`} className={styles.chip}/>
-                        </div>
-                        :
-                        <div></div>
-                    }
-                    {
-                        info.vote_average ? 
-                        <div className={styles.chipContainer}>
-                            <Chip icon={<FaceIcon />} label={`Vote Count: ${info.vote_count}`} className={styles.chip}/>
-                        </div>
-                        :
-                        <div></div>
-                    }
-                    {
-                        info.revenue ?
-                        <div className={styles.chipContainer}>
-                            <Chip icon={<FaceIcon />} label={`Revenue: $${info.revenue}`} className={styles.chip}/>
-                        </div>
-                        :
-                        <div></div>
-                    }
-                    {
-                        info.budget ?
-                        <div className={styles.chipContainer}>
-                            <Chip icon={<FaceIcon />} label={`Budget: $${info.budget}`} className={styles.chip}/>
-                        </div>
-                        :
-                        <div></div>
-                    }
-                </div>
-                
-                <br />
-                <button>Play</button>
-                <br />
-                <button>Where To Watch:</button>
-                <p>{info.homepage}</p>
-                
-                <p>Genres: <span> </span>
+                <div className={styles.statsGroupContainer}>
+                    <div className={styles.statsContainer}>
+                        <p className={styles.statsTitle}>Rating</p>
+                        {
+                            info.vote_average ?
+                            <p>{info.vote_average.toFixed(1)}</p>
+                            :
+                            <div></div>
+                        }
+                    </div>
+                    <div className={styles.statsContainer2}>
+                        <p className={styles.statsTitle}>Adult</p>
+                        {
+                            info.adult === false ?
+                            <div>
+                                
+                                <p className={styles.notAdult}>TV-MA</p>
+                            </div>
+                            :
+                            <span>TV-MA</span>
+                        }
+                    </div>
+                    <div className={styles.statsContainer3}>        
+                        <p className={styles.statsTitle}>Release Date</p>            
+                        {
+                            info.release_date ?
+                            <div>
+                                <p>{info.release_date}</p>
+                            </div>
+                            :
+                            <div></div>
+                        }
+                    </div>
+                    <div className={styles.statsContainer}>
+                        <p className={styles.statsTitle}>Vote Count</p>
+                        {
+                            info.vote_average ? 
+                            <div>
+                                <p>{info.vote_count}</p>
+                            </div>
+                            :
+                            <div></div>
+                        }
+                    </div>
+                    <div className={styles.statsContainer2}>
+                        <p className={styles.statsTitle}>Revenue:</p>
+                        {
+                            info.revenue ?
+                            <div>
+                                <p>${info.revenue}</p>
+                            </div>
+                            :
+                            <div></div>
+                        }
+                    </div>
+                    <div className={styles.statsContainer3}>
+                        <p className={styles.statsTitle}>Budget:</p>
+                        {
+                            info.budget ?
+                            <div>
+                                <p>${info.budget}</p>
+                            </div>
+                            :
+                            <div></div>
+                        }
+                    </div>   
+                </div>             
+                <div>
+                    <p className={styles.genres}>Genres:</p>
+                    <p>
                     {
                         info.genres ? 
                         info.genres.map(function(result, index) {
                             if (info.genres.length === 1) {
                                 return (
-                                    <span key={index}>
+                                    <chip key={index}>
                                         {result.name}
-                                    </span>
+                                    </chip>
                                 )
                             }
                             if (info.genres.length > 1 && index === info.genres.length - 1) {
                                 return (
-                                    <span key={index}>
+                                    <chip key={index}>
                                         {result.name}
-                                    </span>
+                                    </chip>
                                 )
                             }
                             if (info.genres.length > 1 && index !== info.genres.length - 1) {
                                 return (
-                                    <span key={index}>
+                                    <chip key={index}>
                                         {result.name}, <span> </span>
-                                    </span>
+                                    </chip>
                                 )
                             }
                         })
                         :
                         <span></span>
                     }
-                </p>
+                    </p>
+                </div>
                 <small>
                     <span>Production Companies: </span> 
                     {

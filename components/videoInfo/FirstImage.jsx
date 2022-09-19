@@ -12,6 +12,7 @@ const FirstImage = ({firstImage}) => {
                 priority
                 blurDataURL='../../public/blur.png'
                 placeholder='blur'
+                className={styles.image}
             />
         </div>
     );
