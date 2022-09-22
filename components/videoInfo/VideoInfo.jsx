@@ -259,21 +259,9 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     {
                         info.genres ? 
                         info.genres.map(function(result, index) {
-                            if (info.genres.length === 1) {
-                                return (
-                                    <Chip key={index} label={result.name} className={styles.chip} />
-                                )
-                            }
-                            if (info.genres.length > 1 && index === info.genres.length - 1) {
-                                return (
-                                    <Chip key={index} label={result.name} className={styles.chip} />
-                                )
-                            }
-                            if (info.genres.length > 1 && index !== info.genres.length - 1) {
-                                return (
-                                    <Chip key={index} label={result.name} className={styles.chip} />
-                                )
-                            }
+                            return (
+                                <Chip key={index} label={result.name} className={styles.chip} />
+                            )
                         })
                         :
                         <span></span>
@@ -283,23 +271,19 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 <p className={styles.sectionTitle}>Production Companies: </p> 
                 <div className={styles.chipsContainer}>
                     {
-
+                        companies ? 
                         companies.map(function(result, index) { 
-                            if (companies.length === 1) {
-                                return <Chip key={index} label={result.name} className={styles.chip} />
-                            } else {
-                                if (index === companies.length - 1) {
-                                    return <Chip key={index} label={result.name} className={styles.chip} />
-                                }
-                                return <Chip key={index} label={result.name} className={styles.chip} />
-                            }
+                            return <Chip key={index} label={result.name} className={styles.chip} />
                         })
+                        :
+                        <span></span>
                     }
                 </div>
                 <p className={styles.sectionTitle}>Production Countries: </p> 
                 <div className={styles.chipsContainer}>
                 
                     {
+                        countries ?
                         countries.map(function(result, index) {
                             if (countries.length === 1) {
                                 return <Chip key={index} label={result.name} className={styles.chip} />
@@ -310,6 +294,8 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                 return <Chip key={index} label={result.name} className={styles.chip} />
                             }
                         })
+                        : 
+                        <span></span>
                     }
                 </div>
                 <div className={styles.buttonList}>
@@ -326,6 +312,10 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         })
                         :
                         <div></div>
+                    }
+                    {
+                        console.log(videos)
+                
                     }
                     {   
                         currentTab === "videos" && videos.length !== 0 ? 
