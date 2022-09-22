@@ -152,7 +152,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     </div>
                 </div>
                 <div>
-                    <p className={styles.overview}>Overview:</p>
+                    <p className={styles.sectionTitle}>Overview:</p>
                     <p className={longTextStyle}>
                         {   
                             info.overview
@@ -166,9 +166,14 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     <a href={info.homepage} target="_blank" rel="noreferrer">
                         <button className={styles.playButton}>
                             <PlayArrowIcon className={styles.playArrow} />
-                            <span className={styles.playButtonText}>Play</span> 
+                            <span className={styles.playButtonText}>PLAY</span> 
                         </button>
                     </a>
+                </div>
+                <div>
+                    <Button className={copyButtonColor} onClick={Copy} variant="contained" color="primary" endIcon={<ContentCopyIcon />}>
+                        {copyButtonText}
+                    </Button>
                 </div>
                 <div className={styles.statsGroupContainer}>
                     <div className={styles.statsContainer}>
@@ -177,7 +182,9 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             info.vote_average ?
                             <p>{info.vote_average.toFixed(1)}</p>
                             :
-                            <div></div>
+                            <div>
+                                <p>0</p>
+                            </div>
                         }
                     </div>
                     <div className={styles.statsContainer2}>
@@ -185,11 +192,12 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         {
                             info.adult === false ?
                             <div>
-                                
                                 <p className={styles.notAdult}>TV-MA</p>
                             </div>
                             :
-                            <span>TV-MA</span>
+                            <div>
+                                <p>TV-MA</p>
+                            </div>
                         }
                     </div>
                     <div className={styles.statsContainer3}>        
@@ -200,7 +208,9 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                 <p>{info.release_date}</p>
                             </div>
                             :
-                            <div></div>
+                            <div>
+                                <p>N/A</p>
+                            </div>
                         }
                     </div>
                     <div className={styles.statsContainer}>
@@ -211,57 +221,57 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                 <p>{info.vote_count}</p>
                             </div>
                             :
-                            <div></div>
+                            <div>
+                                <p>0</p>
+                            </div>
                         }
                     </div>
                     <div className={styles.statsContainer2}>
-                        <p className={styles.statsTitle}>Revenue:</p>
+                        <p className={styles.statsTitle}>Revenue</p>
                         {
                             info.revenue ?
                             <div>
                                 <p>${info.revenue}</p>
                             </div>
                             :
-                            <div></div>
+                            <div>
+                                <p>$0</p>
+                            </div>
                         }
                     </div>
                     <div className={styles.statsContainer3}>
-                        <p className={styles.statsTitle}>Budget:</p>
+                        <p className={styles.statsTitle}>Budget</p>
                         {
                             info.budget ?
                             <div>
                                 <p>${info.budget}</p>
                             </div>
                             :
-                            <div></div>
+                            <div>
+                                <p>$0</p>
+                            </div>
                         }
                     </div>   
                 </div>             
-                <div>
-                    <p className={styles.genres}>Genres:</p>
+                <p className={styles.sectionTitle}>Genres:</p>
+                <div className={styles.chipsContainer}>
                     <p>
                     {
                         info.genres ? 
                         info.genres.map(function(result, index) {
                             if (info.genres.length === 1) {
                                 return (
-                                    <chip key={index}>
-                                        {result.name}
-                                    </chip>
+                                    <Chip key={index} label={result.name} className={styles.chip} />
                                 )
                             }
                             if (info.genres.length > 1 && index === info.genres.length - 1) {
                                 return (
-                                    <chip key={index}>
-                                        {result.name}
-                                    </chip>
+                                    <Chip key={index} label={result.name} className={styles.chip} />
                                 )
                             }
                             if (info.genres.length > 1 && index !== info.genres.length - 1) {
                                 return (
-                                    <chip key={index}>
-                                        {result.name}, <span> </span>
-                                    </chip>
+                                    <Chip key={index} label={result.name} className={styles.chip} />
                                 )
                             }
                         })
@@ -270,41 +280,38 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     }
                     </p>
                 </div>
-                <small>
-                    <span>Production Companies: </span> 
+                <p className={styles.sectionTitle}>Production Companies: </p> 
+                <div className={styles.chipsContainer}>
                     {
+
                         companies.map(function(result, index) { 
                             if (companies.length === 1) {
-                                return <span key={index}>{result.name}</span>
+                                return <Chip key={index} label={result.name} className={styles.chip} />
                             } else {
                                 if (index === companies.length - 1) {
-                                    return <span key={index}>{result.name}</span>
+                                    return <Chip key={index} label={result.name} className={styles.chip} />
                                 }
-                                return <span key={index}>{result.name}, </span>
+                                return <Chip key={index} label={result.name} className={styles.chip} />
                             }
                         })
                     }
-                </small>
-                <br />
-                <small>
-                    <span>Production Countries: </span> 
+                </div>
+                <p className={styles.sectionTitle}>Production Countries: </p> 
+                <div className={styles.chipsContainer}>
+                
                     {
                         countries.map(function(result, index) {
                             if (countries.length === 1) {
-                                return <span key={index}>{result.name}</span>
+                                return <Chip key={index} label={result.name} className={styles.chip} />
                             } else {
                                 if (index === countries.length - 1) {
-                                    return <span key={index}>{result.name}</span>
+                                    return <Chip key={index} label={result.name} className={styles.chip} />
                                 }
-                                return <span key={index}>{result.name}, </span>
+                                return <Chip key={index} label={result.name} className={styles.chip} />
                             }
                         })
                     }
-                </small>
-                <br />
-                <Button className={copyButtonColor} onClick={Copy} variant="contained" color="primary" endIcon={<ContentCopyIcon />}>
-                    {copyButtonText}
-                </Button>
+                </div>
                 <div className={styles.buttonList}>
                     <p className={videosButtonStyles} onClick={VideosClick}>VIDEOS</p>
                     <p className={seasonsButtonStyles} onClick={SeasonsClick}>SEASONS</p>

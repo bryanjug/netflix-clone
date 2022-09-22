@@ -27,11 +27,17 @@
     background-color:rgb(39, 39, 39) !important;
     color: white !important;
     padding: .7em !important;
+    width: 90%;
+    margin-left: 1.1em !important;
+    margin-top: .5em !important;
 }
 .shareButtonGreen {
     background-color:rgb(36, 157, 72) !important;
     color: white !important;
     padding: .7em !important;
+    width: 90%;
+    margin-left: 1.1em !important;
+    margin-top: .5em !important;
 }
 .missingPlayer {
     margin-bottom: 4em !important;
@@ -73,13 +79,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.overview {
-    color: rgb(187, 187, 187);
-    border-bottom: .2em solid red;
-    width: 2em;
-    padding-bottom: 0.5em;
-    margin-left: 1em;
 }
 .longText {
     font-size: .9em;
@@ -138,7 +137,7 @@
     border-left: 1px red solid;
     line-height: 10px;
     margin-bottom: 10px;
-    border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 3px;
+    border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 1px;
     font-size: 0.9em;
 }
 .statsContainer3 {
@@ -149,15 +148,29 @@
     border-left: 1px red solid;
     line-height: 10px;
     margin-bottom: 10px;
-    border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 3px;
+    border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 1px;
 }
 .statsGroupContainer {
     margin-top: 1em;
 }
-.genres {
-    color: rgb(187, 187, 187);
-    border-bottom: .2em solid red;
-    width: 2em;
-    padding-bottom: 0.5em;
+.chipsContainer {
+    margin-left: .5em;
+}
+.sectionTitle {
+    display:block;
     margin-left: 1em;
+}
+.sectionTitle::after {
+    display:block;
+    clear:both;
+    content : "";
+    position: relative;
+    right    : 8.5em;
+    bottom  : 0;
+    max-width:250px;
+    height  : 1px;
+    width   : 10%;  /* or 100px */
+    border-bottom:.2em solid #e2000f;
+    margin: 0 auto;
+    padding:4px 0px;
 }
