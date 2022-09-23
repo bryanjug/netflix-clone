@@ -2,7 +2,7 @@ import Image from 'next/image'
 import styles from '../../styles/videoInfo/FirstImage.module.css'
 
 const FirstImage = ({firstImage}) => {
-    let backdropPath = `https://image.tmdb.org/t/p/original${firstImage}`;
+    let backdropPath = `https://image.tmdb.org/t/p/w500${firstImage}`;
     return (
         <div className={styles.container}>
             <Image 

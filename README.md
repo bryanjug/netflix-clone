@@ -1,6 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Introduction
+
+The goal behind this application is to show users important information for almost any movie and TV show available today. The application displays an interface similar to Netflix. The site map and plans for development are mapped out here: "https://github.com/bryanjug/netflix-clone/blob/master/Architecture.drawio". The architecture can be opened with draw.io.
+
+## Main Info
+
+This is a Next.js application which uses CSS and Material UI to design pages. This is a client rendered application, which uses routes to link to different pages. It uses a server and APIs in order to display data.
+
+## Optimization
+
+This application uses RESTful APIs to connect to a server. The server requests data from the third version of themoviedb.org once everyday. It then organizes the data for better speed optimization so the application doesn't need to request multiple different API endpoints.
+
+Other steps to help optimization speeds include: fixing nested loops, loading a smaller amount of HTML at a time, displaying HTML while requesting API data, and not setting the state to a huge data set to free up both memory and time.
+
+The end. Ignore the rest below.
 
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
