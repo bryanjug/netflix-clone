@@ -174,9 +174,12 @@
     margin: 0 auto;
     padding:4px 0px;
 }
-.videosContainer > a {
+.videosContainer > a, 
+.videosContainer > div {
     flex: 0 0 auto;
     margin-left: .5em;
+    width: 70%;
+    background-color: rgb(17, 17, 17);
 }
 .videosContainer {
     display: flex !important;
@@ -190,6 +193,30 @@
 .videosContainer::-webkit-scrollbar {
     display: none !important;
 }
-.videosContainer > a:last-of-type {
+.videosContainer > a:last-of-type,
+.videosContainer > div:last-of-type {
     margin-right: .5em !important;
+}
+.imageGradient {
+    background: rgba(17, 17, 17, 0) linear-gradient(to bottom, rgba(17, 17, 17, 0) 10%, rgba(17, 17, 17, 0.1) 40%, rgba(17, 17, 17, 0.5) 75%, rgb(17, 17, 17) 100%) repeat scroll 0 0;
+    /* background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5) 75%, rgb(0, 0, 0) 100%) repeat scroll 0 0; */
+    position: relative;
+    margin-top: -200px;
+    height: 200px;
+}
+.videoTitle {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.videosImageContainer {
+    max-height:130px;
+    overflow:hidden;
+}
+.videoSmallText {
+    font-size: .9em;
+    margin-left: 1em;
+    margin-right: 1em;
 }

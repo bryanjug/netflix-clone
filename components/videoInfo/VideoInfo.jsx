@@ -259,28 +259,53 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 </div>
                 <p className={styles.sectionTitle}>Videos:</p>
                 <div className={styles.videosContainer}> 
+                {
+                    console.log(videos)
+                }
                     {   
                         videos.length !== 0 ? 
                         videos.map(function(result, index) {
-                            return (
-                                <a 
-                                    key={index} 
-                                    href={`https://www.youtube.com/watch?v=${result.key}`} 
-                                    target="_blank"
-                                    className={styles.video}
-                                >
-                                    {index + 1} 
-                                    <Image
-                                        src={`https://img.youtube.com/vi/${result.key}/0.jpg`}
-                                        alt="Picture of the author"
-                                        height="200"
-                                        width="300"
-                                    />
-                                    <h3>{result.name}</h3>
-                                    <p>{result.type}</p>
-                                    <h5>{result.published_at.slice(0,4)}</h5>
-                                </a>
-                            )
+                            if (result.site === "YouTube") {
+                                return (
+                                    <a 
+                                        key={index} 
+                                        href={`https://www.youtube.com/watch?v=${result.key}`} 
+                                        target="_blank"
+                                        className={styles.video}
+                                    >
+                                        <div className={styles.videosImageContainer}>
+                                            <Image
+                                                src={`https://img.youtube.com/vi/${result.key}/0.jpg`}
+                                                alt="Picture of the author"
+                                                height="200"
+                                                width="300"
+                                                className={styles.videoImage}
+                                            />
+                                        </div>
+                                        <div className={styles.imageGradient}></div>
+                                        <p className={styles.videoTitle}>{result.name}</p>
+                                        <p className={styles.videoSmallText}>{result.type} • {result.published_at.slice(0,4)} • {result.size}</p>
+                                    </a>
+                                )
+                            } else {
+                                return (
+                                    <div 
+                                        key={index} 
+                                        className={styles.video}
+                                    >
+                                        <Image
+                                            src={`https://img.youtube.com/vi/${result.key}/0.jpg`}
+                                            alt="Picture of the author"
+                                            height="200"
+                                            width="300"
+                                        />
+                                        <h4>{result.name}</h4>
+                                        <p>{result.type}</p>
+                                        <h5>{result.published_at.slice(0,4)}</h5>
+                                    </div>
+                                )
+                            }
+                           
                         })
                         :
                         <div></div>
