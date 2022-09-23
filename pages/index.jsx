@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
   let genreData = [];
 
   async function fetchGenreData() { //test to see value of genreList
-      let genres = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=genre`)
+      let genres = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}`)
       let genreList = await genres.json()
       
       let i;

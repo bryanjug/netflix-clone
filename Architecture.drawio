@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="VXB6O54aShf3tAHEvI4C" name="Page-1">
-        <mxGraphModel dx="817" dy="1787" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="760" dy="1706" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -30,151 +30,229 @@
                 <mxCell id="10" value="Create a server that requests data from the movie DB once everyday. The server will organize the data to fit the needs of the app. Client will request data from the server, using one request instead of many different ones." style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="200.94" y="360" width="278.12" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="56" style="edgeStyle=none;html=1;" edge="1" parent="1" source="12" target="55">
+                <mxCell id="56" style="edgeStyle=none;html=1;" parent="1" source="12" target="55" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="Display HTML while requesting data" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="520" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" style="edgeStyle=none;html=1;" edge="1" parent="1" source="14">
+                <mxCell id="15" style="edgeStyle=none;html=1;" parent="1" source="14" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="290" y="750" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="14" value="Home" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="14" value="Home" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="50" y="720" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="16" target="17">
+                <mxCell id="18" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="16" target="17" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="32" style="edgeStyle=none;html=1;" edge="1" parent="1" source="16" target="31">
+                <mxCell id="32" style="edgeStyle=none;html=1;" parent="1" source="16" target="31" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="Play Something" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="16" value="Play Something" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="720" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" style="edgeStyle=none;html=1;" edge="1" parent="1" source="17">
+                <mxCell id="19" style="edgeStyle=none;html=1;" parent="1" source="17" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="340" y="1000" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="34" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="17" target="33">
+                <mxCell id="34" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="17" target="33" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="470" y="900" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="17" value="New &amp;amp; Popular" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="17" value="New &amp;amp; Popular" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="870" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="20" target="21">
+                <mxCell id="22" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="20" target="21" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="36" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="20" target="35">
+                <mxCell id="36" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="20" target="35" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="TV Shows" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="20" value="TV Shows" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="1000" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="23">
+                <mxCell id="24" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="21" target="23" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="41">
+                <mxCell id="42" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="21" target="41" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="Movies" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="21" value="Movies" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="1130" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="23" target="25">
+                <mxCell id="26" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="23" target="25" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="23" target="45">
+                <mxCell id="46" value="" style="edgeStyle=none;html=1;" parent="1" source="23" target="45" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="First Video Info Button" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="23" value="First Video Info Button" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="1260" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="25" target="27">
+                <mxCell id="28" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="25" target="27" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="25" target="47">
+                <mxCell id="48" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="25" target="47" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="First Video Play Button" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="25" value="First Video Play Button" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="1390" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="27" target="29">
+                <mxCell id="30" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="27" target="29" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" style="edgeStyle=none;html=1;" edge="1" parent="1" source="27" target="49">
+                <mxCell id="50" style="edgeStyle=none;html=1;" parent="1" source="27" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" value="Movies and TV Show Lists" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="27" value="Movies and TV Show Lists" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="1520" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" value="Video Info Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="29" value="Video Info Page" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="479.06" y="1520" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" value="Shows a random TV Show or Movie Video Info Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="31" value="Shows a random TV Show or Movie Video Info Page" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="479.06" y="720" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="33" target="39">
+                <mxCell id="40" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="33" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value="Show list of new and popular movies and TV Shows" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="33" value="Show list of new and popular movies and TV Shows" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="479.06" y="870" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="38" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="35" target="37">
+                <mxCell id="38" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="35" target="37" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="35" value="Show list of top popular TV Shows" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="35" value="Show list of top popular TV Shows" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="479.06" y="1000" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" value="Video Info Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="37" value="Video Info Page" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="680" y="1000" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" value="Video Info Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="39" value="Video Info Page" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="680" y="870" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="41" target="43">
+                <mxCell id="44" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="41" target="43" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" value="&lt;span&gt;Show list of top popular movies&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="41" value="&lt;span&gt;Show list of top popular movies&lt;/span&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="479.06" y="1130" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" value="Video Info Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="43" value="Video Info Page" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="680" y="1130" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" value="Video Info Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="45" value="Video Info Page" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="479.06" y="1260" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" value="Link to purchase movie" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="47" value="Link to purchase movie" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="479.06" y="1390" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="49" target="51">
+                <mxCell id="52" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="49" target="51" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="49" value="Search Button" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="49" value="Search Button" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="1640" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" style="edgeStyle=none;html=1;" edge="1" parent="1" source="51">
+                <mxCell id="53" style="edgeStyle=none;html=1;" parent="1" source="51" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="660" y="1670" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="51" value="Search Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="51" value="Search Page" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="478.12" y="1640" width="120.94" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="&lt;span&gt;Typing and pressing enter will display movie and tv lists.&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="54" value="&lt;span&gt;Typing and pressing enter will display movie and tv lists.&lt;/span&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="660" y="1640" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" value="Dont set the state to a huge data set to free up memory and time" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="55" value="Dont set the state to a huge data set to free up memory and time" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="270" y="630" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="57" target="7">
+                <mxCell id="58" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="57" target="7" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" value="Request for bigger images if the window changes to a higher resolution" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="57" value="Request for bigger images if the window changes to a higher resolution" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="280" y="-50" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="59" target="61">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="1780" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" value="JSON Database Structure" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="1750" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="61" target="63">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="340" y="1880" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="65" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="61" target="64">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="Home Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="1750" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="63" target="76">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="Video Info Page" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="2320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="64" target="67">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="539.06" y="1880" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="#1 most popular movie:&lt;br&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(8 , 8 , 8) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;https://api.themoviedb.org/3/movie/popular?api_key=&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;process&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;env&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;NEXT_PUBLIC_MOVIE_DB_KEY&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="478.12" y="1745" width="380.94" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="67" target="68">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="Trending Now:&lt;br&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(8 , 8 , 8) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;https://api.themoviedb.org/3/trending/movie/week?api_key=&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;process&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;env&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;NEXT_PUBLIC_MOVIE_DB_KEY&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="1890" width="380" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="68" target="70">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="Popular TV Shows:&lt;br&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(8 , 8 , 8) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;https://api.themoviedb.org/3/tv/popular?api_key=&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;process&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;env&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;NEXT_PUBLIC_MOVIE_DB_KEY&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="2040" width="380" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=none;html=1;startArrow=none;" edge="1" parent="1" source="74" target="71">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="Genre list:&lt;br&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(8 , 8 , 8) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;https://api.themoviedb.org/3/genre/movie/list?api_key=&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;process&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;env&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;NEXT_PUBLIC_MOVIE_DB_KEY&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="2180" width="380" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="Find movies with specific genres&lt;br&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(8 , 8 , 8) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;https://api.themoviedb.org/3/discover/movie?api_key=&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;process&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;env&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;NEXT_PUBLIC_MOVIE_DB_KEY&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;&amp;amp;with_genres=&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;genreList&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #8d6e63&quot;&gt;genres&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;[&lt;/span&gt;&lt;span style=&quot;color: #ffffff&quot;&gt;i&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;]&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #8d6e63&quot;&gt;id&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="2175" width="680" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="Loop through genres" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="940" y="2180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="70" target="74">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="860" y="2210" as="sourcePoint"/>
+                        <mxPoint x="1150" y="2210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="79" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="76" target="78">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="Find specific movie with id and display videos:&lt;br&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(8 , 8 , 8) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;https://api.themoviedb.org/3/movie/&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;id&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;?api_key=&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;process&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;env&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;NEXT_PUBLIC_MOVIE_DB_KEY&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;&amp;amp;append_to_response=videos&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="2315" width="581.88" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" style="edgeStyle=none;html=1;" edge="1" parent="1" source="78" target="80">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="Find specific tv show's seasons list with id and display videos&lt;br&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(8 , 8 , 8) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;https://api.themoviedb.org/3/tv/&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;id&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;?api_key=&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;process&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;env&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;NEXT_PUBLIC_MOVIE_DB_KEY&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;&amp;amp;append_to_response=videos&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="485.94" y="2450" width="570" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="Find TV Show's episodes list&lt;br&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(8 , 8 , 8) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;https://api.themoviedb.org/3/tv/&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;id&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;/season/&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;seasons&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;[&lt;/span&gt;&lt;span style=&quot;color: #ffffff&quot;&gt;i&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;]&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #8d6e63&quot;&gt;season_number&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color: #69f0ae&quot;&gt;?api_key=&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;${&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;process&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;env&lt;/span&gt;&lt;span style=&quot;color: #ff5e5e&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #c5c8c6&quot;&gt;NEXT_PUBLIC_MOVIE_DB_KEY&lt;/span&gt;&lt;span style=&quot;color: #d77676&quot;&gt;}&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="2450" width="620" height="70" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
