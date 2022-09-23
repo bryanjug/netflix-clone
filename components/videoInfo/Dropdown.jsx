@@ -9,8 +9,15 @@ import StarIcon from '@mui/icons-material/Star';
 import { useEffect, useState } from 'react'
 
 const Dropdown = ({season, episodes, id, seasonNumber}) => {
+    const [showMoreStyle, setShowMoreStyle] = useState(styles.showMore);
+    const [longTextStyle, setLongTextStyle] = useState(styles.longText);
+    
+    function showMore() {
+        setShowMoreStyle(styles.displayNone)
+        setLongTextStyle(styles.longTextShown)
+    }
     return (
-        <div>
+        <div className={styles.container}>
             <Accordion className={styles.accordion}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon className={styles.icon} />}
@@ -25,7 +32,7 @@ const Dropdown = ({season, episodes, id, seasonNumber}) => {
                         Space
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails className={styles.accordionDetails}>
                     {/* 
                         0: {
                             [] air_date: "2021-10-21"
@@ -47,24 +54,44 @@ const Dropdown = ({season, episodes, id, seasonNumber}) => {
                         episodes ? 
                         episodes.map(function(result, index) {
                             return (
-                                <div key={index}>
+                                <div key={index} className={styles.episodeContainer}>
                                     {
                                         result.still_path ?
-                                        <Image
-                                            src={`https://image.tmdb.org/t/p/w500${result.still_path}`}
-                                            alt="Picture of the author"
-                                            height="150"
-                                            width="300"
-                                        />
+                                        <div>
+                                            <div className={styles.imageContainer}>
+                                                <Image
+                                                    src={`https://image.tmdb.org/t/p/w300${result.still_path}`}
+                                                    alt="The episode's cover image."
+                                                    height="200"
+                                                    width="300"
+                                                    placeholder='blur'
+                                                    blurDataURL='../../public/blur.png'
+                                                    className={styles.image}
+                                                />
+                                            </div>
+                                            <div className={styles.imageGradient}></div>
+                                        </div>
                                         :
-                                        <div></div>
+                                        <div className={styles.missingImage}>
+                                            
+                                        </div>
                                     }
-                                    <h3>Episode {result.episode_number}</h3>
-                                    <h4>{result.name}</h4>
-                                    <StarIcon className={styles.star}/>
-                                    <p>{result.vote_average}</p>
-                                    <p>{result.air_date}</p>
-                                    <p>{result.overview}</p>
+                                    <div className={styles.episodeInfo}>
+                                        <p className={styles.name}>{result.name}</p>
+                                        <p className={styles.smallText}>
+                                            <StarIcon className={styles.star}/>
+                                            {result.vote_average} • {result.air_date.slice(0,4)} • Episode {result.episode_number}
+                                        </p>
+                                        <p className={longTextStyle}>
+                                            {result.overview}
+                                        </p>
+                                        <p 
+                                            className={showMoreStyle}
+                                            onClick={showMore}
+                                        >
+                                            Show more
+                                        </p>
+                                    </div>
                                 </div>
                             )
                         })

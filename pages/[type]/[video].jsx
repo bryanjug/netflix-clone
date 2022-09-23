@@ -31,7 +31,6 @@ export default function Video() {
 
                 if (data.seasons.length !== 0) {
                     setSeasons(data.seasons)
-                    //setSeasonsButton()
                 }
             }
             setInfo(data)

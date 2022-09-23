@@ -12,6 +12,8 @@ const VideoItem = ({ src, vote_average, title, id, type }) => {
 					alt={title}
 					className={styles.image} 
 					layout="fill" 
+					placeholder='blur'
+					blurDataURL='../public/blur.png'
 				/>
 				<small className={styles.overlay}>
 					<b className={styles.topContainer}>

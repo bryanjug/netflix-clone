@@ -25,19 +25,25 @@
 }
 .shareButton {
     background-color:rgb(39, 39, 39) !important;
-    color: white !important;
-    padding: .7em !important;
     width: 90%;
-    margin-left: 1.1em !important;
-    margin-top: .5em !important;
+    height: 3em;
+    color: white !important;
+    border: none;
+    margin-top:.4em !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    border-radius: none;
 }
 .shareButtonGreen {
     background-color:rgb(36, 157, 72) !important;
-    color: white !important;
-    padding: .7em !important;
     width: 90%;
-    margin-left: 1.1em !important;
-    margin-top: .5em !important;
+    height: 3em;
+    color: white !important;
+    border: none;
+    margin-top:.4em !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    border-radius: none;
 }
 .missingPlayer {
     margin-bottom: 4em !important;
@@ -95,10 +101,9 @@
     margin-left: 1em;
     font-size: .9em;
     color: rgb(187, 187, 187);
-    width: 5.1em;
 }
 .showMore:hover {
-    border-bottom: .1em solid rgb(187, 187, 187);
+    color: white;
 }
 .longTextShown {
     font-size: .9em;
@@ -177,9 +182,17 @@
 .videosContainer > a, 
 .videosContainer > div {
     flex: 0 0 auto;
-    margin-left: .5em;
+    margin-left: .8em;
     width: 70%;
     background-color: rgb(17, 17, 17);
+    margin-bottom: 1em;
+    transition: .2s;
+}
+.videosContainer > a:hover,
+.videosContainer > div:hover {
+    -webkit-box-shadow: 0 8px 6px -6px rgb(95, 0, 0) !important;
+    -moz-box-shadow: 0 8px 6px -6px rgb(95, 0, 0) !important;
+    box-shadow: 0 8px 16px -6px rgb(95, 0, 0) !important;
 }
 .videosContainer {
     display: flex !important;
@@ -219,4 +232,7 @@
     font-size: .9em;
     margin-left: 1em;
     margin-right: 1em;
+}
+.dropdownContainer {
+    margin-bottom: 1em;
 }

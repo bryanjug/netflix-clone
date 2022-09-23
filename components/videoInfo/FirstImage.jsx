@@ -9,7 +9,6 @@ const FirstImage = ({firstImage}) => {
                 src={backdropPath}
                 alt="Cover image"
                 layout="fill"
-                priority
                 blurDataURL='../../public/blur.png'
                 placeholder='blur'
                 className={styles.image}
