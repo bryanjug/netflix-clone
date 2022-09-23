@@ -7,6 +7,7 @@ import styles from '../../styles/videoInfo/Dropdown.module.css'
 import Image from 'next/image'
 import StarIcon from '@mui/icons-material/Star';
 import { useEffect, useState } from 'react'
+import image from 'next/image'
 
 const Dropdown = ({season, episodes, id, seasonNumber}) => {
     const [showMoreStyle, setShowMoreStyle] = useState(styles.showMore);
@@ -53,21 +54,38 @@ const Dropdown = ({season, episodes, id, seasonNumber}) => {
                     {
                         episodes ? 
                         episodes.map(function(result, index) {
+                            
+                            console.log(result)
+                            
                             return (
                                 <div key={index} className={styles.episodeContainer}>
                                     {
                                         result.still_path ?
                                         <div>
                                             <div className={styles.imageContainer}>
-                                                <Image
-                                                    src={`https://image.tmdb.org/t/p/w300${result.still_path}`}
-                                                    alt="The episode's cover image."
-                                                    height="200"
-                                                    width="300"
-                                                    placeholder='blur'
-                                                    blurDataURL='../../public/blur.png'
-                                                    className={styles.image}
-                                                />
+                                                {
+                                                    result.still_path ?
+                                                    <Image
+                                                        src={`https://image.tmdb.org/t/p/w300${result.still_path}`}
+                                                        alt="The episode's cover image."
+                                                        height="200"
+                                                        width="300"
+                                                        placeholder='blur'
+                                                        blurDataURL='../../public/blur.png'
+                                                        className={styles.image}
+                                                    />
+                                                    :
+                                                    <Image  
+                                                        src="/placeholder.jpg"
+                                                        alt="Missing image."
+                                                        height="200"
+                                                        width="300"
+                                                        placeholder='blur'
+                                                        blurDataURL='../../public/blur.png'
+                                                        className={styles.image}
+                                                    />
+                                                }
+                                                
                                             </div>
                                             <div className={styles.imageGradient}></div>
                                         </div>
