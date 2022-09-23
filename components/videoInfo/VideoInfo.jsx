@@ -8,17 +8,11 @@ import Image from 'next/image'
 import Dropdown from '../../components/videoInfo/Dropdown'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Button from '@mui/material/Button';
-import UpdateIcon from '@mui/icons-material/Update';
 import GradeIcon from '@mui/icons-material/Grade';
 import FirstImage from './FirstImage'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import Stack from '@mui/material/Stack';
-const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
-    console.log(info)
-    const [videosButtonStyles, setVideosButtonStyles] = useState(styles.tabClicked);
-    const [seasonsButtonStyles, setSeasonsButtonStyles] = useState(styles.tabNotClicked);
 
-    const [currentTab, setCurrentTab] = useState("videos");
+const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const [seasonsAndEpisodes, setSeasonsAndEpisodes] = useState();
     
     const [copyButtonText, setCopyButtonText] = useState("Share")
@@ -41,45 +35,10 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
             clearTimeout(myTimeout);
         }
     }
-    function SeasonsClick() {
-        setCurrentTab("seasons")
-        if (videos.length !== 0) {
-            setVideosButtonStyles(styles.tabNotClicked)
-        }
-        setSeasonsButtonStyles(styles.tabClicked)
-    }
-    function VideosClick() {
-        setCurrentTab("videos")
-        if (seasons.length !== 0) {
-            setSeasonsButtonStyles(styles.tabNotClicked)
-        }
-        setVideosButtonStyles(styles.tabClicked)
-    }
-    useEffect(() => {
-        function LoadButtons() {
-            //check if seasons or videos are available.
-            if (videos.length !== 0 && seasons.length !== 0) {
-                setVideosButtonStyles(styles.tabClicked)
-                setCurrentTab("videos")
-                setSeasonsButtonStyles(styles.tabNotClicked)
-            } else {
-                if (videos.length !== 0 && seasons.length === 0) {
-                    setVideosButtonStyles(styles.tabClicked)
-                    setCurrentTab("videos")
-                    setSeasonsButtonStyles(styles.displayNone)
-                }
-                if (videos.length === 0 && seasons.length !== 0) {
-                    setSeasonsButtonStyles(styles.tabClicked)
-                    setCurrentTab("seasons")
-                    setVideosButtonStyles(styles.displayNone)
-                }
-            }
-        }
-        LoadButtons()
-    }, [seasons.length, videos.length])
+
     useEffect(() => {
         async function FetchEpisodesData() {
-            if (currentTab === "seasons" && seasons.length !== 0) {
+            if (seasons.length !== 0) {
                 let i;
                 let list = [];
                 for (i = 0; i < seasons.length; i++) {
@@ -94,7 +53,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
             }
         }
         FetchEpisodesData()
-    }, [currentTab])    
+    }, [seasons.length])    
 
     function showMore() {
         setShowMoreStyle(styles.displayNone)
@@ -298,30 +257,18 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         <span></span>
                     }
                 </div>
-                <div className={styles.buttonList}>
-                    <p className={videosButtonStyles} onClick={VideosClick}>VIDEOS</p>
-                    <p className={seasonsButtonStyles} onClick={SeasonsClick}>SEASONS</p>
-                </div>
-                <div> 
-                    {
-                        currentTab === "seasons" && seasonsAndEpisodes && seasons.length !== 0 ?
-                        seasonsAndEpisodes.map(function(result, index) {
-                            return (
-                                <Dropdown key={index} season={result.season.name} id={result.season.id} seasonNumber={result.season.season_number} episodes={result.season.episodes} />    
-                            );
-                        })
-                        :
-                        <div></div>
-                    }
-                    {
-                        console.log(videos)
-                
-                    }
+                <p className={styles.sectionTitle}>Videos:</p>
+                <div className={styles.videosContainer}> 
                     {   
-                        currentTab === "videos" && videos.length !== 0 ? 
+                        videos.length !== 0 ? 
                         videos.map(function(result, index) {
                             return (
-                                <a key={index} href={`https://www.youtube.com/watch?v=${result.key}`} target="_blank">
+                                <a 
+                                    key={index} 
+                                    href={`https://www.youtube.com/watch?v=${result.key}`} 
+                                    target="_blank"
+                                    className={styles.video}
+                                >
                                     {index + 1} 
                                     <Image
                                         src={`https://img.youtube.com/vi/${result.key}/0.jpg`}
@@ -334,6 +281,24 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                     <h5>{result.published_at.slice(0,4)}</h5>
                                 </a>
                             )
+                        })
+                        :
+                        <div></div>
+                    }
+                </div>
+                {
+                    seasonsAndEpisodes && seasons.length !== 0 ?
+                    <p className={styles.sectionTitle}>Seasons:</p>
+                    :
+                    <div></div>
+                }
+                <div>
+                    {
+                        seasonsAndEpisodes && seasons.length !== 0 ?
+                        seasonsAndEpisodes.map(function(result, index) {
+                            return (
+                                <Dropdown key={index} season={result.season.name} id={result.season.id} seasonNumber={result.season.season_number} episodes={result.season.episodes} />    
+                            );
                         })
                         :
                         <div></div>

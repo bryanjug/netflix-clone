@@ -12,7 +12,7 @@ const VideoList = ({results, title, type}) => {
                     results.map((result, index) => (
                         result.title !== undefined ? 
                         <VideoItem 
-                            src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} 
+                            src={`https://image.tmdb.org/t/p/w200${result.poster_path}`} 
                             key={index}
                             vote_average={result.vote_average}
                             title={result.title}
@@ -21,7 +21,7 @@ const VideoList = ({results, title, type}) => {
                         />
                         :
                         <VideoItem 
-                            src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} 
+                            src={`https://image.tmdb.org/t/p/w200${result.poster_path}`} 
                             key={index}
                             vote_average={result.vote_average}
                             title={result.name}
