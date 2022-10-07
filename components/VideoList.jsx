@@ -4,11 +4,17 @@ import styles from '../styles/VideoList.module.css'
 const VideoList = ({title, results, type}) => {
     return (
         <div className={styles.mainContainer}>
-            <h4 className={styles.title}>
-                <b>{title}</b>
-            </h4>
+            {
+                title ?
+                <h4 className={styles.title}>
+                    <b>{title}</b>
+                </h4>
+                :
+                null
+            }
             <div className={styles.container}>
                 {
+                    results && type ?
                     results.map((result, index) => (
                         result.title ? 
                         <VideoItem 
@@ -32,6 +38,8 @@ const VideoList = ({title, results, type}) => {
                         :
                         null
                     ))
+                    :
+                    null
                 }
             </div>
         </div>

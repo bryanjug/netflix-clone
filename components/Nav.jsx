@@ -15,7 +15,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import styles from '../styles/Nav.module.css'
-import Link from 'next/link'
+import Link from 'next/link';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -118,10 +118,10 @@ export default function Nav(props) {
                                   <MenuItem onClick={handleClose} className={styles.menuItem}>Play Something</MenuItem>
                                 </Link>
                                 <Link 
-                                  href="/NewAndPopular"
+                                  href="/Popular"
                                   passHref
                                 >
-                                  <MenuItem onClick={handleClose} className={styles.menuItem}>New & Popular</MenuItem>
+                                  <MenuItem onClick={handleClose} className={styles.menuItem}>Popular</MenuItem>
                                 </Link>
                                 <Link
                                   href="/TVShows"
@@ -147,9 +147,14 @@ export default function Nav(props) {
                     >
                       <Image src="/logo.png" alt="Netflix logo" width="64" height="20" className={styles.logo}/>
                     </Link>
-                    <IconButton aria-label="search" color="inherit" className={styles.searchIcon}>
+                    <Link
+                      href="/SearchBar"
+                      passHref
+                    >
+                      <IconButton aria-label="search" color="inherit" className={styles.searchIcon}>
                         <SearchIcon />
-                    </IconButton>
+                      </IconButton>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </HideOnScroll>

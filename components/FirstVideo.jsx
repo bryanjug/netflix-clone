@@ -6,10 +6,10 @@ import Link from 'next/link'
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 const FirstVideo = ({firstVideoData}) => {
-    let backdropPath = `https://image.tmdb.org/t/p/w500${firstVideoData.poster_path}`;
+    let posterPath = `https://image.tmdb.org/t/p/w500${firstVideoData.poster_path}`;
     
     return (
-        <div className={styles.container} style={{backgroundImage: `url(${backdropPath})`}}>
+        <div className={styles.container} style={{backgroundImage: `url(${posterPath})`}}>
             <div className={styles.videoInfo}>
                 <div className={styles.buttons}>
                     {

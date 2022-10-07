@@ -4,9 +4,7 @@ import Loader from '../components/Loader'
 import Nav from '../components/Nav'
 import FirstVideo from '../components/FirstVideo'
 import VideoList from '../components/VideoList'
-import zIndex from '@material-ui/core/styles/zIndex'
 
-// {trendingData, TVShowsData, genreData, firstVideoData, data}
 export default function Home() {
   let db = `${process.env.NEXT_PUBLIC_DATABASE}db`;
   let apiKey = process.env.NEXT_PUBLIC_API_TOKEN;
@@ -51,7 +49,7 @@ export default function Home() {
   useEffect(() => {
     function PlaySomething() {
       //result count: 20 in db
-      let randomObj = randomIntFromInterval(1, 20) 
+      let randomObj = randomIntFromInterval(0, 19) 
       let id = data.popularMovies.results[randomObj].id;
 
       if (data.popularMovies.results[randomObj].seasons) {
@@ -71,7 +69,7 @@ export default function Home() {
       <head>
         <Meta 
           title="Netflix" 
-          description="Watch your favorite TV shows and movies on one platform."
+          description="Find your favorite TV shows and movies on one platform."
           keywords="Netflix, television, shows, online, watch, new, favorites, movies"
         />
         
