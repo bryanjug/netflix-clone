@@ -1,7 +1,7 @@
 import VideoItem from './VideoItem'
 import styles from '../styles/VideoList.module.css'
 
-const VideoList = ({results, title, type}) => {
+const VideoList = ({title, results, type}) => {
     return (
         <div className={styles.mainContainer}>
             <h4 className={styles.title}>
@@ -10,7 +10,7 @@ const VideoList = ({results, title, type}) => {
             <div className={styles.container}>
                 {
                     results.map((result, index) => (
-                        result.title !== undefined ? 
+                        result.title ? 
                         <VideoItem 
                             src={`https://image.tmdb.org/t/p/w200${result.poster_path}`} 
                             key={index}
@@ -20,6 +20,7 @@ const VideoList = ({results, title, type}) => {
                             type={type}
                         />
                         :
+                        result.name ?
                         <VideoItem 
                             src={`https://image.tmdb.org/t/p/w200${result.poster_path}`} 
                             key={index}
@@ -28,6 +29,8 @@ const VideoList = ({results, title, type}) => {
                             id={result.id}
                             type={type}
                         />
+                        :
+                        null
                     ))
                 }
             </div>

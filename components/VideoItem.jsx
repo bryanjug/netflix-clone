@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const VideoItem = ({ src, vote_average, title, id, type }) => {
 	return (
-		<Link as={`/${type}/${id}`} href="/[type]/[video]">
+		<Link as={`/${type}/${id}`} href="/[type]/[video]" passHref>
 			<div className={styles.container}>
 				<Image 
 					src={src} 

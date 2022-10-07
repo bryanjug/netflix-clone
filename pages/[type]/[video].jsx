@@ -1,6 +1,7 @@
 import {useRouter} from 'next/router'
 import VideoInfo from '../../components/videoInfo/VideoInfo'
 import {useEffect, useState} from 'react'
+import Loader from './../../components/Loader'
 
 export default function Video() {
     const [info, setInfo] = useState([]);
@@ -8,6 +9,7 @@ export default function Video() {
     const [companies, setCompanies] = useState([]);
     const [countries, setCountries] = useState([]);
     const [seasons, setSeasons] = useState([]);
+    const [showLoader, setShowLoader] = useState(true)
 
     let router = useRouter();
     let id = router.query.video;
@@ -22,11 +24,11 @@ export default function Video() {
             let data;
             
             if (router.query.type === "movie") {
-                response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
+                response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_TOKEN}&append_to_response=videos`)
                 data = await response.json()
             }
             if (router.query.type === "tv") {
-                response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}&append_to_response=videos`)
+                response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_API_TOKEN}&append_to_response=videos`)
                 data = await response.json()
 
                 if (data.seasons.length !== 0) {
@@ -37,19 +39,25 @@ export default function Video() {
             setCompanies(data.production_companies);
             setCountries(data.production_countries);
             setVideos(data.videos.results)
+            setShowLoader(false)
         }
         fetchInfoById()
     }, [id])
 
     return (
-        <VideoInfo 
-            id={id} 
-            info={info}
-            type={type}
-            companies={companies}
-            countries={countries}
-            videos={videos}
-            seasons={seasons}
-        />
+        <div>
+            <Loader 
+                showLoader={showLoader}
+            />    
+            <VideoInfo 
+                id={id} 
+                info={info}
+                type={type}
+                companies={companies}
+                countries={countries}
+                videos={videos}
+                seasons={seasons}
+            />
+        </div>
     );
 }

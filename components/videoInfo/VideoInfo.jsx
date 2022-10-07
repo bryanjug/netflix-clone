@@ -2,7 +2,6 @@ import Meta from '../Meta'
 import NavInfo from './NavInfo'
 import styles from '../../styles/videoInfo/VideoInfo.module.css'
 import Chip from '@mui/material/Chip'
-import FaceIcon from '@mui/icons-material/Face'
 import {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Dropdown from '../../components/videoInfo/Dropdown'
@@ -42,7 +41,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 let list = [];
                 for (i = 0; i < seasons.length; i++) {
                     let season = {};
-                    let response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasons[i].season_number}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_KEY}`)
+                    let response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasons[i].season_number}?api_key=${process.env.NEXT_PUBLIC_API_TOKEN}`)
                     let data = await response.json()
                     season = seasons[i];
                     season.episodes = data.episodes;
@@ -78,9 +77,14 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
             <main>
                 <NavInfo /> 
                 <div className={styles.firstImageContainer}>
-                    <FirstImage 
-                        firstImage={info.backdrop_path}
-                    />
+                    {
+                        info.backdrop_path ?
+                        <FirstImage 
+                            firstImage={info.backdrop_path}
+                        />
+                        :
+                        null
+                    }
                     <div className={styles.imageCover}>
                         <h2 className={styles.title}>
                             {
@@ -88,20 +92,20 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                 : info.name ? info.name 
                                 : info.original_name ? info.original_name
                                 :
-                                <div></div>
+                                null
                             }
                             &nbsp;{
                                 info.release_date ?
                                 `(${info.release_date.slice(0, 4)})`
                                 :
-                                <div></div>
+                                null
                             }
                         </h2>
                         <p className={styles.tagline}>
                             {
                                 info.tagline ? info.tagline
                                 :
-                                <div></div>
+                                null
                             }
                         </p>
                         <div className={styles.starsContainer}>
@@ -153,8 +157,13 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                 <p className={styles.notAdult}>TV-MA</p>
                             </div>
                             :
+                            info.adult === true ?
                             <div>
                                 <p>TV-MA</p>
+                            </div>
+                            :
+                            <div>
+                                <p>N/A</p>
                             </div>
                         }
                     </div>
@@ -174,7 +183,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     <div className={styles.statsContainer}>
                         <p className={styles.statsTitle}>Vote Count</p>
                         {
-                            info.vote_average ? 
+                            info.vote_count ? 
                             <div>
                                 <p>{info.vote_count}</p>
                             </div>
@@ -221,7 +230,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             )
                         })
                         :
-                        <div></div>
+                        null
                     }
                 </div>
                 <p className={styles.sectionTitle}>Production Companies: </p> 
@@ -232,7 +241,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             return <Chip key={index} label={result.name} className={styles.chip} />
                         })
                         :
-                        <div></div>
+                        null
                     }
                 </div>
                 <p className={styles.sectionTitle}>Production Countries: </p> 
@@ -244,7 +253,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             return <Chip key={index} label={result.name} className={styles.chip} />
                         })
                         : 
-                        <div></div>
+                        null
                     }
                 </div>
                 <p className={styles.sectionTitle}>Videos:</p>
@@ -299,14 +308,14 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                            
                         })
                         :
-                        <div></div>
+                        null
                     }
                 </div>
                 {
                     seasonsAndEpisodes && seasons.length !== 0 ?
                     <p className={styles.sectionTitle}>Seasons:</p>
                     :
-                    <div></div>
+                    null
                 }
                 <div className={styles.dropdownContainer}>
                     {
@@ -317,7 +326,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             );
                         })
                         :
-                        <div></div>
+                        null
                     }
                 </div>
             </main>

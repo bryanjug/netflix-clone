@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -15,6 +15,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import styles from '../styles/Nav.module.css'
+import Link from 'next/link'
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -39,9 +40,11 @@ HideOnScroll.propTypes = {
   window: PropTypes.func,
 };
 
-export default function HideAppBar(props) {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
+export default function Nav(props) {
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null);
+  let type = props.playSomething[0]
+  let id = props.playSomething[1]
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -63,7 +66,7 @@ export default function HideAppBar(props) {
   }
 
   // return focus to the button when we transitioned from !open -> open
-  const prevOpen = React.useRef(open);
+  const prevOpen = useRef(open);
   React.useEffect(() => {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();
@@ -71,7 +74,7 @@ export default function HideAppBar(props) {
 
     prevOpen.current = open;
   }, [open]);
-  
+
   return (
     <div className={styles.container}>
         <HideOnScroll {...props}>
@@ -99,18 +102,51 @@ export default function HideAppBar(props) {
                           <Paper>
                             <ClickAwayListener onClickAway={handleClose}>
                               <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} className={styles.menuList}>
-                                <MenuItem onClick={handleClose} className={styles.menuItem}>Home</MenuItem>
-                                <MenuItem onClick={handleClose} className={styles.menuItem}>Play Something</MenuItem>
-                                <MenuItem onClick={handleClose} className={styles.menuItem}>New & Popular</MenuItem>
-                                <MenuItem onClick={handleClose} className={styles.menuItem}>TV Shows</MenuItem>
-                                <MenuItem onClick={handleClose} className={styles.menuItem}>Movies</MenuItem>
+                                <Link 
+                                  href="/" 
+                                  passHref
+                                >
+                                  <MenuItem onClick={handleClose} className={styles.menuItem}>
+                                    Home
+                                  </MenuItem>
+                                </Link>
+                                <Link
+                                  as={`/${type}/${id}`}
+                                  href="/[type]/[video]"
+                                  passHref
+                                >
+                                  <MenuItem onClick={handleClose} className={styles.menuItem}>Play Something</MenuItem>
+                                </Link>
+                                <Link 
+                                  href="/NewAndPopular"
+                                  passHref
+                                >
+                                  <MenuItem onClick={handleClose} className={styles.menuItem}>New & Popular</MenuItem>
+                                </Link>
+                                <Link
+                                  href="/TVShows"
+                                  passHref
+                                >
+                                  <MenuItem onClick={handleClose} className={styles.menuItem}>TV Shows</MenuItem>
+                                </Link>
+                                <Link
+                                  href="/Movies"
+                                  passHref
+                                >
+                                  <MenuItem onClick={handleClose} className={styles.menuItem}>Movies</MenuItem>
+                                </Link>
                               </MenuList>
                             </ClickAwayListener>
                           </Paper>
                         </Grow>
                       )}
                     </Popper>
-                    <Image src="/logo.png" alt="Netflix logo" width="64" height="20" className={styles.logo}/>
+                    <Link
+                      href="/"
+                      passHref
+                    >
+                      <Image src="/logo.png" alt="Netflix logo" width="64" height="20" className={styles.logo}/>
+                    </Link>
                     <IconButton aria-label="search" color="inherit" className={styles.searchIcon}>
                         <SearchIcon />
                     </IconButton>
