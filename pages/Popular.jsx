@@ -50,8 +50,6 @@ export default function Popular() {
     let i;
     for (i = 0; i < 6; i++) {
       let dataName = "popularTVShows" + i
-      
-      console.log(data.[dataName])
 
       if (i === 0 && data.popularTVShows) {
         lists.push(
