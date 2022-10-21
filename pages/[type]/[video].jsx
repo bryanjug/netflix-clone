@@ -1,7 +1,7 @@
 import {useRouter} from 'next/router'
 import VideoInfo from '../../components/videoInfo/VideoInfo'
 import {useEffect, useState} from 'react'
-import Loader from './../../components/Loader'
+import Loader from '../../components/Loader'
 
 export default function Video() {
     const [info, setInfo] = useState([]);
@@ -24,11 +24,11 @@ export default function Video() {
             let data;
             
             if (router.query.type === "movie") {
-                response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_TOKEN}&append_to_response=videos`)
+                response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_TOKEN}&append_to_response=videos&include_adult=false`)
                 data = await response.json()
             }
             if (router.query.type === "tv") {
-                response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_API_TOKEN}&append_to_response=videos`)
+                response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_API_TOKEN}&append_to_response=videos&include_adult=false`)
                 data = await response.json()
 
                 if (data.seasons.length !== 0) {

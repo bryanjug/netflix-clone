@@ -59,7 +59,7 @@ export default function Movies() {
           <VideoList 
             results={data.popularMovies.results} 
             title="Movies" 
-            type="tv"
+            type="movie"
           />
         );
       }
@@ -67,7 +67,7 @@ export default function Movies() {
         lists.push(
           <VideoList 
             results={data.[dataName].results} 
-            type="tv"
+            type="movie"
           />
         );
       }

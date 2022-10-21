@@ -4,10 +4,12 @@ import { styled, alpha } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import Nav from './../components/Nav'
-import Meta from './../components/Meta'
+import Nav from '../components/Nav'
+import Meta from '../components/Meta'
 import Loader from '../components/Loader'
 import styles from './../styles/SearchBar/SearchBar.module.css'
+import Autocomplete from '@mui/material/Autocomplete';
+import VideoList from '../components/VideoList';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -45,8 +47,12 @@ export default function SearchBar() {
     let apiKey = process.env.NEXT_PUBLIC_API_TOKEN;
     let apiLink = process.env.NEXT_PUBLIC_MOVIE_DB;
     const [data, setData] = useState([]);
-    const [showLoader, setShowLoader] = useState(true)
+    const [showLoader, setShowLoader] = useState(false)
     const [playSomething, setPlaySomething] = useState([]);
+    const [query, setQuery] = useState("");
+    const [displayMessage, setDisplayMessage] = useState("");
+    const [movies, SetMovies] = useState([])
+    const [TVShows, setTVShows] = useState([])
 
     useEffect(() => {
         const GetData = async () => {
@@ -79,32 +85,59 @@ export default function SearchBar() {
           PlaySomething();
         }
     }, [data])
-    
+    //fetch api
+    const SearchData = async (query) => {
+        let resMovies = await fetch(apiLink + `search/movie?api_key=${apiKey}&page=1&include_adult=false&query=${query}`)
+        let newResMovies = await resMovies.json()
+        let resTVShows = await fetch(apiLink + `search/tv?api_key=${apiKey}&page=1&include_adult=false&query=${query}`)
+        let newResTVShows = await resTVShows.json()
+        
+        SetMovies(newResMovies)
+        setTVShows(newResTVShows)
+        console.log(movies, TVShows)
+    }
+    //search and fetch api
+    //https://api.themoviedb.org/3/search/movie?api_key=15ef5a4aceb353171df43cbb159d073f&page=1&include_adult=false&query=jef
+    useEffect(() => {
+        if (query) {
+            const timeOutId = setTimeout(() => SearchData(query), 500);
+            return () => clearTimeout(timeOutId);
+        }
+    }, [query]);
+
   return (
     <div>
         <head>
             <Meta 
-            title="Netflix Search" 
-            description="Find your favorite TV shows and movies on one platform."
-            keywords="Netflix, television, shows, online, watch, new, favorites, movies, search"
+                title="Netflix Search" 
+                description="Find your favorite TV shows and movies on one platform."
+                keywords="Netflix, television, shows, online, watch, new, favorites, movies, search"
             />
         </head>
         <main>
             <Loader showLoader={showLoader} />
             <Nav playSomething={playSomething} />
             <Toolbar className={styles.container}>
-                <Search>
-                    <SearchIconWrapper>
-                        <SearchIcon />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                        placeholder="Search…"
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                </Search>
+                <input
+                    type="text"
+                    value={query}
+                    onChange={event => {setQuery(event.target.value)}}
+                    className={styles.input}
+                />
             </Toolbar>
+            {
+                movies ?
+                <VideoList results={movies.results} title="Movies" type="movie"/>
+                :
+                null
+            }
+            {
+                TVShows ?
+                <VideoList results={TVShows.results} title="TV Shows" type="tv"/>
+                :
+                null
+            }
         </main>
-        
     </div>
   );
 }

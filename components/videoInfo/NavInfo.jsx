@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import SearchIcon from '@material-ui/icons/Search';
 import styles from '../../styles/videoInfo/NavInfo.module.css';
+import Router from 'next/router'
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -78,7 +79,7 @@ export default function HideAppBar(props) {
                     ref={anchorRef}
                     aria-controls={open ? 'menu-list-grow' : undefined}
                     aria-haspopup="true"
-                    onClick={handleToggle}
+                    onClick={() => {Router.back(); handleToggle}}
                     >
                       <ArrowBackIcon />
                     </IconButton>

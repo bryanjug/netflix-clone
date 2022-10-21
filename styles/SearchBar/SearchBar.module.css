@@ -1,3 +1,18 @@
 .container {
     margin-top: 4em;
 }
+.input {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    width: 100%;
+    background-color: grey;
+    border-radius: .5em;
+}
+.input:focus {
+    background-color: white;
+    border: none;
+    outline: 0;
+    outline-color: transparent;
+    outline-style: none;
+    padding-left: 1em;
+}

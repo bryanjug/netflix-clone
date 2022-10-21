@@ -41,7 +41,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 let list = [];
                 for (i = 0; i < seasons.length; i++) {
                     let season = {};
-                    let response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasons[i].season_number}?api_key=${process.env.NEXT_PUBLIC_API_TOKEN}`)
+                    let response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasons[i].season_number}?api_key=${process.env.NEXT_PUBLIC_API_TOKEN}&include_adult=false`)
                     let data = await response.json()
                     season = seasons[i];
                     season.episodes = data.episodes;
