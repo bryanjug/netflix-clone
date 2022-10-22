@@ -51,8 +51,8 @@ export default function SearchBar() {
     const [playSomething, setPlaySomething] = useState([]);
     const [query, setQuery] = useState("");
     const [displayMessage, setDisplayMessage] = useState("");
-    const [movies, SetMovies] = useState([])
-    const [TVShows, setTVShows] = useState([])
+    const [movies, SetMovies] = useState()
+    const [TVShows, setTVShows] = useState()
 
     useEffect(() => {
         const GetData = async () => {
@@ -105,6 +105,8 @@ export default function SearchBar() {
         }
     }, [query]);
 
+    console.log(movies, TVShows)
+
   return (
     <div>
         <head>
@@ -127,13 +129,25 @@ export default function SearchBar() {
             </Toolbar>
             {
                 movies ?
-                <VideoList results={movies.results} title="Movies" type="movie"/>
+                <h4 className={styles.title}>Movies</h4>
+                :
+                null
+            }
+            {
+                movies ?
+                <VideoList results={movies.results} type="movie"/>
                 :
                 null
             }
             {
                 TVShows ?
-                <VideoList results={TVShows.results} title="TV Shows" type="tv"/>
+                <h4 className={styles.title}>TV Shows</h4>
+                :
+                null
+            }
+            {
+                TVShows ?
+                <VideoList results={TVShows.results} type="tv"/>
                 :
                 null
             }

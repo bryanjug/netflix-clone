@@ -16,3 +16,7 @@
     outline-style: none;
     padding-left: 1em;
 }
+.title {
+    margin-left: .5em !important;
+    line-height: .1em !important;
+}

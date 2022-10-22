@@ -1,4 +1,5 @@
 "use strict";
+let newRelicKey = process.env.NEXT_PUBLIC_NEW_RELIC_KEY;
 /**
  * New Relic agent configuration.
  *
@@ -13,7 +14,7 @@ exports.config = {
   /**
    * Your New Relic license key.
    */
-  license_key: "71374782594a5b236732a6ad2933af27FFFFNRAL",
+  license_key: newRelicKey,
   /**
    * This setting controls distributed tracing.
    * Distributed tracing lets you see the path that a request takes through your
