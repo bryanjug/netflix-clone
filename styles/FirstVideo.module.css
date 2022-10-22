@@ -1,6 +1,6 @@
 .container {
-    padding-top: 24em;
-    background-size: cover !important;
+    background-size: cover;
+    padding-top: 50%;
 }
 .videoInfo {
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 100%) !important;
@@ -26,10 +26,15 @@
     line-height: 0;
 }
 .title {
-    text-transform: uppercase;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    display: block;
     text-align: center;
-    line-height: 0.8;
-    letter-spacing: -.02em !important;
+    font-size: 200%;
+    margin-bottom: 2em;
+    margin-top: 0;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .infoIcon {
     margin-bottom: .4em !important;
@@ -40,4 +45,30 @@
 }
 .playButton {
     margin: 1em !important;
+}
+.genres {
+    text-align: center;
+    margin-bottom: 0 !important;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+@media only screen and (min-width: 375px) {
+    .container {
+        padding-top:60%;
+        background-size: cover !important;
+    }
+    .title {
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        font-size: 200%;
+        margin-bottom: .3em;
+    }
+}
+@media only screen and (min-width: 425px) {
+    .container {
+        padding-top: 70%;
+        background-size: cover !important;
+    }
 }

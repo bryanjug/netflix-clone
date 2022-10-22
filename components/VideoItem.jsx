@@ -5,7 +5,6 @@ import StarIcon from '@material-ui/icons/Star';
 import Link from 'next/link'
 
 const VideoItem = ({ src, vote_average, title, id, type }) => {
-    console.log(src)
 	return (
 		<Link as={`/${type}/${id}`} href="/[type]/[video]" passHref>
 			<div className={styles.container}>

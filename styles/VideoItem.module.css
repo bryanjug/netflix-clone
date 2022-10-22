@@ -20,6 +20,8 @@
     line-height: 1em !important;
     padding: .2em !important;
     border-radius: 0 .2em 0 0;
+    display: table-cell !important;
+    vertical-align: middle !important;
 }
 .top {
     font-size: .8em !important;
@@ -32,7 +34,13 @@
     line-height: 0 !important;
 }
 .title {
-    text-align: center;
-    top: 25%;
-    position: relative;
+    padding-top: 35% !important;
+    text-align: center !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;  /* limit to 2 lines */
+    padding-left: 5%;
+    padding-right: 5%;
 }

@@ -4,6 +4,7 @@ import Loader from '../components/Loader'
 import Nav from '../components/Nav'
 import FirstVideo from '../components/FirstVideo'
 import VideoList from '../components/VideoList'
+import { integerPropType } from '@mui/utils'
 
 export default function Home() {
   let db = `${process.env.NEXT_PUBLIC_DATABASE}db`;
@@ -12,7 +13,7 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [showLoader, setShowLoader] = useState(true)
   const [playSomething, setPlaySomething] = useState([]);
-  
+
   useEffect(() => {
     const GetData = async () => {
       let res = await fetch(db)

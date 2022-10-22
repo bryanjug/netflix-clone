@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useMemo} from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
@@ -94,8 +94,9 @@ export default function SearchBar() {
         
         SetMovies(newResMovies)
         setTVShows(newResTVShows)
-        console.log(movies, TVShows)
+
     }
+
     //search and fetch api
     //https://api.themoviedb.org/3/search/movie?api_key=15ef5a4aceb353171df43cbb159d073f&page=1&include_adult=false&query=jef
     useEffect(() => {
@@ -104,8 +105,6 @@ export default function SearchBar() {
             return () => clearTimeout(timeOutId);
         }
     }, [query]);
-
-    console.log(movies, TVShows)
 
   return (
     <div>
@@ -128,7 +127,7 @@ export default function SearchBar() {
                 />
             </Toolbar>
             {
-                movies ?
+                movies && movies.total_results !== 0 ?
                 <h4 className={styles.title}>Movies</h4>
                 :
                 null
@@ -140,7 +139,7 @@ export default function SearchBar() {
                 null
             }
             {
-                TVShows ?
+                TVShows && TVShows.total_results !== 0 ?
                 <h4 className={styles.title}>TV Shows</h4>
                 :
                 null

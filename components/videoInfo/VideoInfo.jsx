@@ -74,7 +74,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 description="Watch your favorite TV shows and movies on one platform."
                 keywords="Netflix, television, shows, online, watch, new, favorites, movies"
             />
-            <main>
+            <main className={styles.container}>
                 <NavInfo /> 
                 <div className={styles.firstImageContainer}>
                     {
@@ -83,7 +83,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             firstImage={info.backdrop_path}
                         />
                         :
-                        null
+                        <div className={styles.missingImage}></div>
                     }
                     <div className={styles.imageCover}>
                         <h2 className={styles.title}>
