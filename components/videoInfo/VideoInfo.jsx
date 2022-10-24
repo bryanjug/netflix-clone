@@ -8,19 +8,18 @@ import Dropdown from '../../components/videoInfo/Dropdown'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Button from '@mui/material/Button';
 import GradeIcon from '@mui/icons-material/Grade';
-import FirstImage from './FirstImage'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import underline from '/public/underline.png'
 
 const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const [seasonsAndEpisodes, setSeasonsAndEpisodes] = useState();
-    
     const [copyButtonText, setCopyButtonText] = useState("Share")
     const [copyButtonColor, setCopyButtonColor] = useState(styles.shareButton)
-
     const [stars, setStars] = useState([]);
-
     const [showMoreStyle, setShowMoreStyle] = useState(styles.showMore);
     const [longTextStyle, setLongTextStyle] = useState(styles.longText);
+    let backdropPath = `https://image.tmdb.org/t/p/original${info.backdrop_path}`;
+    let classes = 'sectionTitle firstTitle';
 
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
@@ -51,7 +50,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
             }
         }
         FetchEpisodesData()
-    }, [seasons.length])    
+    }, [seasons.length])
 
     function showMore() {
         setShowMoreStyle(styles.displayNone)
@@ -79,42 +78,51 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 <div className={styles.firstImageContainer}>
                     {
                         info.backdrop_path ?
-                        <FirstImage 
-                            firstImage={info.backdrop_path}
-                        />
+                        <div className={styles.firstImage} style={{backgroundImage: `url(${backdropPath})`}}>
+                            <div className={styles.imageCover}>
+                                <h2 className={styles.title}>
+                                {
+                                    info.title ? info.title
+                                    : info.name ? info.name 
+                                    : info.original_name ? info.original_name
+                                    :
+                                    null
+                                }
+                                &nbsp;{
+                                    info.release_date ?
+                                    `(${info.release_date.slice(0, 4)})`
+                                    :
+                                    null
+                                }
+                                </h2>
+                                <p className={styles.tagline}>
+                                    {
+                                        info.tagline ? info.tagline
+                                        :
+                                        null
+                                    }
+                                </p>
+                                <div className={styles.starsContainer}>
+                                    {stars}
+                                </div>
+                            </div>
+                            
+                        </div>
                         :
                         <div className={styles.missingImage}></div>
                     }
-                    <div className={styles.imageCover}>
-                        <h2 className={styles.title}>
-                            {
-                                info.title ? info.title
-                                : info.name ? info.name 
-                                : info.original_name ? info.original_name
-                                :
-                                null
-                            }
-                            &nbsp;{
-                                info.release_date ?
-                                `(${info.release_date.slice(0, 4)})`
-                                :
-                                null
-                            }
-                        </h2>
-                        <p className={styles.tagline}>
-                            {
-                                info.tagline ? info.tagline
-                                :
-                                null
-                            }
-                        </p>
-                        <div className={styles.starsContainer}>
-                            {stars}
-                        </div>
-                    </div>
                 </div>
                 <div>
-                    <p className={styles.sectionTitle}>Overview:</p>
+                    {/* `${styles.projects-pd-text} ${styles.projects-pd-subdetail}` */}
+                    <p className={`${styles.sectionTitle} ${styles.firstTitle}`}>Overview:</p>
+                    <Image 
+                        alt=""
+                        src={underline}
+                        width="50"
+                        height="4"
+                        layout="intrinsic"
+                        className={styles.underline}
+                    />
                     <p className={longTextStyle}>
                         {   
                             info.overview
@@ -221,6 +229,14 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     </div>   
                 </div>             
                 <p className={styles.sectionTitle}>Genres:</p>
+                <Image 
+                        alt=""
+                        src={underline}
+                        width="50"
+                        height="4"
+                        layout="intrinsic"
+                        className={styles.underline}
+                />
                 <div className={styles.chipsContainer}>
                     {
                         info.genres ? 
@@ -234,6 +250,14 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     }
                 </div>
                 <p className={styles.sectionTitle}>Production Companies: </p> 
+                <Image 
+                        alt=""
+                        src={underline}
+                        width="50"
+                        height="4"
+                        layout="intrinsic"
+                        className={styles.underline}
+                />
                 <div className={styles.chipsContainer}>
                     {
                         companies ? 
@@ -245,6 +269,14 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     }
                 </div>
                 <p className={styles.sectionTitle}>Production Countries: </p> 
+                <Image 
+                        alt=""
+                        src={underline}
+                        width="50"
+                        height="4"
+                        layout="intrinsic"
+                        className={styles.underline}
+                />
                 <div className={styles.chipsContainer}>
                 
                     {
@@ -257,6 +289,14 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     }
                 </div>
                 <p className={styles.sectionTitle}>Videos:</p>
+                <Image 
+                        alt=""
+                        src={underline}
+                        width="50"
+                        height="4"
+                        layout="intrinsic"
+                        className={styles.underline}
+                />
                 <div className={styles.videosContainer}> 
                     {   
                         videos.length !== 0 ? 
@@ -280,7 +320,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                                 blurDataURL='../../public/blur.png'
                                             />
                                         </div>
-                                        <div className={styles.imageGradient}></div>
                                         <p className={styles.videoTitle}>{result.name}</p>
                                         <p className={styles.videoSmallText}>{result.type} • {result.published_at.slice(0,4)} • {result.size}p</p>
                                     </a>

@@ -2,6 +2,7 @@
     border-radius: .2em;
     position: relative !important;
     z-index: 1 !important; 
+    cursor: pointer;
 }
 .container {
     position: relative !important;
@@ -43,4 +44,70 @@
     -webkit-line-clamp: 3;  /* limit to 2 lines */
     padding-left: 5%;
     padding-right: 5%;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        position: relative !important;
+        width: 9em !important;
+        height: 12em !important;
+        background-color: rgba(45, 45, 45, 45%);
+    }
+
+}
+@media only screen and (min-width: 1024px) {
+    .container {
+        position: relative !important;
+        width: 12em !important;
+        height: 18em !important;
+        background-color: rgba(45, 45, 45, 45%);
+        padding: 1em !important;
+    }
+    .overlay {
+        position: absolute !important;
+        top: 0px !important;
+        z-index: 2 !important;
+        background-color: rgb(221, 1, 1);
+        text-align: center !important;
+        right: 0px !important;
+        margin-top: 0 !important;
+        line-height: 1em !important;
+        padding: .3em !important;
+        border-radius: 0 .2em 0 0;
+        display: table-cell !important;
+        vertical-align: middle !important;
+        font-size: 1.2em;
+    }
+    .star {
+        width: 1em !important;
+        height: 1em !important;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .container {
+        position: relative !important;
+        width: 16em !important;
+        height: 22em !important;
+        background-color: rgba(45, 45, 45, 45%);
+        padding: 1em !important;
+    }
+    .overlay {
+        position: absolute !important;
+        top: 0px !important;
+        z-index: 2 !important;
+        background-color: rgb(221, 1, 1);
+        text-align: center !important;
+        right: 0px !important;
+        margin-top: 0 !important;
+        line-height: 1em !important;
+        padding: .3em !important;
+        border-radius: 0 .2em 0 0;
+        display: table-cell !important;
+        vertical-align: middle !important;
+        font-size: 1.5em;
+    }
+    .star {
+        width: 1.5em !important;
+        height: 1.5em !important;
+    }
 }

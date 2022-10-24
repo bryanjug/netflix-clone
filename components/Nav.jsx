@@ -16,6 +16,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import styles from '../styles/Nav.module.css'
 import Link from 'next/link';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ShuffleOutlinedIcon from '@mui/icons-material/ShuffleOutlined';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import LiveTvIcon from '@mui/icons-material/LiveTv';
+import MovieIcon from '@mui/icons-material/Movie';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -77,6 +82,51 @@ export default function Nav(props) {
 
   return (
     <div className={styles.container}>
+        <div className={styles.sideBar}>
+            <ul className={styles.listContainer}>
+                <li>
+                    <Link 
+                        href="/" 
+                        passHref
+                    >
+                        <HomeOutlinedIcon className={styles.icon}/>
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        as={`/${type}/${id}`}
+                        href="/[type]/[video]"
+                        passHref
+                    >
+                        <ShuffleOutlinedIcon className={styles.icon}/>
+                    </Link>
+                </li>
+                <li>
+                    <Link 
+                        href="/Popular"
+                        passHref
+                    >
+                        <TrendingUpIcon className={styles.icon}/>
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        href="/TVShows"
+                        passHref
+                    >
+                        <LiveTvIcon className={styles.icon}/>
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        href="/Movies"
+                        passHref
+                    >
+                        <MovieIcon className={styles.icon}/>
+                    </Link>
+                </li>
+            </ul>
+        </div>
         <HideOnScroll {...props}>
             <AppBar className={styles.nav}>
                 <Toolbar>

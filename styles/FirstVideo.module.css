@@ -19,6 +19,7 @@
     justify-items: center;
     line-height: 0;
     margin-bottom: 2em;
+    cursor: pointer;
 }
 .rank {
     text-align: center !important;
@@ -38,10 +39,12 @@
 }
 .infoIcon {
     margin-bottom: .4em !important;
+    cursor: pointer;
 }
 .info {
     text-align: center !important;
     margin-top: 0.8em;
+    cursor: pointer;
 }
 .playButton {
     margin: 1em !important;
@@ -54,21 +57,75 @@
 }
 @media only screen and (min-width: 375px) {
     .container {
-        padding-top:60%;
-        background-size: cover !important;
-    }
-    .title {
-        font-family:Georgia, 'Times New Roman', Times, serif;
-        font-weight: bold;
-        display: block;
-        text-align: center;
-        font-size: 200%;
-        margin-bottom: .3em;
+        padding-top: 45%;
     }
 }
 @media only screen and (min-width: 425px) {
     .container {
-        padding-top: 70%;
-        background-size: cover !important;
+        padding-top: 40%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .container {
+        padding-top: 0;
+        
+    }
+    .title {
+        text-align: left;
+        margin-bottom: 0;
+    }
+    .genres {
+        padding-top: 8em;
+        text-align: left;
+    }
+    .buttons {
+        width: 40%;
+        padding-bottom: 2em;
+    }
+    .videoInfo {
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8356027469581583) 8%, rgba(0,0,0,0) 100%) !important;
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8356027469581583) 5%, rgba(0,0,0,0) 100%) !important;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .genres {
+        padding-top: 6em;
+        text-align: left;
+        font-size: 1.1em !important;
+    }
+    .buttons {
+        width: 30%;
+        padding-bottom: 4.5em;
+    }
+    .title {
+        font-size: 250%;
+    }
+    .info {
+        font-size: 1em !important;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .genres {
+        font-size: 1.7em !important;
+    }
+    .buttons {
+        padding-bottom: 11.5em !important;
+    }
+    .title {
+        font-size: 350% !important;
+    }
+    .info {
+        font-size: 1.5em !important;
+    }
+    .infoIcon {
+        margin-bottom: .5em !important;
+        font-size: 1.5em !important;
+    }
+    .playButton {
+        font-size: 1.5em !important;
+    }
+    .playButtonIcon {
+        font-size: 1.5em !important;
     }
 }

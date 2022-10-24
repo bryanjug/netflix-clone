@@ -51,6 +51,7 @@
 .title {
     margin-top: 0;
     margin-bottom: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 .star {
     font-size: 1.5em !important;
@@ -62,15 +63,8 @@
     font-size: 1.2em !important;
 }
 .imageCover {
-    position: relative !important;
     padding-left: 1em;
-    padding-right: 1em;
-    width: 100%;
-    height: 100%;
     background-image: linear-gradient(to bottom, rgba(0,0,0,0), black);
-}
-.firstImageContainer {
-    position: relative !important;
 }
 .tagline {
     margin-top: 0 !important;
@@ -94,6 +88,8 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 4; /* number of lines to show */
+    padding-top: .5em !important;
+    margin-top: 0 !important;
     line-clamp: 4; 
     -webkit-box-orient: vertical;
 }
@@ -109,6 +105,9 @@
     font-size: .9em;
     margin-left: 1em;
     margin-right: 1em;
+}
+.underline {
+    margin-left: 1em !important;
 }
 .playButton {
     width: 90%;
@@ -160,24 +159,15 @@
 }
 .chipsContainer {
     margin-left: .5em;
+    margin-top: .5em;
 }
 .sectionTitle {
-    display:block;
     margin-left: 1em;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
-.sectionTitle::after {
-    display:block;
-    clear:both;
-    content : "";
-    position: relative;
-    right    : 8.5em;
-    bottom  : 0;
-    max-width:250px;
-    height  : 1px;
-    width   : 10%;  /* or 100px */
-    border-bottom:.2em solid #e2000f;
-    margin: 0 auto;
-    padding:4px 0px;
+.video {
+    max-width: 15em;
 }
 .videosContainer > a, 
 .videosContainer > div {
@@ -210,13 +200,6 @@
 .videosContainer > div:last-of-type {
     margin-right: .5em !important;
 }
-.imageGradient {
-    background: rgba(17, 17, 17, 0) linear-gradient(to bottom, rgba(17, 17, 17, 0) 10%, rgba(17, 17, 17, 0.1) 40%, rgba(17, 17, 17, 0.5) 75%, rgb(17, 17, 17) 100%) repeat scroll 0 0;
-    /* background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5) 75%, rgb(0, 0, 0) 100%) repeat scroll 0 0; */
-    position: relative;
-    margin-top: -200px;
-    height: 200px;
-}
 .videoTitle {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -238,4 +221,60 @@
 }
 .missingImage {
     margin-top: 5em;
+}
+.firstImage {
+    background-size: cover;
+    padding-top: 10em;
+}
+
+@media only screen and (min-width: 375px) {
+    .firstImageContainer {
+        margin-top: 3em;
+    }
+    .firstImage {
+        padding-top: 12em;
+    }
+}
+@media only screen and (min-width: 425px) {
+    .firstImage {
+        padding-top: 14em;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .firstImageContainer {
+        margin-top: 3.5em;
+    }
+    .imageCover {
+        position: absolute !important;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-top: -14em !important;
+        width: 100%;
+        height: 14em !important;
+    }
+    .bottomSection {
+        position: relative;
+    }
+    .firstImage {
+        padding-top: 22em;
+        background-image: -webkit-gradient(
+        linear, left top, left bottom, from(rgba(62,21,49,.6)),
+        to(rgba(162,23,128,.9)), color-stop(.5,#333333)
+        ), url(http://www.materials-world.com/bricks/belden/whites/images/AlaskaWhiteVelourWT.jpg); /* Chrome 10+, Saf5.1+ */
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+    }
+    .firstTitle {
+        margin-top: 0;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .title {
+        font-size: 250%;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    
 }

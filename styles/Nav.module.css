@@ -7,15 +7,18 @@
     position: absolute !important;
     right: 0 !important;
     margin-right: 0.5em !important;
+    cursor: pointer;
 }
 .logo {
     flex-grow: 1 !important;
+    cursor: pointer;
 }
 .container {
     flex-grow: 1 !important;
 }
 .menuButton {
     margin-right: 0.5em !important;
+    cursor: pointer;
 }
 .menuList {
     background-color: rgba(0, 0, 0, 0.85);
@@ -23,6 +26,7 @@
 }
 .menuItem {
     color: white !important;
+    cursor: pointer;
 }
 .menuItem:hover {
     background-color: rgb(26, 26, 26) !important;
@@ -31,4 +35,61 @@
     box-shadow: none !important;
     background-color: inherit !important;
     margin-left: -0.4em !important;
+}
+.sideBar {
+    display: none !important;
+}
+.listContainer {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-top: 10em;
+}
+.listContainer > li {
+    padding-bottom: 1.5em;
+    color: rgb(180, 180, 180);
+}
+.listContainer > li:hover {
+    color: rgb(255, 255, 255);
+}
+.icon {
+    font-size: 1.3em !important;
+}
+@media only screen and (min-width: 768px) {
+    .container {
+        width:4em;
+        height:100%;
+        background-color:black;
+        float:left;
+        position: fixed;
+    }
+    .nav {
+        display: none !important;
+    }
+    .sideBar {
+        display: block !important;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .listContainer {
+        margin-top: 15em !important;
+    }
+    .listContainer > li {
+        font-size: 1em !important;
+    }
+    .icon {
+        font-size: 1.6em !important;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .container {
+        width:6em !important;
+    }
+    .listContainer {
+        margin-top: 20em !important;
+    }
+    .icon {
+        font-size: 2.2em !important;
+    }
 }

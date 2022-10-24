@@ -5,6 +5,7 @@ import Nav from '../components/Nav'
 import FirstVideo from '../components/FirstVideo'
 import VideoList from '../components/VideoList'
 import { integerPropType } from '@mui/utils'
+import styles from '../styles/index.module.css'
 
 export default function Home() {
   let db = `${process.env.NEXT_PUBLIC_DATABASE}db`;
@@ -82,30 +83,33 @@ export default function Home() {
           <Nav 
             playSomething={playSomething}
           />
-          {
-            data.popularMovies ? 
-            <FirstVideo firstVideoData={data.popularMovies.results[0]} />
-            :
-            null
-          }
-          {
-            data.trendingMovies ?
-            <VideoList results={data.trendingMovies.results} title="Trending Now" type="movie"/>
-            :
-            null
-          }
-          {
-            data.popularTVShows ?
-            <VideoList results={data.popularTVShows.results} title="TV Shows" type="tv" />
-            :
-            null
-          }
-          {
-            data.genres ?
-            DisplayGenres()
-            :
-            null
-          }
+          <div className={styles.container}>
+            {
+                data.popularMovies ? 
+                <FirstVideo firstVideoData={data.popularMovies.results[0]} />
+                :
+                null
+            }
+            {
+                data.trendingMovies ?
+                <VideoList results={data.trendingMovies.results} title="Trending Now" type="movie"/>
+                :
+                null
+            }
+            {
+                data.popularTVShows ?
+                <VideoList results={data.popularTVShows.results} title="TV Shows" type="tv" />
+                :
+                null
+            }
+            {
+                data.genres ?
+                DisplayGenres()
+                :
+                null
+            }
+          </div>
+          
       </main>
     </div>
   )

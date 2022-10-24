@@ -8,15 +8,24 @@ import { useEffect, useState } from 'react';
 
 const FirstVideo = ({firstVideoData}) => {
     let posterPath = `https://image.tmdb.org/t/p/w500${firstVideoData.poster_path}`;
+    let backdropPath = `https://image.tmdb.org/t/p/original${firstVideoData.backdrop_path}`
     let db = `${process.env.NEXT_PUBLIC_DATABASE}db`;
     let apiKey = process.env.NEXT_PUBLIC_API_TOKEN;
     let apiLink = process.env.NEXT_PUBLIC_MOVIE_DB;
     const [data, setData] = useState([]);
+    const [backgroundImage, setBackgroundImage] = useState(`url(${posterPath})`);
 
-    console.log(firstVideoData)
+    useEffect(() => {
+        if (window.innerWidth >= 768) {
+            setBackgroundImage(`url(${backdropPath})`)
+        }
+        if (window.innerWidth < 768) {
+            setBackgroundImage(`url(${posterPath})`)
+        }
+    }, [window.innerWidth])
 
     return (
-        <div className={styles.container} style={{backgroundImage: `url(${posterPath})`}}>
+        <div className={styles.container} style={{backgroundImage: backgroundImage}}>
             <div className={styles.videoInfo}>
                 <p className={styles.genres}>{firstVideoData.genres}</p>
                 <p className={styles.title}>
@@ -42,7 +51,7 @@ const FirstVideo = ({firstVideoData}) => {
                                 variant="contained"
                                 color="default"
                                 className={styles.playButton}
-                                startIcon={<PlayArrowIcon />}
+                                startIcon={<PlayArrowIcon className={styles.playButtonIcon}/>}
                             >
                                 Play
                             </Button>
