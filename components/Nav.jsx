@@ -125,6 +125,14 @@ export default function Nav(props) {
                         <MovieIcon className={styles.icon}/>
                     </Link>
                 </li>
+                <li>
+                    <Link
+                        href="/SearchBar"
+                        passHref
+                    >
+                        <SearchIcon className={styles.icon}/>
+                    </Link>
+                </li>
             </ul>
         </div>
         <HideOnScroll {...props}>

@@ -9,6 +9,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import SearchIcon from '@material-ui/icons/Search';
 import styles from '../../styles/videoInfo/NavInfo.module.css';
 import Router from 'next/router'
+import Link from 'next/link'
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -81,11 +82,16 @@ export default function HideAppBar(props) {
                     aria-haspopup="true"
                     onClick={() => {Router.back(); handleToggle}}
                     >
-                      <ArrowBackIcon />
+                      <ArrowBackIcon className={styles.ArrowBackIcon}/>
                     </IconButton>
-                    <IconButton aria-label="search" color="inherit" className={styles.searchIcon}>
-                        <SearchIcon />
-                    </IconButton>
+                    <Link 
+                        href="/SearchBar"
+                        passHref
+                    >
+                        <IconButton aria-label="search" color="inherit" className={styles.searchIconButton}>
+                            <SearchIcon className={styles.searchIcon}/>
+                        </IconButton>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </HideOnScroll>

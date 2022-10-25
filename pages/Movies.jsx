@@ -95,9 +95,12 @@ export default function Movies() {
         <Nav
           playSomething={playSomething}
         />
-        <div className={styles.spacing}>
+        <div className={styles.container}>
+            <div className={styles.firstSection}>
+                {DisplayMoviesLists()}
+            </div>
         </div>
-        {DisplayMoviesLists()}
+        
       </main>
     </div>
   )

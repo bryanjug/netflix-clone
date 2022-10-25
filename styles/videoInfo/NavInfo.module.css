@@ -3,11 +3,38 @@
     box-shadow: none !important;
     padding-bottom: .3em;
 }
-.searchIcon {
+.searchIconButton {
     position: absolute !important;
     right: 0 !important;
     margin-right: 0.5em !important;
 }
 .container {
     flex-grow: 1 !important;
+}
+@media only screen and (min-width: 1024px) {
+    .searchIcon {
+        width:1.3em !important;
+        height: 1.3em !important;
+    }
+    .ArrowBackIcon {
+        width:1.3em !important;
+        height: 1.3em !important;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .searchIcon {
+        width:1.7em !important;
+        height: 1.7em !important;
+        margin-top: .3em;
+        margin-right: .5em;
+    }
+    .ArrowBackIcon {
+        width:1.7em !important;
+        height: 1.7em !important;
+        margin-top: .3em;
+        margin-left: .5em;
+    }
+    .nav {
+        padding-bottom: 1em;
+    }
 }

@@ -10,6 +10,8 @@ import Loader from '../components/Loader'
 import styles from './../styles/SearchBar/SearchBar.module.css'
 import Autocomplete from '@mui/material/Autocomplete';
 import VideoList from '../components/VideoList';
+import underline from '/public/underline.png'
+import Image from 'next/image'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -53,6 +55,9 @@ export default function SearchBar() {
     const [displayMessage, setDisplayMessage] = useState("");
     const [movies, SetMovies] = useState()
     const [TVShows, setTVShows] = useState()
+    const [underlineLength, setUnderlineLength] = useState("40");
+    const [width, setWidth] = useState(0)
+    const [height, setHeight] = useState(0)
 
     useEffect(() => {
         const GetData = async () => {
@@ -106,6 +111,28 @@ export default function SearchBar() {
         }
     }, [query]);
 
+    useEffect(() => {
+        if (width === 1024) {
+            setUnderlineLength("45")
+        }
+        if (width === 1440) {
+            setUnderlineLength("60")
+        }
+    }, [width])
+
+    const handleWindowResize = () => {
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
+    }
+
+    useEffect(() => {
+        // component is mounted and window is available
+        handleWindowResize();
+        window.addEventListener('resize', handleWindowResize);
+        // unsubscribe from the event on component unmount
+        return () => window.removeEventListener('resize', handleWindowResize);
+    }, []);
+    
   return (
     <div>
         <head>
@@ -118,38 +145,62 @@ export default function SearchBar() {
         <main>
             <Loader showLoader={showLoader} />
             <Nav playSomething={playSomething} />
-            <Toolbar className={styles.container}>
-                <input
-                    type="text"
-                    value={query}
-                    onChange={event => {setQuery(event.target.value)}}
-                    className={styles.input}
-                />
-            </Toolbar>
-            {
-                movies && movies.total_results !== 0 ?
-                <h4 className={styles.title}>Movies</h4>
-                :
-                null
-            }
-            {
-                movies ?
-                <VideoList results={movies.results} type="movie"/>
-                :
-                null
-            }
-            {
-                TVShows && TVShows.total_results !== 0 ?
-                <h4 className={styles.title}>TV Shows</h4>
-                :
-                null
-            }
-            {
-                TVShows ?
-                <VideoList results={TVShows.results} type="tv"/>
-                :
-                null
-            }
+            <div className={styles.container}>
+                <p className={`${styles.sectionTitle} ${styles.firstTitle}`}>Search for something</p>
+                <Toolbar className={styles.inputContainer}>
+                    <input
+                        type="text"
+                        value={query}
+                        onChange={event => {setQuery(event.target.value)}}
+                        className={styles.input}
+                        placeholder="Type Something..."
+                    />
+                </Toolbar>
+                {
+                    movies && movies.total_results !== 0 ?
+                    <div className={styles.titleContainer}>
+                        <h4 className={styles.sectionTitle}>Movies</h4>
+                        <Image 
+                            alt=""
+                            src={underline}
+                            width={underlineLength}
+                            height="4"
+                            layout="intrinsic"
+                            className={styles.underline}
+                        />
+                    </div>
+                    :
+                    null
+                }
+                {
+                    movies ?
+                    <VideoList results={movies.results} type="movie"/>
+                    :
+                    null
+                }
+                {
+                    TVShows && TVShows.total_results !== 0 ?
+                    <div className={styles.titleContainer}>
+                        <h4 className={styles.sectionTitle}>TV Shows</h4>
+                        <Image 
+                            alt=""
+                            src={underline}
+                            width={underlineLength}
+                            height="4"
+                            layout="intrinsic"
+                            className={styles.underline}
+                        />
+                    </div>
+                    :
+                    null
+                }
+                {
+                    TVShows ?
+                    <VideoList results={TVShows.results} type="tv" className={styles.videosContainer}/>
+                    :
+                    null
+                }
+            </div>
         </main>
     </div>
   );

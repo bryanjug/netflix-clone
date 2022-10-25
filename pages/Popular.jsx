@@ -127,13 +127,13 @@ export default function Popular() {
         <Nav
           playSomething={playSomething}
         />
-        <div className={styles.spacing}>
-        </div>
-        <div>
-          {DisplayTVShowsLists()}
-        </div>
-        <div>
-          {DisplayMoviesLists()}
+        <div className={styles.container}>
+            <div className={styles.firstSection}>
+                {DisplayTVShowsLists()}
+            </div>
+            <div>
+                {DisplayMoviesLists()}
+            </div>
         </div>
       </main>
     </div>

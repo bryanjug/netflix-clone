@@ -97,9 +97,11 @@ export default function TVShows() {
         <Nav
           playSomething={playSomething}
         />
-        <div className={styles.spacing}>
+        <div className={styles.container}>
+            <div className={styles.firstSection}>
+                {DisplayTVShowsLists()}
+            </div>
         </div>
-        {DisplayTVShowsLists()}
       </main>
     </div>
   )

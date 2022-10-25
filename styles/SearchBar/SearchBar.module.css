@@ -5,8 +5,15 @@
     padding-top: .5em;
     padding-bottom: .5em;
     width: 100%;
+    margin-left: .5em !important;
     background-color: grey;
     border-radius: .5em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.inputContainer {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
 }
 .input:focus {
     background-color: white;
@@ -15,8 +22,89 @@
     outline-color: transparent;
     outline-style: none;
     padding-left: 1em;
+    padding-right: 1em;
+}
+.input::placeholder {
+    color: rgb(212, 212, 212);
 }
 .title {
     margin-left: .5em !important;
     line-height: .1em !important;
+    
+}
+.sectionTitle {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    margin-left: .5em;
+}
+.underline {
+    margin-top: 0 !important;
+    padding-top: 0  !important;
+    margin-left: .5em !important;
+    width: 2em !important;
+}
+.titleContainer {
+    margin-bottom: 1em !important;
+}
+.firstTitle {
+    font-size: 1.2em;
+    text-align: center;
+}
+@media only screen and (min-width: 768px) {
+    .container {
+        margin-left: 4em;
+        margin-top: 0;
+        padding-top: 1em;
+    }
+    .inputContainer {
+        padding-left: 0 !important;
+    }
+    .firstTitle {
+        font-size: 1.5em;
+        text-align: left;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .input {
+        padding-top: .6em !important;
+        padding-bottom: .6em !important;
+        font-size: 1.3em;
+    }
+    .firstTitle {
+        font-size: 2em !important;
+        margin-bottom: .3em !important;
+        text-align: left;
+    }
+    .sectionTitle {
+        font-size: 1.2em;
+    }
+    .underline {
+        padding-left: .1em !important;
+    }
+    .input::placeholder {
+        font-size: 1em;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .container {
+        margin-left: 6em;
+    }
+    .firstTitle {
+        font-size: 2.5em !important;
+        margin-bottom: .6em !important;
+    }
+    .sectionTitle {
+        font-size: 1.8em;
+    }
+    .underline {
+        padding-left: .2em !important;
+    }
+    .input  {
+        font-size: 1.4em !important;
+        padding-top: 1em !important;
+        padding-bottom: 1em !important;
+    }
+    .input::placeholder {
+        font-size: 1.2em;
+    }
 }

@@ -20,6 +20,10 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const [longTextStyle, setLongTextStyle] = useState(styles.longText);
     let backdropPath = `https://image.tmdb.org/t/p/original${info.backdrop_path}`;
     let classes = 'sectionTitle firstTitle';
+    const [underlineLength, setUnderlineLength] = useState("50");
+    const [width, setWidth] = useState(0)
+    const [height, setHeight] = useState(0)
+    const [videosImageWidth, setVideosImageWidth] = useState("300");
 
     function Copy() {
         navigator.clipboard.writeText(window.location.href);
@@ -65,6 +69,31 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
             }
         }
     }, [info.vote_average])  
+
+    useEffect(() => {
+        if (width === 1024) {
+            setUnderlineLength("60")
+        }
+        if (width === 1440) {
+            setUnderlineLength("90")
+            setVideosImageWidth("400")
+        }
+    }, [width])
+
+    const handleWindowResize = () => {
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
+        console.log(width, height)
+    }
+
+    useEffect(() => {
+        // component is mounted and window is available
+        handleWindowResize();
+        window.addEventListener('resize', handleWindowResize);
+        // unsubscribe from the event on component unmount
+        return () => window.removeEventListener('resize', handleWindowResize);
+    }, []);
+
 
     return (
         <div>
@@ -112,13 +141,13 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         <div className={styles.missingImage}></div>
                     }
                 </div>
-                <div>
+                <div className={styles.firstSection}>
                     {/* `${styles.projects-pd-text} ${styles.projects-pd-subdetail}` */}
                     <p className={`${styles.sectionTitle} ${styles.firstTitle}`}>Overview:</p>
                     <Image 
                         alt=""
                         src={underline}
-                        width="50"
+                        width={underlineLength}
                         height="4"
                         layout="intrinsic"
                         className={styles.underline}
@@ -131,19 +160,17 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                     <p className={showMoreStyle} onClick={showMore}>
                         Show more
                     </p>
-                </div>
-                <div>
-                    <a href={info.homepage} target="_blank" rel="noreferrer">
-                        <button className={styles.playButton}>
-                            <PlayArrowIcon className={styles.playArrow} />
-                            <span className={styles.playButtonText}>PLAY</span> 
-                        </button>
-                    </a>
-                </div>
-                <div>
-                    <Button className={copyButtonColor} onClick={Copy} variant="contained" color="primary" endIcon={<ContentCopyIcon />}>
-                        {copyButtonText}
-                    </Button>
+                    <div className={styles.buttons}>
+                        <a href={info.homepage} target="_blank" rel="noreferrer" className={styles.playButtonContainer}>
+                            <button className={styles.playButton}>
+                                <PlayArrowIcon className={styles.playArrow} />
+                                <span className={styles.playButtonText}>PLAY</span> 
+                            </button>
+                        </a>
+                        <Button className={copyButtonColor} onClick={Copy} variant="contained" color="primary" endIcon={<ContentCopyIcon />}>
+                            {copyButtonText}
+                        </Button>
+                    </div>
                 </div>
                 <div className={styles.statsGroupContainer}>
                     <div className={styles.statsContainer}>
@@ -188,7 +215,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             </div>
                         }
                     </div>
-                    <div className={styles.statsContainer}>
+                    <div className={`${styles.statsContainer4}`}>
                         <p className={styles.statsTitle}>Vote Count</p>
                         {
                             info.vote_count ? 
@@ -201,7 +228,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             </div>
                         }
                     </div>
-                    <div className={styles.statsContainer2}>
+                    <div className={styles.statsContainer5}>
                         <p className={styles.statsTitle}>Revenue</p>
                         {
                             info.revenue ?
@@ -214,7 +241,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             </div>
                         }
                     </div>
-                    <div className={styles.statsContainer3}>
+                    <div className={styles.statsContainer6}>
                         <p className={styles.statsTitle}>Budget</p>
                         {
                             info.budget ?
@@ -227,75 +254,87 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                             </div>
                         }
                     </div>   
-                </div>             
-                <p className={styles.sectionTitle}>Genres:</p>
-                <Image 
-                        alt=""
-                        src={underline}
-                        width="50"
-                        height="4"
-                        layout="intrinsic"
-                        className={styles.underline}
-                />
-                <div className={styles.chipsContainer}>
-                    {
-                        info.genres ? 
-                        info.genres.map(function(result, index) {
-                            return (
-                                <Chip key={index} label={result.name} className={styles.chip} />
-                            )
-                        })
-                        :
-                        null
-                    }
+                </div>      
+                <div className={styles.splitter}>
+
                 </div>
-                <p className={styles.sectionTitle}>Production Companies: </p> 
-                <Image 
-                        alt=""
-                        src={underline}
-                        width="50"
-                        height="4"
-                        layout="intrinsic"
-                        className={styles.underline}
-                />
-                <div className={styles.chipsContainer}>
-                    {
-                        companies ? 
-                        companies.map(function(result, index) { 
-                            return <Chip key={index} label={result.name} className={styles.chip} />
-                        })
-                        :
-                        null
-                    }
+                <div className={styles.genresContainer}>
+                    <p className={`${styles.sectionTitle} ${styles.genresTitle}`}>Genres:</p>
+                    <div className={styles.underlineContainer}>
+                        <Image 
+                            alt=""
+                            src={underline}
+                            width={underlineLength}
+                            height="4"
+                            layout="intrinsic"
+                            className={styles.underline}
+                        />
+                    </div>
+
+                    <div className={styles.chipsContainer}>
+                        {
+                            info.genres ? 
+                            info.genres.map(function(result, index) {
+                                return (
+                                    <Chip key={index} label={result.name} className={styles.chip} />
+                                )
+                            })
+                            :
+                            null
+                        }
+                    </div>
                 </div>
-                <p className={styles.sectionTitle}>Production Countries: </p> 
-                <Image 
+                <div className={styles.productionCompaniesContainer}>
+                    <p className={styles.sectionTitle}>Production Companies: </p> 
+                    <Image 
+                            alt=""
+                            src={underline}
+                            width={underlineLength}
+                            height="4"
+                            layout="intrinsic"
+                            className={styles.underline}
+                    />
+                    <div className={styles.chipsContainer}>
+                        {
+                            companies ? 
+                            companies.map(function(result, index) { 
+                                return <Chip key={index} label={result.name} className={styles.chip} />
+                            })
+                            :
+                            null
+                        }
+                    </div>
+                </div>
+                <div className={styles.productionCountriesContainer}>
+                    <p className={styles.sectionTitle}>Production Countries: </p> 
+                    <Image 
                         alt=""
                         src={underline}
-                        width="50"
+                        width={underlineLength}
                         height="4"
                         layout="intrinsic"
                         className={styles.underline}
-                />
-                <div className={styles.chipsContainer}>
-                
-                    {
-                        countries ?
-                        countries.map(function(result, index) {
-                            return <Chip key={index} label={result.name} className={styles.chip} />
-                        })
-                        : 
-                        null
-                    }
+                    />
+                    <div className={styles.chipsContainer}>
+                    
+                        {
+                            countries ?
+                            countries.map(function(result, index) {
+                                return <Chip key={index} label={result.name} className={styles.chip} />
+                            })
+                            : 
+                            null
+                        }
+                    </div>
                 </div>
                 <p className={styles.sectionTitle}>Videos:</p>
                 <Image 
-                        alt=""
-                        src={underline}
-                        width="50"
-                        height="4"
-                        layout="intrinsic"
-                        className={styles.underline}
+                    alt=""
+                    src={underline}
+                    width={underlineLength}
+                    height="4"
+                    layout="intrinsic"
+                    className={styles.underline}
                 />
                 <div className={styles.videosContainer}> 
                     {   
@@ -314,14 +353,17 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                             <Image
                                                 src={`https://img.youtube.com/vi/${result.key}/0.jpg`}
                                                 alt="The video's cover image."
-                                                height="200"
-                                                width="300"
+                                                height="250"
+                                                width={videosImageWidth}
                                                 placeholder='blur'
                                                 blurDataURL='../../public/blur.png'
+                                                className={styles.videosImage}
                                             />
                                         </div>
-                                        <p className={styles.videoTitle}>{result.name}</p>
-                                        <p className={styles.videoSmallText}>{result.type} • {result.published_at.slice(0,4)} • {result.size}p</p>
+                                        <div className={styles.videoInfoContainer}>
+                                            <p className={styles.videoTitle}>{result.name}</p>
+                                            <p className={styles.videoSmallText}>{result.type} • {result.published_at.slice(0,4)} • {result.size}p</p>
+                                        </div>
                                     </a>
                                 )
                             } else {

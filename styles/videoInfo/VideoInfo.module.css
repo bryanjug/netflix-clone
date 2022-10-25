@@ -52,6 +52,7 @@
     margin-top: 0;
     margin-bottom: 0;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-left: 0em;
 }
 .star {
     font-size: 1.5em !important;
@@ -70,9 +71,11 @@
     margin-top: 0 !important;
     font-size: 0.9em;
     margin-bottom: 0.2em;
+    margin-left: 2.4em;
 }
 .starsContainer {
     line-height: 0;
+    margin-left: 0;
 }
 .chipContainer {
     height: 100%;
@@ -105,6 +108,7 @@
     font-size: .9em;
     margin-left: 1em;
     margin-right: 1em;
+    margin-bottom: 2em;
 }
 .underline {
     margin-left: 1em !important;
@@ -117,6 +121,7 @@
     border: none;
     margin-left: 5% !important;
     margin-right: 5% !important;
+    float:right;
 }
 .playArrow {
     font-size: 1.5em !important;
@@ -145,6 +150,34 @@
     font-size: 0.9em;
 }
 .statsContainer3 {
+    font-size: 0.9em;
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    border-left: 1px red solid;
+    line-height: 10px;
+    margin-bottom: 10px;
+    border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 1px;
+}
+.statsContainer4 {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    line-height: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+.statsContainer5 {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    border-left: 1px red solid;
+    line-height: 10px;
+    margin-bottom: 10px;
+    border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 1px;
+    font-size: 0.9em;
+}
+.statsContainer6 {
     font-size: 0.9em;
     float: left;
     width: 33.3%;
@@ -269,12 +302,268 @@
     .firstTitle {
         margin-top: 0;
     }
+    .title {
+        font-size: 200%;
+    }
+    .playButton {
+        height: 3em;
+        color: white;
+        background-color: red;
+        border: none;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .shareButton {
+        background-color:rgb(39, 39, 39) !important;
+        width: 10em  !important;
+        height: 3em;
+        color: white !important;
+        border: none;
+        margin-top:none !important;
+        border-radius: none;
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-left: 1em !important;
+    }
+    .shareButtonGreen {
+        background-color:rgb(36, 157, 72) !important;
+        width: 10em !important;
+        height: 3em;
+        color: white !important;
+        border: none;
+        margin-top:.4em !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+        border-radius: none;
+    }
+    .playButtonContainer {
+        float: left;
+        width: 10em !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .statsGroupContainer {
+        margin-top: 0;
+        margin: 0 !important; 
+        float: right !important;
+        padding: 0 !important;
+        margin-top: 3em !important;
+        width: 50%;
+    }
+    .statsContainer {
+        float: left;
+        width:33.3%;
+        text-align: center;
+        line-height: 10px;
+        margin-bottom: 10px;
+        font-size: 0.9em;
+    }
+    .statsContainer2 {
+        float: left;
+        width:33.3%;
+        text-align: center;
+        border-left: 1px red solid;
+        line-height: 10px;
+        margin-bottom: 10px;
+        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 1px;
+        font-size: 0.9em;
+    }
+    .statsContainer3 {
+        font-size: 0.9em;
+        float: left;
+        width:33.3%;
+        text-align: center;
+        border-left: 1px red solid;
+        line-height: 10px;
+        margin-bottom: 10px;
+        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 1px;
+    }
+    .statsContainer4 {
+        float: left;
+        width:33.3%;
+        text-align: center;
+        line-height: 10px;
+        margin-bottom: 10px;
+        font-size: 0.9em;
+    }
+    .statsContainer5 {
+        float: left;
+        width:33.3%;
+        text-align: center;
+        border-left: 1px red solid;
+        line-height: 10px;
+        margin-bottom: 10px;
+        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 1px;
+        font-size: 0.9em;
+    }
+    .statsContainer6 {
+        font-size: 0.9em;
+        float: left;
+        width:33.3%;
+        text-align: center;
+        border-left: 1px red solid;
+        line-height: 10px;
+        margin-bottom: 10px;
+        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 1 / 1px;
+    }
+    .firstSection {
+        width: 50%;
+        margin: 0 !important; 
+        float: left !important;
+        padding: auto !important;
+    }
+    .genresTitle {
+        padding-top: 1em !important;
+    }
+    .splitter {
+        clear: both;
+    }
 }
 @media only screen and (min-width: 1024px) {
     .title {
         font-size: 250%;
     }
+    .tagline {
+        font-size: 1.2em;
+        margin-left: 2em; 
+    }
+    .stars {
+        font-size: 1.6em !important;
+    }
+    .sectionTitle {
+        font-size: 1.5em;
+    }
+    .underline {
+        margin-left: 1.5em !important;
+    }
+    .underlineContainer {
+        left: 10% !important;
+    }
+    .longText {
+        font-size: 1.2em;
+    }
+    .statsGroupContainer {
+        font-size: 1.4em;
+    }
+    .statsContainer2 {
+        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 4 / 4px;
+    }
+    .statsContainer3 {
+        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 4 / 4px;
+    }
+    .statsContainer4 {
+        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 4 / 4px;
+    }
+    .statsContainer5 {
+        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 4 / 4px;
+    }
+    .statsContainer6 {
+        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 4 / 4px;
+    }
+    .showMore {
+        font-size: 1.2em;
+    }
+    .playButton {
+        font-size: 1.1em;
+    }
+    .shareButton {
+        font-size: 1.1em;
+    }
+    .chip {
+        font-size: 1.2em;
+        padding-left: .8em;
+        padding-right: .8em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    .video {
+        max-width: 19em;
+    }
+    .videosImage {
+        width: 100% !important;
+        max-height: 100% !important;
+        max-width: 100% !important;
+    }
+    .videosImageContainer {
+        max-height:13.3em;
+        overflow:hidden;
+    } 
+    .videoInfoContainer {
+        padding-top: .8em;
+        padding-bottom: .8em;
+        font-size: 1.2em;
+    }
+    .longTextShown {
+        font-size: 1.2em;
+    }
 }
 @media only screen and (min-width: 1440px) {
-    
+    .firstImage {
+        padding-top: 40em;
+    }
+    .imageCover {
+        margin-top: -22em !important;
+        padding-bottom: 22em !important;
+    }
+    .title {
+        font-size: 300%;
+    }
+    .tagline {
+        font-size: 1.6em;
+        margin-left: 2em; 
+    }
+    .stars {
+        font-size: 2.5em !important;
+    }
+    .starsContainer {
+        margin-left: 3em !important;
+    }
+    .sectionTitle {
+        font-size: 2em;
+    }
+    .underline {
+        margin-left: 2.1em !important;
+    }
+    .longText {
+        font-size: 1.6em;
+    }
+    .showMore {
+        font-size: 1.6em;
+    }   
+    .playButton {
+        font-size: 1.5em;
+    }
+    .playButtonContainer {
+        width: 15em !important;
+    }
+    .shareButton {
+        font-size: 1.5em;
+    }
+    .statsGroupContainer {
+        font-size: 1.8em;
+        width: 45%;
+        margin-right: 2.5% !important;
+    }
+    .longTextShown {
+        font-size: 1.6em;
+    }
+    .chip {
+        font-size: 1.6em;
+        padding-left: 1.2em;
+        border-radius: 2em;
+        padding-right: 1.2em;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+        margin-left: .5em !important;
+    }
+    .video {
+        max-width: 24em;
+    }
+    .videosImage {
+        width: 30em !important;
+        height: 30em !important;
+    }
+    .videoInfoContainer {
+        font-size: 1.6em;
+    }
 }
