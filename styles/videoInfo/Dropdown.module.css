@@ -1,5 +1,5 @@
 .accordion {
-    background-color: rgb(17, 17, 17) !important;
+    background-color: rgb(20, 20, 20) !important;
     border-radius: 0 !important;
     margin-top: .1em;
     margin-bottom: .1em;
@@ -12,6 +12,9 @@
 }
 .icon {
     color: white !important;
+    position: relative;
+    right: 0em;
+    bottom: 0em;
 }
 .season {
     margin-left: 2em !important;
@@ -19,6 +22,7 @@
 .accordionSummary {
     flex-direction: row !important;
     margin-left: 0.5em !important;
+    width:90%;
 }
 .spacer {
     color: rgba(0, 0, 0, 0) !important;
@@ -32,10 +36,9 @@
 }
 .accordionDetails > div {
     flex: 0 0 auto;
-    margin-left: .8em;
-    width: 80%;
+    margin-right: .8em;
+    width: 85%;
     background-color: rgb(0, 0, 0);
-    margin-bottom: 1em;
     transition: .2s;
 }
 .accordionDetails {
@@ -49,23 +52,30 @@
     margin: auto;
     margin-top: 0 !important;
     padding-top: 0 !important;
+    margin-bottom: 1em !important;
 }
 .accordionDetails::-webkit-scrollbar {
-    display: none !important;
+    height: .5em;   
+}
+.accordionDetails::-webkit-scrollbar-track {
+    background: rgb(29, 29, 29) !important;
+    margin-left: 1em;
+}
+.accordionDetails::-webkit-scrollbar-thumb {
+    background-color: rgb(70, 70, 70);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 2px solid rgb(42, 42, 42);  /* creates padding around scroll thumb */
 }
 .accordionDetails:last-of-type {
     margin-right: .5em !important;
 }
-.imageGradient {
-    background: rgba(17, 17, 17, 0) linear-gradient(to bottom, rgba(17, 17, 17, 0) 10%, rgba(17, 17, 17, 0.1) 40%, rgba(17, 17, 17, 0.5) 75%, rgb(17, 17, 17) 100%) repeat scroll 0 0;
-    /* background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5) 75%, rgb(0, 0, 0) 100%) repeat scroll 0 0; */
-    position: relative;
-    margin-top: -200px;
-    height: 200px;
-}
 .imageContainer {
     max-height:120px;
     overflow:hidden;
+}
+.container {
+    margin-left: 1em;
+    margin-right: 1em;
 }
 .imageGradient {
     background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5) 75%, rgb(0, 0, 0) 100%) repeat scroll 0 0;
@@ -112,3 +122,55 @@
 .missingImage {
     margin-top: 1.5em;
 }
+@media only screen and (min-width: 425px) {
+    .accordionDetails > div {
+        width: 80%;
+    }
+    .imageContainer {
+        max-height:160px;
+        overflow:hidden;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .accordionDetails > div {
+        width: 40%;
+    }
+    .imageContainer {
+        max-height:200px;
+        overflow:hidden;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .accordionSummary {
+        width:96%;
+    }
+    .imageContainer {
+        max-height:240px;
+    }
+    .accordionDetails > div {
+        width: 45%;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .accordionSummary {
+        width:97%;
+        padding-top: .5em !important;
+        padding-bottom: .5em !important;
+    }
+    .season {
+        font-size: 1.2em !important;
+    }
+    .icon {
+        font-size: 2em !important;
+    }
+    .accordionDetails > div {
+        width: 30%;
+    }
+    .container {
+        font-size: 1.2em;
+    }
+    .accordionDetails::-webkit-scrollbar {
+        height: .7em;
+    }
+}
+

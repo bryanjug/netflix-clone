@@ -7,9 +7,9 @@ const VideoList = ({title, results, type}) => {
         <div className={styles.mainContainer}>
             {
                 title ?
-                <h4 className={styles.title}>
-                    <b>{title}</b>
-                </h4>
+                <p className={styles.title}>
+                    {title}
+                </p>
                 :
                 null
             }
@@ -42,7 +42,7 @@ const VideoList = ({title, results, type}) => {
                     :
                     null
                 }
-            </div>
+            </div>  
         </div>
     )
 }

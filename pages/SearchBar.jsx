@@ -159,7 +159,7 @@ export default function SearchBar() {
                 {
                     movies && movies.total_results !== 0 ?
                     <div className={styles.titleContainer}>
-                        <h4 className={styles.sectionTitle}>Movies</h4>
+                        <p className={styles.sectionTitle}>Movies</p>
                         <Image 
                             alt=""
                             src={underline}
@@ -181,7 +181,7 @@ export default function SearchBar() {
                 {
                     TVShows && TVShows.total_results !== 0 ?
                     <div className={styles.titleContainer}>
-                        <h4 className={styles.sectionTitle}>TV Shows</h4>
+                        <p className={styles.sectionTitle}>TV Shows</p>
                         <Image 
                             alt=""
                             src={underline}

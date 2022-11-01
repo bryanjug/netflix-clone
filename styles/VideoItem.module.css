@@ -2,7 +2,6 @@
     border-radius: .2em;
     position: relative !important;
     z-index: 1 !important; 
-    cursor: pointer;
 }
 .container {
     position: relative !important;
@@ -42,10 +41,15 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;  /* limit to 2 lines */
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 5% !important;
+    padding-right: 5% !important; 
+    font-size: .8em !important;
 }
-
+.titleContainer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
 @media only screen and (min-width: 768px) {
     .container {
         position: relative !important;
@@ -53,7 +57,9 @@
         height: 12em !important;
         background-color: rgba(45, 45, 45, 45%);
     }
-
+    .title {
+        font-size: 1em !important;
+    }
 }
 @media only screen and (min-width: 1024px) {
     .container {
@@ -82,6 +88,9 @@
         width: 1em !important;
         height: 1em !important;
     }
+    .title {
+        font-size: 1.2em !important;
+    }
 }
 @media only screen and (min-width: 1440px) {
     .container {
@@ -109,5 +118,8 @@
     .star {
         width: 1.5em !important;
         height: 1.5em !important;
+    }
+    .title {
+        font-size: 1.5em !important;
     }
 }

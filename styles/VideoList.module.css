@@ -4,19 +4,31 @@
 }
 .container {
     display: flex !important;
-    overflow: auto !important;
+    overflow-y: auto !important;
     flex-wrap: nowrap !important;
     -webkit-overflow-scrolling: property !important;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    cursor: pointer;
+    padding-bottom: .5em !important;
 }
 .container::-webkit-scrollbar {
-    display: none !important;
-  }
+    height: .5em;
+}
+.container::-webkit-scrollbar-track {
+    background: rgb(29, 29, 29) !important;
+    margin-left: .5em;
+}
+.container::-webkit-scrollbar-thumb {
+    background-color: rgb(70, 70, 70);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 2px solid rgb(42, 42, 42);  /* creates padding around scroll thumb */
+}
 .title {
     margin-left: .5em !important;
     line-height: .1em !important;
+    margin-bottom: 1.5em !important;
 }
 .container > div:last-of-type {
     margin-right: .5em !important;
@@ -26,11 +38,17 @@
 }
 @media only screen and (min-width: 1024px) {
     .title {
-        font-size: 150%;
+        font-size: 1.2em;
     }
 }
 @media only screen and (min-width: 1440px) {
     .title {
-        font-size: 200%;
+        font-size: 1.5em;
+    }
+    .container > div {
+        margin-right: .5em;
+    }
+    .container::-webkit-scrollbar {
+        height: .7em;
     }
 }

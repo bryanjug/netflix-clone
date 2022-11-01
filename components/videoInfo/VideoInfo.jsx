@@ -20,7 +20,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const [longTextStyle, setLongTextStyle] = useState(styles.longText);
     let backdropPath = `https://image.tmdb.org/t/p/original${info.backdrop_path}`;
     let classes = 'sectionTitle firstTitle';
-    const [underlineLength, setUnderlineLength] = useState("50");
+    const [underlineLength, setUnderlineLength] = useState("45");
     const [width, setWidth] = useState(0)
     const [height, setHeight] = useState(0)
     const [videosImageWidth, setVideosImageWidth] = useState("300");
@@ -75,7 +75,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
             setUnderlineLength("60")
         }
         if (width === 1440) {
-            setUnderlineLength("90")
+            setUnderlineLength("75")
             setVideosImageWidth("400")
         }
     }, [width])
@@ -394,7 +394,20 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                 </div>
                 {
                     seasonsAndEpisodes && seasons.length !== 0 ?
-                    <p className={styles.sectionTitle}>Seasons:</p>
+                    <div>
+                        <p className={styles.sectionTitle}>Seasons:</p>
+                        <Image 
+                            alt=""
+                            src={underline}
+                            width={underlineLength}
+                            height="4"
+                            layout="intrinsic"
+                            className={styles.underline}
+                        />
+                        <div className={styles.spacer}>
+
+                        </div>
+                    </div>
                     :
                     null
                 }
@@ -403,7 +416,12 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         seasonsAndEpisodes && seasons.length !== 0 ?
                         seasonsAndEpisodes.map(function(result, index) {
                             return (
-                                <Dropdown key={index} season={result.season.name} id={result.season.id} seasonNumber={result.season.season_number} episodes={result.season.episodes} />    
+                                <Dropdown 
+                                    key={index} 
+                                    season={result.season.name} 
+                                    id={result.season.id} seasonNumber={result.season.season_number} 
+                                    episodes={result.season.episodes} 
+                                />    
                             );
                         })
                         :

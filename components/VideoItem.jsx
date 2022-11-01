@@ -8,14 +8,20 @@ const VideoItem = ({ src, vote_average, title, id, type }) => {
 	return (
 		<Link as={`/${type}/${id}`} href="/[type]/[video]" passHref>
 			<div className={styles.container}>
-                <Image 
-                    src={src}
-                    alt={title}
-                    className={styles.image} 
-                    layout="fill" 
-                    placeholder='blur'
-                    blurDataURL='../public/blur.png'
-                />
+                {
+                    src !== "https://image.tmdb.org/t/p/w200null" ? 
+                    <Image 
+                        src={src}
+                        alt={title}
+                        className={styles.image} 
+                        layout="fill" 
+                        placeholder='blur'
+                        blurDataURL='../public/blur.png'
+                        draggable="false"
+                    />
+                    :
+                    null
+                }
                 <p className={styles.title}>{title}</p>
 				<small className={styles.overlay}>
 					<b className={styles.topContainer}>

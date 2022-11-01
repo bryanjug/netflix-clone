@@ -60,7 +60,6 @@
         padding-left: 0 !important;
     }
     .firstTitle {
-        font-size: 1.5em;
         text-align: left;
     }
 }
@@ -71,7 +70,7 @@
         font-size: 1.3em;
     }
     .firstTitle {
-        font-size: 2em !important;
+        font-size: 1.5em !important;
         margin-bottom: .3em !important;
         text-align: left;
     }
@@ -90,11 +89,11 @@
         margin-left: 6em;
     }
     .firstTitle {
-        font-size: 2.5em !important;
+        font-size: 2em !important;
         margin-bottom: .6em !important;
     }
     .sectionTitle {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
     .underline {
         padding-left: .2em !important;

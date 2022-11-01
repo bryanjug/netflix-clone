@@ -38,16 +38,19 @@
 }
 .sideBar {
     display: none !important;
+    margin: 0;
+    padding: 0;
 }
 .listContainer {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    position:relative;
     text-align: center;
-    margin-top: 10em;
 }
 .listContainer > li {
-    padding-bottom: 1.5em;
+    padding-bottom: .5em;
+    padding-top: .5em;
     color: rgb(180, 180, 180);
 }
 .listContainer > li:hover {
@@ -69,27 +72,34 @@
     }
     .sideBar {
         display: block !important;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1.4em;
     }
 }
 @media only screen and (min-width: 1024px) {
-    .listContainer {
-        margin-top: 13em !important;
-    }
     .listContainer > li {
         font-size: 1em !important;
+        padding-bottom: .7em;
+        padding-top: .7em;
     }
     .icon {
         font-size: 1.6em !important;
+    }
+    .sideBar {
+        left: 1.2em;
     }
 }
 @media only screen and (min-width: 1440px) {
     .container {
         width:6em !important;
     }
-    .listContainer {
-        margin-top: 20em !important;
-    }
     .icon {
-        font-size: 2.2em !important;
+        font-size: 2em !important;
+    }
+    .sideBar {
+        left: 2em;
     }
 }

@@ -29,9 +29,7 @@ const Dropdown = ({season, episodes, id, seasonNumber}) => {
                     <Typography className={styles.season}>
                         {season}
                     </Typography>
-                    <Typography className={styles.spacer}>
-                        Space
-                    </Typography>
+
                 </AccordionSummary>
                 <AccordionDetails className={styles.accordionDetails}>
                     {
@@ -46,10 +44,10 @@ const Dropdown = ({season, episodes, id, seasonNumber}) => {
                                                 {
                                                     result.still_path ?
                                                     <Image
-                                                        src={`https://image.tmdb.org/t/p/w300${result.still_path}`}
+                                                        src={`https://image.tmdb.org/t/p/original${result.still_path}`}
                                                         alt="The episode's cover image."
-                                                        height="200"
-                                                        width="300"
+                                                        height="450"
+                                                        width="750"
                                                         placeholder='blur'
                                                         blurDataURL='../../public/blur.png'
                                                         className={styles.image}
