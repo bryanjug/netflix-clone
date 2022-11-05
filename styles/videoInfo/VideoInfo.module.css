@@ -215,6 +215,7 @@
 }
 .video {
     max-width: 15em;
+    border-radius: 1em;
 }
 .videosContainer > a, 
 .videosContainer > div {
@@ -442,6 +443,9 @@
     .splitter {
         clear: both;
     }
+    .tagline  {
+        margin-left: .1em;
+    }
 }
 @media only screen and (min-width: 1024px) {
     .imageCover {
@@ -462,7 +466,6 @@
         font-size: 250%;
     }
     .tagline {
-        margin-left: .4em; 
         font-size: 1.2em;
     }
     .stars {

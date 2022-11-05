@@ -16,7 +16,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const [copyButtonText, setCopyButtonText] = useState("Share")
     const [copyButtonColor, setCopyButtonColor] = useState(styles.shareButton)
     const [stars, setStars] = useState([]);
-    const [showMoreStyle, setShowMoreStyle] = useState(styles.showMore);
     const [longTextStyle, setLongTextStyle] = useState(styles.longText);
     let backdropPath = `https://image.tmdb.org/t/p/original${info.backdrop_path}`;
     let classes = 'sectionTitle firstTitle';
@@ -55,11 +54,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
         }
         FetchEpisodesData()
     }, [seasons.length])
-
-    function showMore() {
-        setShowMoreStyle(styles.displayNone)
-        setLongTextStyle(styles.longTextShown)
-    }
 
     useEffect(() => {
         if (info.vote_average > 0) {
@@ -152,13 +146,10 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         layout="intrinsic"
                         className={styles.underline}
                     />
-                    <p className={longTextStyle}>
+                    <p className={styles.longText}>
                         {   
                             info.overview
                         }
-                    </p>
-                    <p className={showMoreStyle} onClick={showMore}>
-                        Show more
                     </p>
                     <div className={styles.buttons}>
                         <a href={info.homepage} target="_blank" rel="noreferrer" className={styles.playButtonContainer}>
@@ -356,7 +347,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                                 height="250"
                                                 width={videosImageWidth}
                                                 placeholder='blur'
-                                                blurDataURL='../../public/blur.png'
+                                                blurDataURL='/public/blur.png'
                                                 className={styles.videosImage}
                                             />
                                         </div>
@@ -378,7 +369,7 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                             height="200"
                                             width="300"
                                             placeholder='blur'
-                                            blurDataURL='../../public/blur.png'
+                                            blurDataURL='/public/blur.png'
                                         />
                                         <h4>{result.name}</h4>
                                         <p>{result.type}</p>
@@ -386,7 +377,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                                     </div>
                                 )
                             }
-                           
                         })
                         :
                         null

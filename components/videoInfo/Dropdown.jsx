@@ -10,13 +10,6 @@ import { useEffect, useState } from 'react'
 import image from 'next/image'
 
 const Dropdown = ({season, episodes, id, seasonNumber}) => {
-    const [showMoreStyle, setShowMoreStyle] = useState(styles.showMore);
-    const [longTextStyle, setLongTextStyle] = useState(styles.longText);
-    
-    function showMore() {
-        setShowMoreStyle(styles.displayNone)
-        setLongTextStyle(styles.longTextShown)
-    }
     return (
         <div className={styles.container}>
             <Accordion className={styles.accordion}>
@@ -78,14 +71,8 @@ const Dropdown = ({season, episodes, id, seasonNumber}) => {
                                             <StarIcon className={styles.star}/>
                                             {result.vote_average} • {result.air_date.slice(0,4)} • Episode {result.episode_number}
                                         </p>
-                                        <p className={longTextStyle}>
+                                        <p className={styles.longText}>
                                             {result.overview}
-                                        </p>
-                                        <p 
-                                            className={showMoreStyle}
-                                            onClick={showMore}
-                                        >
-                                            Show more
                                         </p>
                                     </div>
                                 </div>
