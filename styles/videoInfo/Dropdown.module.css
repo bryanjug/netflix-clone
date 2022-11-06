@@ -40,7 +40,6 @@
     width: 85%;
     background-color: rgb(0, 0, 0);
     transition: .2s;
-    border-radius: 1em;
 }
 .accordionDetails {
     display: flex !important;
