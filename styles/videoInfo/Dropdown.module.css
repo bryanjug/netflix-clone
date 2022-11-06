@@ -130,6 +130,9 @@
         max-height:160px;
         overflow:hidden;
     }
+    .accordionSummary {
+        width:93%;
+    }
 }
 @media only screen and (min-width: 768px) {
     .accordionDetails > div {
@@ -139,10 +142,13 @@
         max-height:200px;
         overflow:hidden;
     }
+    .accordionSummary {
+        width:96%;
+    }
 }
 @media only screen and (min-width: 1024px) {
     .accordionSummary {
-        width:96%;
+        width:97%;
     }
     .imageContainer {
         max-height:240px;
@@ -153,7 +159,6 @@
 }
 @media only screen and (min-width: 1440px) {
     .accordionSummary {
-        width:97%;
         padding-top: .5em !important;
         padding-bottom: .5em !important;
     }
