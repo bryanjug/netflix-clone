@@ -203,6 +203,8 @@
 }
 .statsGroupContainer {
     margin-top: 1em;
+    margin-right: .5em !important;
+    margin-left: .5em !important;
 }
 .chipsContainer {
     margin-left: .5em;
@@ -214,7 +216,7 @@
     padding-bottom: 0 !important;
 }
 .video {
-    max-width: 15em;
+    width: 14em !important;
 }
 .videosContainer > a, 
 .videosContainer > div {
@@ -264,7 +266,7 @@
     margin-right: 1em;
 }
 .videosImageContainer {
-    max-height:160px;
+    height:10em;
     overflow:hidden;
 }
 .videoSmallText {
@@ -445,10 +447,6 @@
     .tagline  {
         margin-left: .1em;
     }
-    .videosImageContainer {
-        max-height:170px;
-        overflow:hidden;
-    }
 }
 @media only screen and (min-width: 1024px) {
     .imageCover {
@@ -489,9 +487,6 @@
     .statsContainer3 {
         border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 2 / 2px;
     }
-    .statsContainer4 {
-        border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 2 / 2px;
-    }
     .statsContainer5 {
         border-image: linear-gradient(transparent 20%, rgb(255, 0, 0) 50% 30%, transparent 90%) 0 0 0 2 / 2px;
     }
@@ -506,17 +501,12 @@
         padding-bottom: 1em;
     }
     .video {
-        max-width: 19em;
-    }
-    .videosImage {
-        width: 100% !important;
-        max-height: 100% !important;
-        max-width: 100% !important;
+        width:18em !important;
     }
     .videosImageContainer {
-        max-height:13.2em;
-        overflow:hidden;
-    } 
+        height: 13em !important;
+        width: 18em !important;
+    }
     .videoInfoContainer {
         padding-top: .8em;
         padding-bottom: .8em;
@@ -541,9 +531,11 @@
     }
     .chipsContainer {
         margin-left: 1em;
+        margin-right: 1em;
     }
     .videosContainer {
         margin-left: .5em;
+        margin-right: .5em;
     }
 }
 @media only screen and (min-width: 1440px) {
@@ -606,13 +598,17 @@
         margin-left: .5em !important;
     }
     .video {
-        max-width: 24em;
+        width:25em !important;
     }
-    .videosImage {
-        width: 30em !important;
-        height: 30em !important;
-        max-height: 18em !important;
-        padding-bottom: 1em !important;
+    .videosImageContainer {
+        height: 13.5em !important;
+        width: 26em !important;
+    }
+    .videoInfoContainer {
+        padding-top: .8em;
+        padding-bottom: .8em;
+        padding-left: 1em;
+        padding-right: 1em;
     }
     .videoInfoContainer {
         font-size: 1.2em;
