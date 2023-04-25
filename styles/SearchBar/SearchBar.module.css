@@ -5,15 +5,17 @@
     padding-top: .5em;
     padding-bottom: .5em;
     width: 100%;
-    margin-left: .5em !important;
+    margin: auto !important;
     background-color: grey;
     border-radius: .5em;
     padding-left: 1em;
     padding-right: 1em;
 }
 .inputContainer {
-    margin-left: 0 !important;
+    margin-left: 1em !important;
     padding-left: 0 !important;
+    margin-right: 1em !important;
+    padding-right: 0 !important;
 }
 .input:focus {
     background-color: white;
@@ -57,10 +59,13 @@
         padding-top: 1em;
     }
     .inputContainer {
-        padding-left: 0 !important;
+        margin-left: .5em !important;
     }
     .firstTitle {
         text-align: left;
+    }
+    .input {
+        margin-right: 2em !important;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -68,6 +73,7 @@
         padding-top: .6em !important;
         padding-bottom: .6em !important;
         font-size: 1.3em;
+        
     }
     .firstTitle {
         font-size: 1.5em !important;

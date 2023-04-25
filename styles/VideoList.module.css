@@ -1,54 +1,87 @@
-.container > div {
-    flex: 0 0 auto;
-    margin-left: .5em;
+.carouselButton {
+    background-color: rgba(40, 40, 40, 50%);
+    border: none;
+    color: rgb(220, 220, 220);
+}
+.carouselButton:hover {
+    color: white;
+    background-color: rgba(40, 40, 40, 70%);
+}
+.leftArrow {
+    font-size: 3em !important;
+    right: 60%;
+    position: relative;
+}
+.rightArrow {
+    font-size: 3em !important;
+    right: 60%;
+    position: relative;
+}
+.control-arrow {
+    font-size: 26px !important;
+}
+.mainContainer {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.videoItemContainer {
+    position: relative !important;
+    width: 95%;
+    padding-bottom: 50%;
+    height: 100%;
+    cursor: pointer;
 }
 .container {
-    display: flex !important;
-    overflow-y: auto !important;
-    flex-wrap: nowrap !important;
-    -webkit-overflow-scrolling: property !important;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    cursor: pointer;
-    padding-bottom: .5em !important;
-}
-.container::-webkit-scrollbar {
-    height: .5em;
-}
-.container::-webkit-scrollbar-track {
-    background: rgb(29, 29, 29) !important;
-    margin-left: .5em;
-}
-.container::-webkit-scrollbar-thumb {
-    background-color: rgb(70, 70, 70);    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 2px solid rgb(42, 42, 42);  /* creates padding around scroll thumb */
+    width: 100%;
+    height: 200% !important;
 }
 .title {
     margin-left: .5em !important;
     line-height: .1em !important;
-    margin-bottom: 1.5em !important;
-}
-.container > div:last-of-type {
-    margin-right: .5em !important;
+    margin-bottom: .7em !important;
+    margin-top: 2em !important;
 }
 .mainContainer {
     margin-bottom: 2em !important;
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 768px) {
+    .videoItemContainer {
+        padding-bottom: 70%;
+    }
     .title {
         font-size: 1.2em;
     }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1024px) {
     .title {
         font-size: 1.5em;
     }
-    .container > div {
-        margin-right: .5em;
+    .videoItemContainer {
+        padding-bottom: 80%;
     }
-    .container::-webkit-scrollbar {
-        height: .7em;
+    .leftArrow {
+        font-size: 4em !important;
+        right: 40%;
+        position: relative;
+    }
+    .rightArrow {
+        font-size: 4em !important;
+        right: 40%;
+        position: relative;
+    }
+    .carouselButton {
+        width: 3em !important;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .title {
+        font-size: 2em;
+    }
+    .videoItemContainer {
+        margin-left: .7em !important;
+        margin-right: .7em !important;
+    }
+    .videoItemContainer {
+        padding-bottom: 85%;
     }
 }

@@ -9,7 +9,7 @@ const VideoItem = ({ src, vote_average, title, id, type }) => {
 		<Link as={`/${type}/${id}`} href="/[type]/[video]" passHref>
 			<div className={styles.container}>
                 {
-                    src !== "https://image.tmdb.org/t/p/w200null" ? 
+                    src !== "https://image.tmdb.org/t/p/w200null" && src ? 
                     <Image 
                         src={src}
                         alt={title}

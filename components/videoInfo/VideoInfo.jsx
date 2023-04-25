@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import GradeIcon from '@mui/icons-material/Grade';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import underline from '/public/underline.png'
+import VideoCarousel from '../VideoCarousel';
 
 const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const [seasonsAndEpisodes, setSeasonsAndEpisodes] = useState();
@@ -77,7 +78,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
     const handleWindowResize = () => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
-        console.log(width, height)
     }
 
     useEffect(() => {
@@ -87,7 +87,6 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
         // unsubscribe from the event on component unmount
         return () => window.removeEventListener('resize', handleWindowResize);
     }, []);
-
 
     return (
         <div>
@@ -146,11 +145,16 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         layout="intrinsic"
                         className={styles.underline}
                     />
-                    <p className={styles.longText}>
-                        {   
-                            info.overview
-                        }
-                    </p>
+                    {
+                        info.overview ?
+                        <p className={styles.longText}>
+                            {info.overview}
+                        </p>
+                        :
+                        <p className={styles.longText}>
+                            N/A
+                        </p>
+                    }
                     <div className={styles.buttons}>
                         <a href={info.homepage} target="_blank" rel="noreferrer" className={styles.playButtonContainer}>
                             <button className={styles.playButton}>
@@ -318,81 +322,35 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         }
                     </div>
                 </div>
-                <p className={styles.sectionTitle}>Videos:</p>
-                <Image 
-                    alt=""
-                    src={underline}
-                    width={underlineLength}
-                    height="4"
-                    layout="intrinsic"
-                    className={styles.underline}
-                />
-                <div className={styles.videosContainer}> 
-                    {   
-                        videos.length !== 0 ? 
-                        videos.map(function(result, index) {
-                            if (result.site === "YouTube") {
-                                return (
-                                    <a 
-                                        key={index} 
-                                        href={`https://www.youtube.com/watch?v=${result.key}`} 
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className={styles.video}
-                                    >
-                                        <div className={styles.videosImageContainer}>
-                                            <Image
-                                                src={`https://img.youtube.com/vi/${result.key}/0.jpg`}
-                                                alt="The video's cover image."
-                                                height="250"
-                                                width={videosImageWidth}
-                                                placeholder='blur'
-                                                blurDataURL='/public/blur.png'
-                                                className={styles.videosImage}
-                                            />
-                                        </div>
-                                        <div className={styles.videoInfoContainer}>
-                                            <p className={styles.videoTitle}>{result.name}</p>
-                                            <p className={styles.videoSmallText}>{result.type} • {result.published_at.slice(0,4)} • {result.size}p</p>
-                                        </div>
-                                    </a>
-                                )
-                            } else {
-                                return (
-                                    <div 
-                                        key={index} 
-                                        className={styles.video}
-                                    >
-                                        <Image
-                                            src={`https://img.youtube.com/vi/${result.key}/0.jpg`}
-                                            alt="Picture of the author"
-                                            height="200"
-                                            width="300"
-                                            placeholder='blur'
-                                            blurDataURL='/public/blur.png'
-                                        />
-                                        <h4>{result.name}</h4>
-                                        <p>{result.type}</p>
-                                        <h5>{result.published_at.slice(0,4)}</h5>
-                                    </div>
-                                )
-                            }
-                        })
-                        :
-                        null
-                    }
-                </div>
                 {
-                    seasonsAndEpisodes && seasons.length !== 0 ?
+                    videos.length !== 0 ? 
                     <div>
-                        <p className={styles.sectionTitle}>Seasons:</p>
+                        <p className={styles.sectionTitle + ' ' + styles.videosTitle}>Videos<span className={styles.colon}>:</span></p>
                         <Image 
                             alt=""
                             src={underline}
                             width={underlineLength}
                             height="4"
                             layout="intrinsic"
-                            className={styles.underline}
+                            className={styles.underline + ' ' + styles.videosUnderline}
+                        />
+                        <VideoCarousel videos={videos} />
+                    </div>
+                    :
+                    null
+                }
+                
+                {
+                    seasonsAndEpisodes && seasons.length !== 0 ?
+                    <div>
+                        <p className={styles.sectionTitle  + ' ' + styles.seasonsTitle}>Seasons<span className={styles.colon}>:</span></p>
+                        <Image 
+                            alt=""
+                            src={underline}
+                            width={underlineLength}
+                            height="4"
+                            layout="intrinsic"
+                            className={styles.underline + ' ' + styles.seasonsUnderline}
                         />
                         <div className={styles.spacer}>
 
@@ -406,12 +364,18 @@ const VideoInfo = ({id, info, type, companies, countries, videos, seasons}) => {
                         seasonsAndEpisodes && seasons.length !== 0 ?
                         seasonsAndEpisodes.map(function(result, index) {
                             return (
-                                <Dropdown 
-                                    key={index} 
-                                    season={result.season.name} 
-                                    id={result.season.id} seasonNumber={result.season.season_number} 
-                                    episodes={result.season.episodes} 
-                                />    
+                                <div key={index} >
+                                    {
+                                        result.season.episodes.length !== 0 ?
+                                        <Dropdown 
+                                            season={result.season.name} 
+                                            id={result.season.id} seasonNumber={result.season.season_number} 
+                                            episodes={result.season.episodes} 
+                                        />  
+                                        :
+                                        null
+                                    }
+                                </div>
                             );
                         })
                         :

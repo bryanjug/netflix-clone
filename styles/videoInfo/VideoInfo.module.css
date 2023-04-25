@@ -299,6 +299,20 @@
     }
 }
 @media only screen and (min-width: 768px) {
+    /* .videosTitle, .seasonsTitle {
+        text-align: center;
+        border-bottom: red solid 2px;
+        padding-bottom: .5em !important;
+        width: 5em;
+        margin: auto;
+        margin-top: 2em;
+    }
+    .colon {
+        display: none;
+    }
+    .videosUnderline, .seasonsUnderline {
+        display: none !important;
+    } */
     .firstImageContainer {
         margin-top: 3.5em;
     }
